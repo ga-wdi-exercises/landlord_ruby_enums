@@ -4,7 +4,12 @@ tenants = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
+    #Data is systematically structured with two primary categories. These categories are given a unique id that allows for uniformed access.
+    # Within these primarty catergories are subcategories that can serve as unique identifiers for even more precise data access.
+
   # What are the properties for each of the two types of hashes
+    # The propreties for the apartments hash type are: ID, address, monthly_rent, and square_feet. Properties for the tenants has type are:
+    # name, age, and apartment_id.
 
 # Use enumerables to -
   # Print all the addresses for the apartments
