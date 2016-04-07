@@ -54,8 +54,11 @@ puts "1) View all apartments"
 puts "2) View all tenants"
 puts "3) View apartments with tenant lists"
 puts "4) Look up apartment from tenant name"
+puts "5) Remove tenant from system"
+puts "6) Create new tenant"
+puts "7) Create new apartment"
 choice = nil
-while ![1, 2, 3, 4].include? choice
+while ![1, 2, 3, 4, 5, 6, 7].include? choice
   choice = (gets.chomp).to_i
 end
 
@@ -108,4 +111,46 @@ when 4
       puts tenant_lookup + ' is renting ' + apartment[:address] + '.'
     end
   end
+when 5
+  puts "Which tenant would you like to remove?"
+  raw_lookup = gets.chomp
+  puts "Would you like to remove all tenants from their apartment? (y/n)"
+  all_lookup = gets.chomp
+  all_apt_id = nil
+  tenant_lookup = raw_lookup.split.map(&:capitalize).join(' ')
+  tenants.each do |tenant|
+    if tenant[:name].to_s == tenant_lookup
+      all_apt_id = tenant[:apartment_id]
+      tenants.delete(tenant)
+    end
+  end
+  if all_lookup = 'y'
+    tenants.each do |tenant|
+      if tenant[:apartment_id] == all_apt_id
+        tenants.delete(tenant)
+      end
+    end
+  end
+when 6
+  puts "Please enter the name of the tenant you would like to add."
+  new_name = gets.chomp
+  puts "Please enter the age of the tenant you would like to add."
+  new_age = gets.chomp.to_i
+  puts "Please enter the apartment ID of the tenant you would like to add."
+  new_apt_id = gets.chomp.to_i
+  puts "Please enter the ID number of the tenant you would like to add."
+  new_id = gets.chomp.to_i
+  tenants.push({:id=> new_id, :name=> new_name, :age=> new_age, :apartment_id=> new_apt_id})
+  puts tenants
+when 7
+  puts "Please enter the ID number of the new apartment."
+  new_id = gets.chomp.to_i
+  puts "Please enter the address of the new apartment."
+  new_address = gets.chomp
+  puts "Please enter the monthly rent."
+  new_rent = gets.chomp.to_i
+  puts "Please enter the square footage."
+  new_footage = gets.chomp.to_i
+  apartments.push({:id=> new_id, :address=> new_address, :monthly_rent=> new_rent, :square_feet=> new_footage})
+  puts apartments
 end
