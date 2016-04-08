@@ -86,12 +86,13 @@ case choice
     puts "Apartments Occupancies"
     apartments.each do |apartment|
       tenant_name = tenants.select do |tenant|
-        tenant[:name]
-          apt_ten << [apartment, tenant_name]
+        tenant[:apartment_id] == apartment[:id]
+        tenant_name.each do |name|
+          puts name
         end
-        puts apt_ten
+        apt_ten << [apartment, name]
       end
+    end
+    puts apt_ten
 
-
-
-end
+  end
