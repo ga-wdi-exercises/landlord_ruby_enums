@@ -2,33 +2,32 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-# - I should be allowed an option to view all the apartments with their tenants so that I can get an overview of Occupancy.
-# - I should be able to find where a tenant lives based on tenant name in case of emergencies.
 
 puts "Hello welcome to this app."
 puts "Type '1' to view all of your apartments"
 puts "Type '2' to view all of your tenants"
-puts "Type '3' to view all apartments with their tenants"
+# puts "Type '3' to view all apartments with their tenants"
 track_number = gets.chomp
 if track_number == "1"
   puts apartments
 elsif track_number == "2"
   puts tenants
-elsif track_number == "3"
-  puts
-# attempting to find where a tenant lives based on the tenant name
-  tenants_with_address = []
-tenants_with_address = tenants.each do |person|
-  apartments.each do |address|
-    newlist << [tenants[:name], apartments[:address]]
-  end
-end
+
+# elsif track_number == "3"
+#
+# - I should be allowed an option to view all the apartments with their tenants so that I can get an overview of Occupancy.
+#
+#   apartments.each do |apartment|
+#   puts apartment[:id]
+#   apartment_with_tenant_name = tenants.find{|person| apartments[:id] == tenants[:apartment_id]}
+#   puts apartment_with_tenant_name[:name]
+# end
 
 else
   puts "Hello welcome to this app."
   puts "Type '1' to view all of your apartments"
   puts "Type '2' to view all of your tenants"
-  puts "Type '3' to view all apartments with their tenants"
+  # puts "Type '3' to view all apartments with their tenants"
 end
 
 
