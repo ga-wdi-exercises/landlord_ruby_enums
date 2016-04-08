@@ -45,7 +45,7 @@ tenants = data[:tenants]
     #   tenant[:age]
     # end
     # puts tenants_order_by_age
-    
+
   # Print the names of all the tenants alphabetically
     # tenants_alpha = tenants.sort_by do |tenant|
     #   tenant[:name].downcase
@@ -53,5 +53,31 @@ tenants = data[:tenants]
     # puts tenants_alpha
 
   ## More challenging
-  # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+  puts "What is your name?"
+  name = gets.chomp
+  puts "OK I recognize that name. Welcome back " + name + "!"
+  puts "Please choose one of the following options:"
+    puts "1. Overview of all apartments"
+    puts "2. Overiview of all tenants"
+
+  choice = nil
+
+  while ![1, 2,].include? choice
+    choice = (gets.chomp).to_i
+  end
+
+case choice
+  when 1
+  puts "All Apartments"
+    apartments.each do |apartment|
+      puts apartment
+    end
+
+  when 2
+    puts "All Tenants"
+      tenants.each do |tenant|
+        puts tenant
+      end
+end
