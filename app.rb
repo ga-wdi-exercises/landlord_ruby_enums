@@ -49,4 +49,10 @@ puts age_tenants
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+  tenants = each.do |tenant|
+    puts tenant[:name]
+    tenant_apartment = apartments.find {|apartment| apartment[:id] == tenant[:apartment_id]}
+    puts tenants_apartment[]:name]
+  end}
+
   # When printing all apartments, under each apartment print all of its tenants
