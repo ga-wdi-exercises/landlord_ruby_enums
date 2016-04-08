@@ -54,17 +54,18 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing all apartments, under each apartment print all of its tenants
-
+  apt_ten = []
   puts "What is your name?"
   name = gets.chomp
   puts "OK I recognize that name. Welcome back " + name + "!"
   puts "Please choose one of the following options:"
     puts "1. Overview of all apartments"
     puts "2. Overiview of all tenants"
+    puts "3. Overview of apartment occupancy"
 
   choice = nil
 
-  while ![1, 2,].include? choice
+  while ![1, 2, 3].include? choice
     choice = (gets.chomp).to_i
   end
 
@@ -80,4 +81,17 @@ case choice
       tenants.each do |tenant|
         puts tenant
       end
+
+  when 3
+    puts "Apartments Occupancies"
+    apartments.each do |apartment|
+      tenant_name = tenants.select do |tenant|
+        tenant[:name]
+          apt_ten << [apartment, tenant_name]
+        end
+        puts apt_ten
+      end
+
+
+
 end
