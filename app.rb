@@ -5,12 +5,15 @@ tenants = data[:tenants]
 #
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 #   # Explain how the data is structured
+# It's in two arrays each containing different numbers of hashes.
+#
 #   # What are the properties for each of the two types of hashes
+# The apartments array has address, rent, size, and
 #
 # # Use enumerables to -
 #   # Print all the addresses for the apartments
-#   all_addresses = apartments.map do |n|
-#      n[:address]
+#   all_addresses = apartments.map do |n|   # can rename n as apartment,
+#      n[:address]                          # which makes it easier to read.
 #   end
 #   puts all_addresses
 # puts "*" * 50
@@ -30,6 +33,22 @@ tenants = data[:tenants]
 #   puts cheap_apartments
 # puts "*" * 50
 #
+# Another version; same functionality, different appearance:
+#  cheap_apartments = apartments.select do |apartment|
+#     apartment[:monthly_rent] < 700
+#  end
+#  puts cheap_apartments
+#
+# A version with .reject would use >= 700 instead.
+#
+# A version to show only their addresses would add:
+# puts "I found #{cheap.apartments.length} apartments matching your criteria:"
+# cheap_apartments.each do |apartment|
+#   puts apartment[:address]
+# end
+#
+#
+#
 #   # Print only tenants that are over the age of 44
 #   old_tenants = tenants.select {|a| a[:age] > 44}
 #   puts old_tenants
@@ -43,6 +62,10 @@ tenants = data[:tenants]
 #   # Print all the tenants in order from youngest to oldest
 #   tenants_by_age = tenants.sort_by { |e| e[:age]  }
 #   puts tenants_by_age
+#
+#   To display oldest to youngest:
+#   puts tenants_by_age.reverse
+#
 # puts "*" * 50
 #
 #   # Print the names of all the tenants alphabetically
@@ -59,9 +82,41 @@ tenants = data[:tenants]
 #  tenants.inject([]) do |apartments, address|
 #  tenants_address  <<  [:address]
 # end
-#
+#         ^^^^^ This doesn't work ^^^^
+# Try this:
 # puts tenants_address
+#
+# Or this:
+# tenants.each do |tenant|
+#   puts tenant
+#   apartment_id = tenant[:apartment_id]
+#
 #   # When printing all apartments, under each apartment print all of its tenants
+### More challenging
+# When printing tenants also print out the address that the tenant
+# resides in.
+
+tenants.each do |tenant|
+
+  tenants_apartment_id = tenant[:apartment_id]
+  matching_apartment = apartments.find do |apartment|
+    apartment[:id] == tenants_apartment_id
+  end
+
+  puts "#{tenant[:name]} lives at #{matching_apartment[:address]}"
+  puts "*" * 50
+end
+
+
+# When printing all apartments, under each apartment print all of its tenants
+apartments.each do |apartment|
+  puts apartment[:address]
+  tenants_of_apartment = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
+  tenants_of_apartment.each do |tenant|
+    puts tenant[:name]
+  end
+  puts nil # empty line
+end
 #   Bob Pizza is old school, and he wants a sick command line interface for this app. Bob's user stories:
 #
 #   ### MVP:
