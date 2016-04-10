@@ -83,29 +83,29 @@ tenants = data[:tenants]
 #   def initialize
 
 # def pickOption (option1, option2, option3)
-puts "To view a list of all the apartments, type 'option1' To view a list of all the tenants type 'option2' To view a list of tenants in each apartment type 'option3' To view each tenant addresses type 'option4'"
+puts "Please pick an option: type '1' list of apartments; type '2' list of tenants:  type '3' tenants in each apartment;  type '4' tenant addresses"
 option = gets.chomp
 
-while option != "option1" && option !="option2"  && option !='option3' && option !='option4' do
-  puts "To view a list of all the apartments, type 'option1' To view a list of all the tenants type 'option2' To view a list of tenants in each apartment type 'option3' To view each tenant addresses type 'option4'"
+while option != "1" && option !="2"  && option !='3' && option !='4' do
+  puts "Please pick an option: type '1' list of apartments; type '2' list of tenants;  type '3' tenants in each apartment;  type '4' tenant addresses"
   option = gets.chomp
   puts option
 end
 # #
 # #   # def option1
-if option == "option1"
+if option == "1"
   apartments.each do |apartment|
     puts apartment
   end
   #
   #   # def option2
-elsif option == "option2"
+elsif option == "2"
   list_of_tenants = tenants.each do |tenant|
     puts tenant[:name]
   end
   #
   # # def option3
-elsif option == "option3"
+elsif option == "3"
   apartments.each do |apartment|
     puts apartment[:addresses]
     tenants_of_apartment = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
@@ -115,16 +115,15 @@ elsif option == "option3"
     end
   end
 
-elsif option == "option4"
+elsif option == "4"
   apartments.each do |apartment|
     puts apartment[:addresses]
     tenant_addresses = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
 
     tenant_addresses.each do |tenant|
-      puts "#{tenant[:name]} lives at #{apartment[:address]}"
+      puts "#{tenant[:name]}, address: #{apartment[:address]}"
     end
   end
 
 
 end
-# end
