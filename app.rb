@@ -18,8 +18,7 @@ end
 
 userInput = nil
 while userInput != "exit" do
-  puts "[Options Menu] \nType the number or phrase that co4
-  responds with your choice."
+  puts "[Options Menu] \nType the number or phrase that corresponds with your choice."
   puts "1: View all apartments"
   puts "2: View all tenants"
   puts "3: View all apartments with occupancy"
