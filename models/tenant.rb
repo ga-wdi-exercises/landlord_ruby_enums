@@ -1,3 +1,10 @@
 class Tenant
-  # Place your code here
+    # SOLUTION CODE- STILL CONFUSED
+  attr_accessor :id, :name, :age, :apartment_id
+def initialize id, name, age, apartment_id
+  @id = id
+  @name = name
+  @age = age
+  @apartment_id = apartment_id
+end
 end
