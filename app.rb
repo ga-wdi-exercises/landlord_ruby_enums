@@ -1,6 +1,17 @@
 require_relative "data"
+require_relative "models/tenant"
+require_relative "helpers/ui"
+require_relative "models/apartment"
 apartments = data[:apartments]
 tenants = data[:tenants]
+
+ruby_apartments = apartments.map do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+ruby_tenants = tenants.map do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -82,18 +93,62 @@ tenants = data[:tenants]
   # - I should be allowed  an option view all the tenants so that I can get an overview of my tenants
 
   # Inspect data.rb: What are the property types for both hashes? Data structure??
-input = gets.chomp
+# input = gets.chomp
 
   # Use input to inquire unit id to create and view a new array (.map).
-if input == "1"
-apartments.map do |unit|
-  puts unit
-  end
-end
+# if input == "1"
+# apartments.map do |unit|
+#   puts unit
+#   end
+# end
 
 # Do the same thing for tenants.
-if input == "2"
-tenants.map do |person|
-  puts person
+# if input == "2"
+# tenants.map do |person|
+#   puts person
+#   end
+# end
+
+
+# App Logic - check out `helpers/ui.rb` for any methods being use that aren't defined in this file
+system "clear"
+puts "Welcome to Landlord!"
+buffer
+main_input = menu
+while main_input != "exit"
+  # Lists all addresses
+  if main_input == "1"
+    system "clear"
+    puts "Heres a list of apartments you own!"
+    ruby_apartments.each do |apartment|
+      puts apartment.address
+    end
+    puts "Hit <enter> to continue"
+  # Lists all addresses - Over View
+  # Lists all tenants
+  elsif main_input == "2"
+    system "clear"
+    puts "Heres a list of tenants you rent to!"
+    ruby_tenants.each do |tenant|
+      puts tenant.name
+    end
+    puts "Hit <enter> to continue"
+  # Lists all addresses - Over View
+  elsif main_input == "3"
+    system "clear"
+    puts "Heres a list of addresses you own!"
+    ruby_apartments.each do |apartment|
+      puts apartment.address
+      puts "Residents:"
+      apartment_tenants = ruby_tenants.select{|tenant| tenant.apartment_id == apartment.id}
+      puts "No occupants" if apartment_tenants.length == 0
+      apartment_tenants.each{|tenant| puts tenant.name}
+      buffer
+    end
+    puts "Hit <enter> to continue"
   end
+  gets.chomp
+  system "clear"
+  puts (main_input)
+  main_input = menu
 end
