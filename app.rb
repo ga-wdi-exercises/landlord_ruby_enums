@@ -3,10 +3,10 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
-ruby_apartments = []
-ruby_tenants = []
+# ruby_apartments = [] I don't need this because we used the map method
+# ruby_tenants = [] ditto
 
-# SOLUTION CODE- I am still confused about a lot of this
+# SOLUTION CODE- I am starting to figure this out, but I don't get why we would convert everything to classes in the first place when the app is working well
 ruby_apartments = apartments.map do |apartment|
   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
