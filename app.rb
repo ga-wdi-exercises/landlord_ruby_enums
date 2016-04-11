@@ -1,6 +1,19 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+
+
+ruby_apartments = apartments.map do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+
+ruby_tenants = tenants.map do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
+
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -54,7 +67,8 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing all apartments, under each apartment print all of its tenants
-  apt_ten = []
+
+
   puts "What is your name?"
   name = gets.chomp
   puts "OK I recognize that name. Welcome back " + name + "!"
@@ -72,27 +86,29 @@ tenants = data[:tenants]
 case choice
   when 1
   puts "All Apartments"
-    apartments.each do |apartment|
-      puts apartment
+  puts "*" * 50
+    ruby_apartments.each do |apartment|
+      puts apartment.address
     end
 
   when 2
     puts "All Tenants"
-      tenants.each do |tenant|
-        puts tenant
+    puts "*" * 50
+      ruby_tenants.each do |tenant|
+        puts tenant.name
       end
 
   when 3
-    puts "Apartments Occupancies"
-    apartments.each do |apartment|
-      tenant_name = tenants.select do |tenant|
-        tenant[:apartment_id] == apartment[:id]
-        tenant_name.each do |name|
-          puts name
+      puts "Apartment Occupancies"
+      puts "*" * 50
+      ruby_apartments.each do |apartment|
+        puts apartment.address
+        puts "Occupants:"
+        apartment_occupants = ruby_tenants.select do |tenant|
+          tenant.apartment_id == apartment.id
+        apartment_occupants.each do |tenant|
+          puts tenant.name
         end
-        apt_ten << [apartment, name]
       end
     end
-    puts apt_ten
-
-  end
+end
