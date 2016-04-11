@@ -106,9 +106,9 @@ case choice
         puts "Occupants:"
         apartment_occupants = ruby_tenants.select do |tenant|
           tenant.apartment_id == apartment.id
+        end
         apartment_occupants.each do |tenant|
           puts tenant.name
-        end
       end
     end
 end
