@@ -6,6 +6,8 @@ OH NOES, A up and coming property manager, Bob Pizza has too much data now and i
 Read the comments in `app.rb` to follow the directions practicing enumerables
 > Store the enumerable methods into variables and use `puts` to verify the results of your methods
 
+
+
 ## Part 2 Build the App
 > Comment out any functional code in app.rb, but save it, you can leverage the code from Part 1 to write out parts of this application.
 
@@ -20,7 +22,7 @@ Bob Pizza is old school, and he wants a sick command line interface for this app
 
 ### Silver:
 ```
-- I should be allowed an option to view all the apartments with their tenants so that I can get an overview of Occupancy.
+- 
 - I should be able to find where a tenant lives based on tenant name in case of emergencies.
 ```
 
