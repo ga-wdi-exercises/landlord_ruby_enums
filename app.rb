@@ -1,20 +1,42 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
+tenant_list = []
+apartment_list = []
+
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-  # Explain how the data is structured
-  # What are the properties for each of the two types of hashes
+apartment_list = apartments.map do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
 
-# Use enumerables to -
-  # Print all the addresses for the apartments
-  # Print all the names for tenants
-  # Print only apartments that are less then 700 in rent
-  # Print only tenants that are over the age of 44
-  # Print only tenants that have an apartment id of 1
-  # Print all the tenants in order from youngest to oldest
-  # Print the names of all the tenants alphabetically
+tenant_list = tenants.map do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
 
-  ## More challenging
-  # When printing tenants also print out the address that the tenant resides in.
-  # When printing all apartments, under each apartment print all of its tenants
+puts "Hello Bob. How are you today?"
+while gets.chomp != "fine"
+  puts "Just tell me what I want to hear."
+end
+puts "Glad you decided to play ball. Your usual menu: \n
+Type 1 to overview all the apartments, type 2 to overview the tenants.\n
+Type 3 to view all the apartments with their tenants. Or if you're looking\n
+for a specific tenant, just type in their name."
+
+user_input = gets.chomp
+tenantLookup = tenant_list.find {|t| t.name == user_input }
+
+case user_input
+when "1"
+  puts apartments
+when "2"
+  puts tenants
+when "3"
+   address_book(tenants, apartments)
+else tenantLookup
+  address_lookup = apartment_list.find {|apartment| apartment.id == tenantLookup.apartment_id}
+  puts address_lookup.address
+end
+
+puts "Anything else I can help you with?"
