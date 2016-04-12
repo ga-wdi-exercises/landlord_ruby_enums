@@ -4,6 +4,11 @@ require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
+def buffer
+  puts "*" * 50
+end
+
+
 
 ruby_apartments = apartments.map do |apartment|
   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
@@ -76,31 +81,32 @@ end
     puts "1. Overview of all apartments"
     puts "2. Overiview of all tenants"
     puts "3. Overview of apartment occupancy"
+    puts "4. Please enter tenant "
 
   choice = nil
 
-  while ![1, 2, 3].include? choice
+  while ![1, 2, 3, 4].include? choice
     choice = (gets.chomp).to_i
   end
 
 case choice
   when 1
   puts "All Apartments"
-  puts "*" * 50
+  buffer
     ruby_apartments.each do |apartment|
       puts apartment.address
     end
 
   when 2
     puts "All Tenants"
-    puts "*" * 50
+    buffer
       ruby_tenants.each do |tenant|
         puts tenant.name
       end
 
   when 3
       puts "Apartment Occupancies"
-      puts "*" * 50
+      buffer
       ruby_apartments.each do |apartment|
         puts apartment.address
         puts "Occupants:"
@@ -111,4 +117,20 @@ case choice
           puts tenant.name
       end
     end
+
+  when 4
+    puts "Tenants name with Address"
+    buffer
+    ruby_tenants.each do |tenant|
+      puts tenant.name
+      puts "Address:"
+      tenant_address = ruby_apartments.select do |apartment|
+        apartment.id == tenant.apartment_id
+      end
+      tenant_address.each do |tenant|
+        puts tenant.address
+        buffer
+    end
+  end
+
 end
