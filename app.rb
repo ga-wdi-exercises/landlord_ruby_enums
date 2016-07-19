@@ -26,9 +26,28 @@ tenants = data[:tenants]
     end
   end
   # Print only tenants that are over the age of 44
+  tenants.each do |tenant|
+    if tenant[:age] > 44
+      puts tenant
+    end
+  end
   # Print only tenants that have an apartment id of 1
+  tenants.each do |tenant|
+    if tenant[:apartment_id] == 1
+      puts tenant
+    end
+  end
   # Print all the tenants in order from youngest to oldest
+  tenants.sort_by! do |tenant|
+    tenant[:age]
+  end
+
+  puts tenants
   # Print the names of all the tenants alphabetically
+  tenants.sort_by! do |tenant|
+    tenant[:name]
+  end
+  puts tenants
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
