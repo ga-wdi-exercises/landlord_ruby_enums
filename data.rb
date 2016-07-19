@@ -1,3 +1,6 @@
+# data is structured as two different array of objects
+
+# aprtments includes objects with id, address, monthly_rent, and square_feet keys
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
@@ -22,6 +25,7 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+  # tenants structured with ids, names, ages, and apartment_ids, tying tenants to appartment array
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
