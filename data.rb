@@ -1,4 +1,60 @@
+
+
+
 def data
+  # this is a list of objects and keys with the tenants address, rent, square feet
+  # the properties is data
+
+
+
+
+
+
+  # Use enumerables to -
+    # Print all the addresses for the apartments
+    apartments.each do |apartment|
+      puts apartment.address
+    end
+    # Print all the names for tenants
+    tenants.each do |name|
+      puts tenants.names
+    end
+
+    # Print only apartments that are less then 700 in rent
+
+    while apartments.length < 700
+      puts apartments
+      apartments += 1
+    end
+
+    # Print only tenants that are over the age of 44
+
+    while tenants.age > 44
+      puts tenants
+      tenants += 1
+    end
+
+    # Print only tenants that have an apartment id of 1
+
+    while tenants.age > 44
+      puts tenants
+      tenants += 1
+    end
+
+    # Print all the tenants in order from youngest to oldest
+
+    tenants.age.sort
+
+    # Print the names of all the tenants alphabetically
+
+    tenants.names.sort
+
+    ## More challenging
+    # When printing tenants also print out the address that the tenant resides in.
+    # When printing all apartments, under each apartment print all of its tenants
+
+
+
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -21,6 +77,7 @@ def data
     {:id=>19, :address=>"72108 Leuschke Greens", :monthly_rent=>661, :square_feet=>967},
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
+
 
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
