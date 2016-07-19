@@ -1,4 +1,11 @@
 def data
+
+  # apartments is an array of hashes, with each hash having the following:
+  #   id: an int
+  #   address: a string containing the house number and street name
+  #   monthly_rent: an int representing the monthly rent in dollars
+  #   square_feet: an int
+  #
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -22,6 +29,12 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+
+  # tenants is an array of hashes, with each hash having the following
+  #    id: an int
+  #    name: a string. Contains first and last name. May also contain a prepended title or postnominals
+  #    age: an int
+  #    apartment_id: an int corresponding to the id of the person's apartment
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
