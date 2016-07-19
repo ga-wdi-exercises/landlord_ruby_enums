@@ -18,3 +18,48 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+# apartments.each do |address|
+#   puts address[:address]
+# end
+
+# tenants.each do |tenants|
+#   puts tenants[:name]
+# end
+
+# apartments.each do |address|
+#   if address[:monthly_rent] < 700
+#     puts address
+#   end
+# end
+
+# tenants.each do |tenant|
+#   if tenant[:age] > 44
+#     puts tenant
+#   end
+# end
+
+# id1 = tenants.select {|tenant| tenant[:apartment_id]==1}
+# puts id1
+
+# age_sort = tenants.sort_by do |tenant|
+#   tenant[:age]
+# end
+# puts age_sort
+
+# here's where i did the challenge bit
+
+name_sort = tenants.sort_by do |tenant|
+  tenant[:name]
+end
+
+name_sort.each do |tenant|
+    puts tenant[:name]
+    apartment_id = tenant[:apartment_id]
+    app = apartments.select{|apartment| apartment[:id]==apartment_id}
+    app.each do |address|
+      printAdd = address[:address]
+      puts printAdd
+    end
+
+end
