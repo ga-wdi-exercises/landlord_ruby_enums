@@ -83,4 +83,8 @@ userInput = startApp
   elsif userInput == "2"
     Tenant.show
   end
+
+stored_tenants = Tenant.show
+puts ""
+puts stored_tenants[0].name
 binding.pry
