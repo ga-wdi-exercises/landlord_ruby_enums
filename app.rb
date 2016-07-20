@@ -2,14 +2,38 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
+start_app
+def start_app data
+  puts "Hello!"
+  puts "Enter 1 to view apartments."
+  puts "Enter 2 to view tenants."
+  input = get_user_input
+  if input == 1
+    apartments.each do |apartment|
+      puts apartment[:address]
+      end
 
+      def get_user_input prompt
+        puts prompt
+        gets.chomp
+    end
+  end
+end
+#   # check if input is equal to state capital
+#     # increment correct score
+#     state[:correct] += 1
+#   # if its not
+#   else
+#     # increment incorrect score
+#     state[:incorrect] +=1
+#   end
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 
 # Explain how the data is structured
-      # The data is structured as a variable "data". Data is broken down into two arrays; apartments and tenants. Each array is further proken down into hashes with four key-value pairs each.
+# The data is structured as a variable "data". Data is broken down into two arrays; apartments and tenants. Each array is further proken down into hashes with four key-value pairs each.
 
 # What are the properties for each of the two types of hashes
-      #The properties for the hashes are; id, name, age, and apartment_id.
+#The properties for the hashes are; id, name, age, and apartment_id.
 
 
 # Use enumerables to -
@@ -48,10 +72,10 @@ tenants = data[:tenants]
 # end
 
 # Print the names of all the tenants alphabetically
-alphabetical_tenants = tenants.sort_by do |a, b|
-  a[:name].downcase <=> b[:name].downcase
-end
-puts alphabetical_tenants
+# alphabetical_tenants = tenants.sort_by do |a, b|
+#   a[:name].downcase <=> b[:name].downcase
+# end
+# puts alphabetical_tenants
 ## More challenging
 # When printing tenants also print out the address that the tenant resides in.
 # When printing all apartments, under each apartment print all of its tenants
