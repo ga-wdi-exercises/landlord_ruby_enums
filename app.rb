@@ -1,6 +1,8 @@
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
