@@ -6,6 +6,11 @@ tenants = data[:tenants]
 ruby_apartments = []
 ruby_tenants = []
 
+ruby_apartments = apartments
+
+apartments.each do |apartment|
+  
+
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
