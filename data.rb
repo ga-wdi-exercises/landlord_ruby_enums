@@ -76,7 +76,3 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
-
-#The data is structured as a variable "data". Data is broken down into two arrays; apartments and tenants. Each array is further proken down into hashes with four key-value pairs each.
-
-#The properties for the hashes are; id, name, age, and apartment_id. 

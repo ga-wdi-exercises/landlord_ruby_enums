@@ -1,26 +1,31 @@
+require 'pry'
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-def get_user_input 
-  gets.chomp
+def get_user_input
+  input = gets.chomp
+  if input == 1
+    puts data[:apartments]
+  else input == 2
+    puts data[:tenants]
+  end
 end
 
 puts "Hello!"
 puts "Enter 1 to view apartments."
-get_user_input
-if input == 1
-  apartments.each do |apartment|
-    puts apartment[:address]
-  end
-
-def apartment_app data
 puts "Enter 2 to view tenants."
-  input = get_user_input
-  start_app
+get_user_input
 
-  end
-end
+
+
+# def apartment_app data
+#   input = get_user_input
+#   start_app
+#
+#   end
+# end
+binding.pry
 #   # check if input is equal to state capital
 #     # increment correct score
 #     state[:correct] += 1
