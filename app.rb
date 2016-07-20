@@ -6,11 +6,11 @@ tenants = data[:tenants]
 ruby_apartments = []
 ruby_tenants = []
 
-ruby_apartments = apartments.each do |apartment|
+ruby_apartments = apartments.map do |apartment|
   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
 
-ruby_tenants = tenants.each do |tenant|
+ruby_tenants = tenants.map do |tenant|
   Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
 
