@@ -1,7 +1,19 @@
+require 'pry'
 require_relative "data"
-@apartments = data[:apartments]
-@tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
+apartments = data[:apartments]
+tenants = data[:tenants]
 
+# ruby_apartments = []
+# ruby_tenants = []
+
+apartments.each do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+
+binding.pry
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -39,32 +51,32 @@ require_relative "data"
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
-def startApp
-  puts ""
-  puts "Landlordy: the CLI app for landlords"
-  puts ""
-  puts "Enter 1 to view your apartment properties"
-  puts "Enter 2 to view your tenants"
-  return gets.chomp
-end
-
-def printApartments
-  puts ""
-  @apartments.each do |apartment|
-    puts "Apartment num: #{apartment[:id]}, Address : #{apartment[:address]}, rent: #{apartment[:rent]}, sq-ft : #{apartment[:square_feet]}"
-  end
-end
-
-def printTenants
-  puts ""
-  @tenants.each do |tenant|
-    puts "Tenant name : #{tenant[:name]}, age : #{tenant[:age]}"
-  end
-end
-
-userInput = startApp
-  if userInput == "1"
-    printApartments
-  elsif userInput == "2"
-    printTenants
-  end
+# def startApp
+#   puts ""
+#   puts "Landlordy: the CLI app for landlords"
+#   puts ""
+#   puts "Enter 1 to view your apartment properties"
+#   puts "Enter 2 to view your tenants"
+#   return gets.chomp
+# end
+#
+# def printApartments
+#   puts ""
+#   apartments.each do |apartment|
+#     puts "Apartment num: #{apartment[:id]}, Address : #{apartment[:address]}, rent: #{apartment[:rent]}, sq-ft : #{apartment[:square_feet]}"
+#   end
+# end
+#
+# def printTenants
+#   puts ""
+#   tenants.each do |tenant|
+#     puts "Tenant name : #{tenant[:name]}, age : #{tenant[:age]}"
+#   end
+# end
+#
+# userInput = startApp
+#   if userInput == "1"
+#     printApartments
+#   elsif userInput == "2"
+#     printTenants
+#   end
