@@ -12,8 +12,11 @@ apartments.each do |apartment|
   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
 
+tenants.each do |tenant|
+  Tenant.new(tenant[:id],tenant[:name],tenant[:age],tenant[:apartment_id])
+end
 
-binding.pry
+
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -51,15 +54,15 @@ binding.pry
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
-# def startApp
-#   puts ""
-#   puts "Landlordy: the CLI app for landlords"
-#   puts ""
-#   puts "Enter 1 to view your apartment properties"
-#   puts "Enter 2 to view your tenants"
-#   return gets.chomp
-# end
-#
+def startApp
+  puts ""
+  puts "Landlordy: the CLI app for landlords"
+  puts ""
+  puts "Enter 1 to view your apartment properties"
+  puts "Enter 2 to view your tenants"
+  return gets.chomp
+end
+
 # def printApartments
 #   puts ""
 #   apartments.each do |apartment|
@@ -74,9 +77,10 @@ binding.pry
 #   end
 # end
 #
-# userInput = startApp
-#   if userInput == "1"
-#     printApartments
-#   elsif userInput == "2"
-#     printTenants
-#   end
+userInput = startApp
+  if userInput == "1"
+    Apartment.show
+  elsif userInput == "2"
+    Tenant.show
+  end
+binding.pry
