@@ -8,4 +8,8 @@ class Apartment
     @square_feet = square_feet
   end
 
+  def get_all_apartments
+    return @address
+  end
+
 end
