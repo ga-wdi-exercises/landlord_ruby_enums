@@ -2,21 +2,23 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-start_app
-def start_app data
-  puts "Hello!"
-  puts "Enter 1 to view apartments."
-  puts "Enter 2 to view tenants."
-  input = get_user_input
-  if input == 1
-    apartments.each do |apartment|
-      puts apartment[:address]
-      end
+def get_user_input 
+  gets.chomp
+end
 
-      def get_user_input prompt
-        puts prompt
-        gets.chomp
-    end
+puts "Hello!"
+puts "Enter 1 to view apartments."
+get_user_input
+if input == 1
+  apartments.each do |apartment|
+    puts apartment[:address]
+  end
+
+def apartment_app data
+puts "Enter 2 to view tenants."
+  input = get_user_input
+  start_app
+
   end
 end
 #   # check if input is equal to state capital
