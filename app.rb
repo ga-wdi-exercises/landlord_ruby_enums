@@ -6,7 +6,6 @@ tenants = data[:tenants]
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
 
-
 # Use enumerables to -
   # Print all the addresses for the apartments
   # apartments.each do |apartment|
@@ -42,3 +41,28 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+  # - I should have a numbered interface for my application so that I can just type in a number to access different parts of my program.
+  puts "Welcome to Landlord! Ready to begin? y/n"
+  user_input = gets.chomp
+
+  # Let's get started
+  if user_input == "y"
+    puts "Great! Let's get started!"
+    puts "Press [1] to view all apartments and [2] to view all tenants."
+
+    options = gets.chomp
+    # view all apartments
+    if options == "1"
+      apartments.each do |apartment|
+        puts apartment[:address]
+      end
+    # view all tenants
+    elsif options == "2"
+      tenants.each do |tenant|
+        puts tenant[:name]
+      end
+    end
+  else
+    puts "Good-bye!"
+  end
