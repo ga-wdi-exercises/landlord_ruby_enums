@@ -51,37 +51,21 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
-ruby_apartments = []
-ruby_tenants = []
+# ruby_apartments = []
+# ruby_tenants = []
 
 # puts apt = Apartment.new(1, 2, 3, 4).inspect
 # puts ten = Tenant.new(1, 2, 3, 4).inspect
 
 apartments.each do |apartment|
   apt = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
-  ruby_apartments.push(apt)
 end
 
 tenants.each do |tenant|
   ten = Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
-  ruby_tenants.push(ten)
 end
 
-
-# view all buildings by address
-def get_all_addresses(apts)
-  apts.each do |apartment|
-    puts apartment.address
-  end
-end
-
-def get_all_names(tens)
-  tens.each do |tenant|
-    puts tenant.name
-  end
-end
-
-# def activate_sweet_app_broh
+def activate_sweet_app_broh
   puts "Enter 1 to see all addresses."
   puts "Enter 2 to see all tenant names."
   puts "Enter anything else to nope"
@@ -89,12 +73,12 @@ end
   input = gets.chomp
 
   if input == '1'
-    get_all_addresses(ruby_apartments)
+    Apartment.list_all_addresses
   elsif input == '2'
-    get_all_names(ruby_tenants)
+    Tenant.list_all_names
   else
     puts "nope.exe"
   end
-# end
+end
 
-# activate_sweet_app_broh
+activate_sweet_app_broh
