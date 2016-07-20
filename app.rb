@@ -62,6 +62,8 @@ tenants = data[:tenants]
       tenants.each do |tenant|
         puts tenant[:name]
       end
+    else
+      puts "Sorry, you didn't enter a valid option."
     end
   else
     puts "Good-bye!"
