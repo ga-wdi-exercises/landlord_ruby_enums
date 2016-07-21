@@ -12,4 +12,11 @@ class Apartment
     puts @address
   end
 
+  def apartment_id
+    return @id
+  end
+
+  def show_address
+    return @address
+  end
 end

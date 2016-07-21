@@ -13,4 +13,8 @@ class Tenants
     puts @name
   end
 
+  def show_id
+    return apartment_id
+  end
+
 end

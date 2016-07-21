@@ -34,19 +34,19 @@ tenants.each do |tenant|
   ruby_tenants.push(new_tenant)
 end
 
-# puts ruby_apartments.inspect
-# puts ruby_tenants.inspect
 
 
-
-# puts "Enter in '1' to view all apartments. Enter in '2' to view all tenants"
+# puts "Enter in '1' to view all apartments. Enter in '2' to view all tenants. Enter 3 to see tenant with address, listed with tenant on top of address."
 # input=gets.chomp
 #
 # if input == 1
-#   show_all_apartments
+#   show_all_apartments()
 # elsif input == 2
 #   show_all_tenants
+# elsif input == 3
+#   apartment_with_tenant(ruby_apartments, ruby_tenants)
 # end
+
 def call_all_apartments(ruby_apartments)
   ruby_apartments.each do |apartment|
     puts apartment.show_all_apartments
@@ -59,13 +59,25 @@ def call_all_tenants(ruby_tenants)
   end
 end
 
+def apartment_with_tenant(ruby_apartments, ruby_tenants)
+  ruby_tenants.each do |tenant|
+    puts tenant.show_all_tenants
+    tenant_ids = tenant.show_id
+    app = ruby_apartments.select{|apt| apt.apartment_id ==tenant_ids}
+    app.each do |address|
+      puts address.show_address
+    end
+  end
+end
 
-puts "To see all apartments, enter in 1. To see all tenants, enter in 2."
+puts "To see all apartments, enter in 1. To see all tenants, enter in 2. To see tenants listed with apartments, put 3 (tenants are above address)."
 input = gets.chomp
 if input == "1"
   call_all_apartments(ruby_apartments)
 elsif input == "2"
   call_all_tenants(ruby_tenants)
+elsif input =="3"
+  apartment_with_tenant(ruby_apartments, ruby_tenants)
 else
   puts "That's not an option."
 end
@@ -92,10 +104,11 @@ end
 #
 # here's where i did the challenge bit
 
-# name_sort = tenants.sort_by do |tenant|
+# name_sort = ruby_tenants.sort_by do |tenant|
 #   tenant[:name]
 # end
 #
+# puts name_sort
 # name_sort.each do |tenant|
 #     puts tenant[:name]
 #     apartment_id = tenant[:apartment_id]
