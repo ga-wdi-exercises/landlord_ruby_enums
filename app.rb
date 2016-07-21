@@ -1,11 +1,10 @@
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
-require_relative "helpers/ui"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-#part three: 
+#part three:
 ruby_apartments = apartments.map do |apartment|
   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
