@@ -16,5 +16,15 @@ class Tenant
     end
   end
 
+  def self.sortByApt
+    @@all.sort_by!{ |apt| apt.apartment_id  }
+    retArr = []
+    @@all.each do |ten|
+      retArr.push(ten)
+    end
+    return retArr
+
+  end
+
 
 end

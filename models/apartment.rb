@@ -16,6 +16,14 @@ class Apartment
       end
     end
 
+    def self.storeApt
+      retArr = []
+      @@all.each do |apt|
+        retArr.push(apt)
+      end
+      return retArr
+    end
+
 
 
 end

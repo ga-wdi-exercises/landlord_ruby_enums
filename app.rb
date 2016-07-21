@@ -84,7 +84,15 @@ userInput = startApp
     Tenant.show
   end
 
-stored_tenants = Tenant.show
+stored_tenants = Tenant.sortByApt
+stored_apartments = Apartment.storeApt
 puts ""
-puts stored_tenants[0].name
+puts "Start shit"
+stored_apartments.each do |apt|
+  stored_tenants.each do |ten|
+    if apt.id == ten.apartment_id
+      puts "#{ten.name} lives at #{apt.address}"
+    end
+  end
+end
 binding.pry
