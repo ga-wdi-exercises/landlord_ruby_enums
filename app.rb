@@ -1,3 +1,4 @@
+require "pry"
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
@@ -6,9 +7,23 @@ tenants = data[:tenants]
 puts "Hi, please choose from the list from the following.  Choose 1 to view all apartments and 2 to view all tenants"
 choice = gets.chomp
 
+
+if choice.to_i == 1
+
+  apartments.each do |apartment|
+    puts apartment
+  end
+elsif choice.to_i == 2
+  tenants.each do |tenant|
+    puts tenant
+  end
+end
   # this is a list of objects and keys with the tenants address, rent, square feet
   # the properties is tenants, address, rent, square
-
+# if choice === 1
+#   puts choice + 1
+#   puts "hello"
+# end
 
 
 
@@ -16,9 +31,6 @@ choice = gets.chomp
 #
 #   # Use enumerables to -
 #     # Print all the addresses for the apartments
-#     apartments.each do |apartment|
-#       puts apartment.address
-#     end
 #     # Print all the names for tenants
 #     tenants.each do |name|
 #       puts tenants.names
@@ -87,3 +99,4 @@ choice = gets.chomp
 #   - I should be allowed to add a tenant to an apartment so that I can track occupancy.
 #   - I should be allowed to create a new apartment so that I can track new properties in my books
 #   - I should be allowed to create a new tenant so that I can track new tenants in my books.
+binding.pry
