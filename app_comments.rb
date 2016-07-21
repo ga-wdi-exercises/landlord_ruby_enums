@@ -48,7 +48,8 @@ end
 
 
 ####important block
-### call all apartments 1
-### call all tenants 2
-## all apartments with tenants 3
 ## type tenant name get apartment 2
+## I should be allowed to remove a tenant from an apartment so that I can track evictions/lease ends
+## I should be allowed to add a tenant to an apartment so that I can track occupancy.
+## I should be allowed to create a new apartment so that I can track new properties in my books
+## I should be allowed to create a new tenant so that I can track new tenants in my books.

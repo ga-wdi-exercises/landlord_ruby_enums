@@ -42,7 +42,8 @@ def run_program(ruby_apartments, ruby_tenants)
         puts 'Type \'b\' to view all of your tenants!'
         answer = gets.chomp
         if answer == 'b'
-            puts 'I called a method'
+            puts ruby_tenants.map{|object| object.get_ten_apt(ruby_apartments)}
+            run_program(ruby_apartments, ruby_tenants)
         else
             run_program
         end

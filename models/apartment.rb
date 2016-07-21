@@ -11,6 +11,14 @@ class Apartment
         @square_feet = square_feet
     end
 
+    def get_id
+        @id
+    end
+
+    def get_address
+        @address
+    end
+
     def get_apt
         "Apt: #{@address}--rent:$#{@monthly_rent} sqft: (#{@square_feet})"
     end
