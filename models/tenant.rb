@@ -13,4 +13,6 @@ class Tenant
   end
 end
 
+
+
 binding.pry

@@ -13,4 +13,5 @@ class Apartment
   end
 end
 
+
 binding.pry

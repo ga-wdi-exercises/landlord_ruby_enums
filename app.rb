@@ -7,8 +7,6 @@ tenants = data[:tenants]
 ruby_apartments = []
 ruby_tenants = []
 
-
-
 apartments.each do |apartment|
   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
@@ -17,6 +15,19 @@ tenants.each do |tenant|
   Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
 
+puts "What do you want to access? Press '1' for Apartment listing, or '2' for Tenant listing."
+
+input = gets.chomp
+
+if input == "1"
+apartments.each do |apartment|
+   puts apartment
+ end
+else
+    tenants.each do |tenant|
+   puts tenant
+ end
+end
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
