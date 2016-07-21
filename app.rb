@@ -23,7 +23,7 @@ if input == "1"
 apartments.each do |apartment|
    puts apartment
  end
-else
+elsif input == "2"
     tenants.each do |tenant|
    puts tenant
  end
