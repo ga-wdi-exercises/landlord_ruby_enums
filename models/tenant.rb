@@ -8,8 +8,4 @@ class Tenant
     @apartment_id = apartment_id
   end
 
-  def get_all_tenants
-    return @name
-  end
-
 end

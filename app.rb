@@ -56,28 +56,28 @@ end
 
   # - I should have a numbered interface for my application so that I can just type in a number to access different parts of my program.
 
-  # puts "Welcome to Landlord! Ready to begin? y/n"
-  # user_input = gets.chomp
-  #
-  # # Let's get started
-  # if user_input == "y"
-  #   puts "Great! Let's get started!"
-  #   puts "Press [1] to view all apartments and [2] to view all tenants."
-  #
-  #   options = gets.chomp
-  #   # view all apartments
-  #   if options == "1"
-  #     apartments.each do |apartment|
-  #       puts apartment[:address]
-  #     end
-  #   # view all tenants
-  #   elsif options == "2"
-  #     tenants.each do |tenant|
-  #       puts tenant[:name]
-  #     end
-  #   else
-  #     puts "Sorry, you didn't enter a valid option."
-  #   end
-  # else
-  #   puts "Good-bye!"
-  # end
+  puts "Welcome to Landlord! Ready to begin? y/n"
+  user_input = gets.chomp
+
+  # Let's get started
+  if user_input == "y"
+    puts "Great! Let's get started!"
+    puts "Press [1] to view all apartments and [2] to view all tenants."
+
+    options = gets.chomp
+    # view all apartments
+    if options == "1"
+      apartments.each do |apartment|
+        puts apartment[:address]
+      end
+    # view all tenants
+    elsif options == "2"
+      tenants.each do |tenant|
+        puts tenant[:name]
+      end
+    else
+      puts "Sorry, you didn't enter a valid option."
+    end
+  else
+    puts "Good-bye!"
+  end
