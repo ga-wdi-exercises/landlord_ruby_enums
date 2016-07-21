@@ -60,6 +60,7 @@ def startApp
   puts ""
   puts "Enter 1 to view your apartment properties"
   puts "Enter 2 to view your tenants"
+  puts "Enter 3 to view tenants by apartment"
   return gets.chomp
 end
 
@@ -82,17 +83,19 @@ userInput = startApp
     Apartment.show
   elsif userInput == "2"
     Tenant.show
+  elsif userInput == "3"
+    stored_tenants = Tenant.sortByApt
+    stored_apartments = Apartment.storeApt
+    puts ""
+    stored_apartments.each do |apt|
+      stored_tenants.each do |ten|
+        if apt.id == ten.apartment_id
+          puts "#{ten.name} lives at #{apt.address}"
+        end
+      end
+    end
+
   end
 
-stored_tenants = Tenant.sortByApt
-stored_apartments = Apartment.storeApt
-puts ""
-puts "Start shit"
-stored_apartments.each do |apt|
-  stored_tenants.each do |ten|
-    if apt.id == ten.apartment_id
-      puts "#{ten.name} lives at #{apt.address}"
-    end
-  end
-end
+
 binding.pry
