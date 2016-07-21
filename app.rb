@@ -1,3 +1,4 @@
+require "pry"
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
@@ -8,8 +9,13 @@ ruby_tenants = []
 
 
 
+apartments.each do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
 
-
+tenants.each do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
 
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
@@ -38,3 +44,5 @@ ruby_tenants = []
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+binding.pry

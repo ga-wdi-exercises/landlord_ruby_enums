@@ -1,3 +1,5 @@
+require "pry"
+
 class Apartment
   attr_accessor :id, :address, :monthly_rent, :square_feet
   @@ruby_apartments = []
@@ -8,6 +10,7 @@ class Apartment
     @monthly_rent = monthly_rent
     @square_feet = square_feet
     @@ruby_apartments.push(self)
-
   end
 end
+
+binding.pry

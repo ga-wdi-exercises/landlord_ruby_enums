@@ -1,4 +1,6 @@
-class Apartment
+require "pry"
+
+class Tenant
   attr_accessor :id, :name, :age, :apartment_id
   @@ruby_tenants = []
 
@@ -10,3 +12,5 @@ class Apartment
     @@ruby_tenants.push(self)
   end
 end
+
+binding.pry
