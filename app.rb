@@ -24,33 +24,34 @@ def get_user_input prompt
   gets.chomp
 end
 
-input = get_user_input("press 1 to view properties // press 2 to view tenants// press 3 to EXIT")
 
+loop do
+  input = get_user_input("press 1 to view properties // press 2 to view tenants// press 3 to EXIT")
+  if input == "3"
+    break
+  elsif input == "1"
+    puts "Heres a list of apartments you own!"
+    ruby_apartments.each do |apartment|
+      puts apartment.address
+    end
 
-if input == "1"
-  puts "Heres a list of apartments you own!"
-  ruby_apartments.each do |apartment|
-    puts apartment.address
+    puts "
+
+    Press Enter to Continue
+
+    "
+  elsif input == "2"
+    puts "Heres a list of tenants you rent to!"
+    ruby_tenants.each do |tenant|
+      puts tenant.name
+    end
+
+    puts "
+
+    Press Enter to Continue
+
+    "
   end
-
-  puts "
-
-  Press Enter to Continue
-
-  "
-elsif input == "2"
-  puts "Heres a list of tenants you rent to!"
-  ruby_tenants.each do |tenant|
-    puts tenant.name
-  end
-
-  puts "
-
-  Press Enter to Continue
-
-  "
-elsif input == "3"
-  puts "Session Terminated"
 end
 
 
