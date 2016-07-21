@@ -1,46 +1,56 @@
+# require 'pry'
 require_relative "data"
+require './models/apartment'
+require './models/tenant'
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
-# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-#   Explain how the data is structured
-#   - the data is sorted into two large arrays that consist of hashes
-#   - the first is an apartments array consisting of hashes with 4 key values
-#   - the second is a tenant array that consists of object also with 4 key values
-#   - these two arrays are returned in a large hash holder represented by calling the defined data
-#   What are the properties for each of the two types of hashes?
-#   - Apartments Array: id-address-rent-sqft
-#   - Tenants Array - id-name-age-apartmentid
-
-apartments.each {|unit| puts unit[:address]}
-
-tenants.each{|tenant| puts tenant[:name]}
-
-apartments.each do |unit|
-    if unit[:monthly_rent] < 700
-        puts unit
-    end
-end
-
-tenants.each do |tenant|
-    if tenant[:age]>44
-        puts tenant
-    end
-end
-
-puts tenants.select {|tenant| tenant[:apartment_id]==1}
-puts tenants.sort_by {|tenant| tenant[:age]}
-puts tenants.sort_by {|tenant| tenant[:name]}
-
-# When printing tenants also print out the address that the tenant resides in.
-tenants.each do |tenant|
-    puts tenant[:name]
-    match = apartments.select{|apartment| apartment[:id] == tenant[:apartment_id]}
-    puts match[0][:address]
-end
-# When printing all apartments, under each apartment print all of its tenants
 apartments.each do |apartment|
-    puts apartment[:address]
-    match = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
-    match.each{|match| puts match[:name]}
+    iterative = apartment.values
+    ruby_apartments.push(Apartment.new(iterative[0],iterative[1],iterative[2],iterative[3]))
 end
+
+tenants.each do |tenant|
+    titerative = tenant.values
+    ruby_tenants.push(Tenant.new(titerative[0],titerative[1],titerative[2],titerative[3]))
+end
+
+def run_program(ruby_apartments, ruby_tenants)
+    puts 'Welcome to your program Bob! Would you like access to apartments, tenants or both?(1/2/3) If you want to exit type \'exit\'!'
+    answer = gets.chomp
+    if answer == '1'
+        puts 'Type \'a\' to view all of your properties!'
+        answer = gets.chomp
+        if answer == 'a'
+            puts ruby_apartments.map{|object| object.get_apt}
+            run_program(ruby_apartments, ruby_tenants)
+        else
+            run_program
+        end
+    elsif answer == '2'
+        puts 'Type \'p\' to view all of your tenants!'
+        answer = gets.chomp
+        if answer == 'p'
+            puts ruby_tenants.map{|object| object.get_ten}
+            run_program(ruby_apartments, ruby_tenants)
+        else
+            run_program
+        end
+    elsif answer == '3'
+        puts 'Type \'b\' to view all of your tenants!'
+        answer = gets.chomp
+        if answer == 'b'
+            puts 'I called a method'
+        else
+            run_program
+        end
+    elsif answer == 'exit'
+        exit
+    else
+        run_program
+    end
+end
+# binding.pry
+run_program(ruby_apartments, ruby_tenants)
