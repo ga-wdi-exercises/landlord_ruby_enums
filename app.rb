@@ -1,4 +1,6 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
@@ -56,13 +58,50 @@ tenants = data[:tenants]
  #
 
   # Print the names of all the tenants alphabetically
-
-  azOrder = tenants.sort_by do |tenant|
-    tenant[:name]
-  end
-
-  puts azOrder
+  #
+  # azOrder = tenants.sort_by do |tenant|
+  #   tenant[:name]
+  # end
+  #
+  # puts azOrder
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+  ruby_apartments = apartments.map do |apt|
+    apt = Apartment.new(apt[:id], apt[:address], apt[:monthly_rent], apt[:square_feet])
+  end
+
+  ruby_tenants = tenants.map do |tenant|
+    tenant = Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+  end
+
+  # apartments = apartments.each do |apt|
+  # tenants = tenants.each do |occ|
+
+  print "Input 1 for apartment list, 2 for tenants. Enter 'quit' to exit.\n"
+
+  landlord = gets.chomp
+
+  if landlord == "1"
+    #shows all apartments
+    apartments.each do |apt|
+      puts apt[:address]
+  end
+
+  # puts "press <enter> to continue"
+
+  elsif landlord == "2"
+
+    #shows all tenants
+    tenants.each do |tenant|
+      puts tenant[:name]
+  end
+
+  # puts "press <enter> to continue"
+
+  else
+    puts "Please enter a 1 or 2 to view property or tenant information, or 'quit' to exit."
+
+    # break if landlord == "quit"
+  end
