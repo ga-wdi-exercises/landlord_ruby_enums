@@ -74,5 +74,6 @@ def data
     {:id=>49, :name=>"Rowland Wiegand", :age=>90, :apartment_id=>11},
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
+
   return {apartments:apartments, tenants:tenants}
 end
