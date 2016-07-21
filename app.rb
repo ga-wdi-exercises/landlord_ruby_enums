@@ -1,7 +1,17 @@
+require "pry"
 require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
+@apartments = data[:apartments]
+@tenants = data[:tenants]
 
+# apartments.each do |apartment|
+#   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+# end
+#
+# tenants.each do |tenant|
+#   Tenant.new(tenant[:id],tenant[:name],tenant[:age],tenant[:apartment_id])
+# end
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
 
@@ -58,7 +68,31 @@ tenants = data[:tenants]
     # name = tenants.sort_by do |a|
     #   a.name
 # end
+def main_menu
+  puts "**************************WELCOME***********************"
+  puts "i have no idea what im about to do here but sure. \n
+  1. Press 1 to view apartment properties \n
+  2. Press 2 to view tenants \n
+  3. Press 3 to view tenants by property\n"
+  puts  "*****************************************************"
+  gets.chomp
+end
+@main_menu = main_menu
+while @main_menu.to_i.is_a? Numeric
+  if @main_menu == "1"
+    puts "Heres a list of apartments you own!"
+    # Print all the addresses
+        @apartments.each do |apartment|
+          puts apartment.address
+        end
+  end
+  if main_menu == "2"
+    puts "Heres a list of something else"
+    tenants.show
+  end
+end
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+binding.pry

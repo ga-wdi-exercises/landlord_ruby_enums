@@ -14,6 +14,8 @@ Bob Pizza is old school, and he wants a sick command line interface for this app
 ### MVP:
 ```
 - I should have a numbered interface for my application so that I can just type in a number to access different parts of my program.
+<!-- main_menu = menu
+while main_menu_input.is_a? Numeric -->
 - I should be allowed an option to view all the apartments so that I can get an overview of my properties.
 - I should be allowed  an option view all the tenants so that I can get an overview of my tenants
 ```
