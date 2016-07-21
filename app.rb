@@ -1,7 +1,11 @@
 require 'pry'
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 def get_user_input
   input = gets.chomp
