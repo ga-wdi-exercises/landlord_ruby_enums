@@ -10,6 +10,10 @@ class Tenant
         @apartment_id = apartment_id
     end
 
+    def get_apt_id
+        @apartment_id
+    end
+
     def get_ten
         "Name: #{@name}--age: #{@age} aptID: (#{@apartment_id})"
     end
