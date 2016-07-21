@@ -1,16 +1,5 @@
-# Use enumerables to -
-  # Print all the addresses for the apartments
-  # Print all the names for tenants
-  # Print only apartments that are less then 700 in rent
-  # Print only tenants that are over the age of 44
-  # Print only tenants that have an apartment id of 1
-  # Print all the tenants in order from youngest to oldest
-  # Print the names of all the tenants alphabetically
-  puts apartments[:address]
-  puts tenants[:name]
-  puts apartments.monthly_rent < 700
-
 def data
+
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
