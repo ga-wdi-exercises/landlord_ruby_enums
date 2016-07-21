@@ -1,6 +1,7 @@
 class Apartment
   # Place your code here
   attr_accessor :id, :address, :monthly_rent, :square_feet
+  ruby_apartments = []
 
 
   def initialize(id, address, monthly_rent, square_feet)
@@ -11,6 +12,9 @@ class Apartment
 
   end
 
+  for Apartment in ruby_apartments
+    puts Apartment
+  end
 
 
 
