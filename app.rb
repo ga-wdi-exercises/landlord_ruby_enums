@@ -12,28 +12,29 @@ def aparments_instance(apartments, ruby_apartments)
     apart[:id] = Apartments.new(apart[:id], apart[:address], apart[:monthly_rent], apart[:square_feet])
     ruby_apartments.push(apart[:id])
   end
-  puts ruby_apartments[0].id
   return ruby_apartments
 end
 
 # Create all tenant Objects
-def tenant_objects(tenants)
+def tenant_objects(tenants, ruby_tenants)
   tenants.each do |tenant|
-    name = tenant[:name]
-    name  = Tenants.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+    tenant[:name] = Tenants.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+    ruby_tenants.push(tenant[:name])
   end
+  puts ruby_tenants[0].name
+  return ruby_tenants
 end
 
 # Welcome message and options
 def message_options_start()
   puts "\n"
   puts "********************** Welcome to your personal App **********************"  
-  puts "Please type 1 to: veiw all apartments." 
-  puts "Please type 2 to: veiw all tenants."
+  puts "Please type 1 to: veiw all apartments addressses." 
+  puts "Please type 2 to: veiw all tenants names."
   puts "Please type 3 to: veiw a give apartment and its tenant"
   puts "To exit the program please the 'exit'."   
   puts "********************** I am Pretty, OH so Pretty. I feel Pretty and Witty and Gay *************************"
-  puts "\n" 
+  print "Option: "
   choice = gets.chomp
   return choice
 end
@@ -41,49 +42,55 @@ end
 # Just message and options
 def message_option_end()
   puts "\n"
-  puts "Please type 1 to: veiw all apartments." 
-  puts "Please type 2 to: veiw all tenants."
+  puts "******************** Your Options are ********************"
+  puts "Please type 1 to: veiw all apartments addresses." 
+  puts "Please type 2 to: veiw all tenants names."
   puts "Please type 3 to: veiw a give apartment and its tenant"
   puts "To exit the program please the 'exit'."
-  puts "\n"
+  print "Option: "
   choice = gets.chomp
   return choice
 end
 
 # Get apartment id 
 def apartment_id()
-  puts "To view an apartment and its tenants, please type the apartment number."
+  print "To view an apartment and its tenants, please type the apartment number: "
   apart_num = gets.chomp
   return apart_num
 end
 
 # Start up app
-def start_app(apartments, tenants, ruby_apartments)
+def start_app(apartments, tenants, ruby_apartments, ruby_tenants)
   # create objects for apartments and tenants
   aparments_instance(apartments, ruby_apartments)
-  tenant_objects(tenants)
+  tenant_objects(tenants, ruby_tenants)
   choice = message_options_start()
   while choice != 'exit'
     if choice.to_i == 1
-      apartments.each do |apartment|
-        puts apartment 
+      ruby_apartments.each do |apartment|
+        puts apartment.address 
       end
     elsif choice.to_i == 2
-      tenants.each do |tenant|
-        puts tenant
+      ruby_tenants.each do |tenant|
+        puts tenant.name
       end
     elsif choice.to_i == 3
       apart_id = apartment_id()
-      tenants.each do |tenant|
-        if tenant[:apartment_id] == apart_id.to_i
-          apartment = apart[apart_id.to_i]
-          puts tenant[:name], apartment[:address]
+      ruby_tenants.each do |tenant|
+        if tenant.apartment_id.to_i == apart_id.to_i
+          puts tenant.name        
         end
       end
+      puts "\n" 
+      puts "Live at #{ruby_apartments[apart_id.to_i].address}" 
     end
     choice = message_option_end()
   end
 end
+
+
+start_app( apartments, tenants, ruby_apartments, ruby_tenants)
+
   # # Get apartments
   # def apartments(apartments)
   #   puts "apt running"
@@ -99,8 +106,6 @@ end
   #   end
   # end
 
-
-  start_app( apartments, tenants, ruby_apartments)
 
   # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   #   # Explain how the data is structured
