@@ -1,8 +1,8 @@
 require 'pry'
 
 require_relative "data"
-# require_relative "models/apartment"
-# require_relative "models/tenant"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 ruby_apartments = []
@@ -11,8 +11,13 @@ ruby_tenants = []
 
 
 
-
-
+puts "Press: 1 to view apartments; 2 to view tenants"
+choice = gets.chomp.to_i
+if choice == 1
+  puts data[:apartments]
+elsif choice == 2
+  puts data[:tenants]
+end
 
 
 
