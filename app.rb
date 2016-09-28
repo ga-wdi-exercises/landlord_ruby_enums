@@ -46,7 +46,17 @@ ifUno = tenants.each do |hash|
     end
 end
   # Print all the tenants in order from youngest to oldest
-young_to_old = hash[:tenants].sort_by { |k,v| v[:age] }
+young_to_old = tenants.sort_by do |hash|
+    hash[:age]
+end
+
+puts young_to_old
+puts "- - - - - - - - -"
+
+alphabetically = tenants.sort_by do |hash|
+    hash[:name]
+end
+puts alphabetically
   # Print the names of all the tenants alphabetically
 
   ## More challenging
