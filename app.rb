@@ -61,6 +61,12 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+
+  names.zip(addresses).each do |name, address|
+    puts [name,address]
+end
+
+
   # When printing all apartments, under each apartment print all of its tenants
 # binding.pry
 
