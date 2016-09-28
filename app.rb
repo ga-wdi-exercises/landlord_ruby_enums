@@ -2,12 +2,15 @@ require "pry"
 
 require_relative "data"
 apartments = data[:apartments]
-tenants = data[:tenants]
+tenants    = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-  # Explain how the data is structured
-  # What are the properties for each of the two types of hashes
+  # Q. Explain how the data is structured
+  # A. The data is structured in two arrays (apartments and tenants) with hashes inside. All under the function 'data'
 
+  # Q. What are the properties for each of the two types of hashes
+  # A. For apartments, we have id, address, monthly_rent, square_feet
+  # A. For tenants, we have id, name, age, and apartment_id
 
 # Use enumerables to -
   # Print all the addresses for the apartments
@@ -44,11 +47,17 @@ end
 
   # Print all the tenants in order from youngest to oldest
 
-sort = tenants.sort_by { |hash, age| :age }
-puts sort.to_a
-
+age_sort = tenants.sort_by do |hash|
+  p hash[:age]
+end
+puts age_sort
 
 # Print the names of all the tenants alphabetically
+
+name_sort = tenants.sort_by do |hash|
+  p hash[:name]
+end
+puts name_sort
 
 
   ## More challenging
