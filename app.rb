@@ -16,8 +16,9 @@ ruby_tenants = []
 
 # Use enumerables to -
   # Print all the addresses for the apartments
-  # apartments.each do |apartment|
+  # apt = apartments.each do |apartment|
   #   apartment[:address]
+  #   puts apartment[:address]
   # end
   # Print all the names for tenants
   # tenants.each do |tenant|
@@ -55,15 +56,17 @@ ruby_tenants = []
 
 
   #App code
+  puts "enter number"
   number = gets.chomp
-  if number = 1
-    apartments.each do |apartment|
-      puts apartment[:address]
+
+  if number.to_i == 1
+  ruby_apartments.each do |apartment|
+      puts apartment.address
     end
   end
-  if number = 2
-    tenants.each do |tenant|
-      tenant[:name]
+  ruby_tenants.each do |tenant|
+    if number.to_i == 2
+    puts tenant.name
     end
   end
 
