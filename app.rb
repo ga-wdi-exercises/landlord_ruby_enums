@@ -1,10 +1,12 @@
 require 'pry'
 
 require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
 require_relative "models/apartment"
 require_relative "models/tenant"
+apartments = data[:apartments] #from data.rb
+tenants = data[:tenants] #from data.rb
+ruby_apartments = []
+ruby_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -78,10 +80,18 @@ loop do
       end
   elsif answer == "2"
     puts apartments
-  else
-    puts "You gave me #{answer}. Please enter '1' or '2'"
   end
   break if answer == "q"
+end
+
+apartments.each do |apt_data|
+  new_apartments = Apartment.new(apt_data[:id], apt_data[:address], apt_data[:monthly_rent], apt_data[:square_feet])
+  ruby_apartments << new_apartments
+end
+
+tenants.each do |ten_data|
+  new_tenants = Tenant.new(ten_data[:id], ten_data[:name], ten_data[:age], ten_data[:apartment_id])
+  ruby_tenants << new_tenants
 end
 
 
