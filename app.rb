@@ -48,10 +48,16 @@ tenants = data[:tenants]
   tenants_by_age = tenants.sort_by do |tenant|
     tenant[:age]
   end
-  puts tenants_by_age
+  tenants_by_age
 
 
   # Print the names of all the tenants alphabetically
+  tenants_by_name = tenants.sort_by do |tenant|
+    tenant[:name]
+  end
+  puts tenants_by_name
+
+
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
