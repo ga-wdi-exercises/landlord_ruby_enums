@@ -1,17 +1,55 @@
 #come back to part 1 more challenging if time allows
+#go beyond MVP if time allows
 
 require 'pry'
 
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
+#app interface-----------------------------
+# puts "Hi! press 1 for tenant data. Press 2 for apartment data"
+#
+# userInput = gets.chomp
+#
+# if userInput == 1
+#   puts data[:apartments]
+# elsif userInput == 2
+#   puts data[:tenants]
+# else
+#   puts "command not recognized, please try again"
+# end
+
+#Part3___________
+
+apartments.each do |apt|
+  ruby_apartments << Apartment.new(apt[:id],apt[:address],apt[:monthly_rent],apt[:square_feet])
+end
+
+
+tenants.each do |tenant|
+  ruby_tenants << Tenant.new(tenant[:id],tenant[:name],tenant[:age],tenant[:apartment_id])
+end
+
+
+binding.pry
+
+#Part 1______________________________
 
 # index = 0
 # while index < apartments.length
 #   puts apartments[index][:address]
 #   index += 1
 # end
+
+ruby_apartments.each do |apt|
+  puts apt[:address]
+end
+
 
 # index = 0
 # while index < tenants.length
@@ -80,5 +118,3 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
-
-  binding.pry
