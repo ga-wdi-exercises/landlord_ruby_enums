@@ -15,6 +15,26 @@ end
 
 Apartment.add_all_tenants(Tenant.all)
 
+def start_interface
+  loop do |i|
+    p "Hi there! What would you like to do today? Enter a number, or 'q' to quit"
+    p "1. View all apartments"
+    p "2. View all tenants"
+    input = gets.chomp
+    break if input == 'q'
+    if input == '1'
+      Apartment.summarize_all
+      next
+    elsif input == '2'
+      p Tenant.all
+      next
+    end
+  end
+end
+
+start_interface
+
+
 # test1 = Apartment.new(1, "9841 Tanner Key", 606, 779)
 # test2 = Apartment.new(2, "123 Fake St", 400, 1400)
 # tim = Tenant.new(1, "Tim Foley", 26, 2)

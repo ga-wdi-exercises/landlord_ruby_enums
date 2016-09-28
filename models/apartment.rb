@@ -21,6 +21,13 @@ class Apartment
     end
   end
 
+  def self.summarize_all
+    @@all.each do |apt|
+      apt.summary
+    end
+  end
+
+
   def initialize(id, address, monthly_rent, square_feet)
     @id = id
     @address = address
@@ -30,10 +37,20 @@ class Apartment
     @@all << self
   end
 
+  def add_tenant (tenant)
+    @tenants << t
+  end
+
   def add_tenants(tenants)
     tenants.each do |t|
       @tenants << t
     end
     @tenants
+  end
+
+  def summary
+    puts "  Apartment ##{@id}: #{@address}
+    Rent: $#{@monthly_rent}; Size: #{@square_feet}sqft
+    Tenants: #{@tenants.length}"
   end
 end

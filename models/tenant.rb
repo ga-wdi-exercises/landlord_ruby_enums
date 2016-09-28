@@ -11,7 +11,7 @@ class Tenant
       t.name == tenant_name
     end
     # is it a good idea to reference another class's methods? I could probably have done this within the Apartment object. Thoughts?
-    return Apartment.get_apt_by_id(tenant.apartment_id).address
+    return Apartment.get_apt_by_id(tenant.apartment_id)
   end
 
   def initialize(id, name, age, apartment_id)
