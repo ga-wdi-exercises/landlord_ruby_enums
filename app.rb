@@ -74,3 +74,19 @@ tenants = data[:tenants]
 			puts "#{a[:address]}, #{t_array}"
 		end
 	end
+
+
+
+# Begin Program
+puts "=== Landlord Main Menu ==="
+puts "Enter [1] for apartment overview"
+puts "Enter [2] for tenant overview"
+print ">>> "
+input = gets.chomp
+
+# Process input
+if input == '1'
+	print_apartments apartments, tenants
+elsif input == '2'
+	print_tenants tenants, apartments
+end
