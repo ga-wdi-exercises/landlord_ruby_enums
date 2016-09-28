@@ -9,7 +9,13 @@ ruby_apartments = []
 ruby_tenants = []
 
 
+apartments.each do |apt|
+  ruby_apartments << Apartment.new(apt[:id],apt[:address],apt[:monthly_rent],apt[:square_feet])
+end
 
+tenants.each do |ten|
+  ruby_tenants << Tenant.new(ten[:id],ten[:name],ten[:age],ten[:apartment_id])
+end
 
 puts "Press: 1 to view apartments; 2 to view tenants"
 choice = gets.chomp.to_i
