@@ -5,6 +5,15 @@ require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
+test1 = Apartment.new(1, "9841 Tanner Key", 606, 779)
+test2 = Apartment.new(2, "123 Fake St", 400, 1400)
+tim = Tenant.new(1, "Tim Foley", 26, 2)
+jack = Tenant.new(2, "Jack Curtis", 26, 2)
+
+require 'pry'
+binding.pry
+
+
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
     # Data're structured as two arrays of objects, one for tenants, and one for apartments.
