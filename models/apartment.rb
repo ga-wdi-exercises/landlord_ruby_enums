@@ -1,7 +1,10 @@
 # Apartment class
-class Apartment {
+class Apartment
 
-	def initialize
+	attr_accessor :apartment
+
+	def initialize apartment
+		@apartment = apartment
 	end
 
-}
+end

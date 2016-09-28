@@ -1,7 +1,10 @@
 # Tenant class
-class Tenant {
+class Tenant
 
-	def initialize
+	attr_accessor :tenant
+
+	def initialize tenant
+		@tenant = tenant
 	end
 
-}
+end

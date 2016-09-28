@@ -3,6 +3,14 @@ require_relative "models/tenant"
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+# Set up ruby class data
+ruby_apartments = apartments.map { |a| Apartment.new a }
+ruby_tenants = tenants.map { |t| Tenant.new t }
+
+
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 	# Explain how the data is structured
