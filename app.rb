@@ -95,11 +95,17 @@ def apartments_detail apartments, tenants
 
 end
 
-
+# Apartment options prompt
+def apartment_options_prompt
+	puts "\n=== Apartment Sub-Menu ==="
+	puts "Enter [1] for apartment list"
+	puts "Enter [2] for apartment details"
+	print ">>> "
+end
 
 # Apartment options
 def apartment_options apartments, tenants
-	print "\n=== Apartment Sub-Menu ===\nEnter [1] for apartment list\nEnter [2] for apartment details\n>>> "
+	apartment_options_prompt
 	input = gets.chomp
 
 	# Process input
@@ -109,6 +115,7 @@ def apartment_options apartments, tenants
 		apartments_detail apartments, tenants
 	end
 end
+
 
 
 
@@ -137,9 +144,18 @@ def tenant_lookup apartments, tenants
 	puts a[0][:address]
 end
 
+# Tenant options prompt
+def tenant_options_prompt
+	puts "\n=== Tenant Sub-Menu ==="
+	puts "Enter [1] for tenant list"
+	puts "Enter [2] for tenant details"
+	puts "Enter [3] to look up a tenant's address"
+	print ">>> "
+end
+
 # Tenant options
 def tenant_options apartments, tenants
-	print "\n=== Tenant Sub-Menu ===\nEnter [1] for tenant list\nEnter [2] for tenant details\nEnter [3] to look up a tenant's address\n>>> "
+	tenant_options_prompt
 	input = gets.chomp
 
 	# Process input
