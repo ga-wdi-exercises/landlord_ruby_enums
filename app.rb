@@ -1,3 +1,5 @@
+require_relative "models/apartment"
+require_relative "models/tenant"
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
@@ -170,9 +172,17 @@ end
 
 
 
+# Main Menu prompt
+def main_prompt
+	puts "\n=== Landlord Main Menu ==="
+	puts "Enter [1] for apartments"
+	puts "Enter [2] for tenants"
+	print ">>> "
+end
+
 # Begin Program
 def start_program apartments, tenants
-	print "\n=== Landlord Main Menu ===\nEnter [1] for apartments\nEnter [2] for tenants\n>>> "
+	main_prompt
 	input = gets.chomp
 
 	# Process input
@@ -182,6 +192,7 @@ def start_program apartments, tenants
 		tenant_options apartments, tenants
 	end
 end
+
 
 
 start_program apartments, tenants
