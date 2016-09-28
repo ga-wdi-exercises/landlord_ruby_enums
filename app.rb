@@ -34,17 +34,34 @@ tenants = data[:tenants]
     #   end
     # end
   # Print only tenants that have an apartment id of 1
-  tenants.each do |tenant|
-    if tenant[:apartment_id] == 1
-      puts tenant
-    end
-  end
+    # tenants.each do |tenant|
+    #   if tenant[:apartment_id] == 1
+    #     puts tenant
+    #   end
+    # end
   # Print all the tenants in order from youngest to oldest
+    # puts tenants.sort_by { |tenant| tenant[:age] }
   # Print the names of all the tenants alphabetically
-
+    # puts tenants.sort_by { |tenant| tenant[:name] }
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+    # tenants.each do |tenant|
+    #   apartments.each do |apartment|
+    #     if apartment[:id] == tenant[:apartment_id]
+    #       puts tenant
+    #       puts apartment[:address]
+    #     end
+    #   end
+    # end
   # When printing all apartments, under each apartment print all of its tenants
+    # apartments.each do |apartment|
+    #   tenants.each do |tenant|
+    #     if apartment[:id] == tenant[:apartment_id]
+    #       puts apartment
+    #       puts tenant[:name]
+    #     end
+    #   end
+    # end
 
 
 ruby_apartments = []
@@ -69,12 +86,17 @@ menu = [
   {id: 8, option: "add tenant"}
 ]
 
+def view_all_apartments
+
+end
+
 def main menu
   input = ""
   until input == "quit"
-    puts data
+    puts menu
     puts "Enter a number or quit"
     input = gets.chomp
+
   # display menu
   # get user input
   # call appropriate function
