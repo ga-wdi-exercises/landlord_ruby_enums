@@ -1,19 +1,57 @@
 require_relative "data"
+# require_relative "models/apartment"
+# require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
+    #The data are separated into two arrays Apartments and Tenants.
   # What are the properties for each of the two types of hashes
+  #Each hash in Apartments array contains id, address, rent, and space.
+  #Each hash in Tenants array contains id, name, age, and apartment_id
 
 # Use enumerables to -
   # Print all the addresses for the apartments
-  # Print all the names for tenants
-  # Print only apartments that are less then 700 in rent
-  # Print only tenants that are over the age of 44
-  # Print only tenants that have an apartment id of 1
-  # Print all the tenants in order from youngest to oldest
-  # Print the names of all the tenants alphabetically
+#   apartments.each do |apartment|
+#     # puts apartment[:address]
+#   end
+#   # Print all the names for tenants
+#   tenants.each do |tenant|
+#     # puts tenant[:name]
+#   end
+#   # Print only apartments that are less then 700 in rent
+#   apartments.each do |apartment|
+#     # if apartment[:monthly_rent] < 700.to_i
+#     # puts apartment[:id]
+#   # end
+#   end
+#   # Print only tenants that are over the age of 44
+#   tenants.each do |tenant|
+#     # if tenant[:age] > 44.to_i
+#     # puts tenant[:name]
+#   # end
+# end
+#   # Print only tenants that have an apartment id of 1
+#   # tenants.each do |tenant|
+#   #   if tenant[:id] == 1.to_i
+#   #   puts tenant[:name]
+#   # end
+#   # end
+#   # Print all the tenants in order from youngest to oldest
+#   # young_to_old=tenants.sort_by do |tenant|
+#   #   tenant[:age]
+#   # end
+#   # puts young_to_old
+#
+#
+#   # Print the names of all the tenants alphabetically
+#   alpha=tenants.sort_by do |tenant|
+#     tenant[:name]
+#   end
+#   puts alpha
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
