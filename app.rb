@@ -2,7 +2,7 @@ require "pry"
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
-tenants_age = data[:age]
+# tenants_age = data[:age].sort
 # monthly_rent = data[:monthly_rent]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
@@ -46,11 +46,15 @@ end
 # end
 # # p tenants
 # end
-tenants.each do |hash|
-  puts :name
+young_to_old = tenants.sort_by do |tenant|
+   tenant[:age]
 end
+puts young_to_old
   # Print the names of all the tenants alphabetically
-
+name_alphabetically = tenants.sort_by do |name|
+  name[:name]
+end
+puts name_alphabetically
 
 
 
