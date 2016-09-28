@@ -8,10 +8,10 @@ tenants = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
-  # There are 2 arrays with 2 types of hashes
+  There are 2 arrays with 2 types of hashes
   # What are the properties for each of the two types of hashes
-  # 1.apartments have id, address, monthly_rent,square_feet
-  # 2.tenants have id, name, age, apartment_id
+  1.apartments have id, address, monthly_rent,square_feet
+  2.tenants have id, name, age, apartment_id
 
 # Use enumerables to -
   # Print all the addresses for the apartments
@@ -27,7 +27,16 @@ tenants = data[:tenants]
   puts names
 
   # Print only apartments that are less then 700 in rent
+  less_expencive_apartments = apartments.select do |apartment|
+    apartment[:monthly_rent] < 700
+  end
+  puts less_expencive_apartments
   # Print only tenants that are over the age of 44
+  tenants_over_forty = tenants.select do |tenant|
+    tenant[:age] > 40
+  end
+  puts tenants_over_forty
+
   # Print only tenants that have an apartment id of 1
   # Print all the tenants in order from youngest to oldest
   # Print the names of all the tenants alphabetically
