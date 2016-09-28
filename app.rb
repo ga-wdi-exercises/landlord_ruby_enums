@@ -3,6 +3,8 @@ require 'pry'
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -81,12 +83,7 @@ loop do
   end
   break if answer == "q"
 end
-#I should be allowed an option to view all the apartments so that
-#I can get an overview of my properties.
 
-
-#I should be allowed  an option view all the tenants so that
-#I can get an overview of my tenants
 
 binding.pry
 puts "done"
