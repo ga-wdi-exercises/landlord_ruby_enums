@@ -5,10 +5,20 @@ require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-test1 = Apartment.new(1, "9841 Tanner Key", 606, 779)
-test2 = Apartment.new(2, "123 Fake St", 400, 1400)
-tim = Tenant.new(1, "Tim Foley", 26, 2)
-jack = Tenant.new(2, "Jack Curtis", 26, 2)
+tenants.each do |t|
+  Tenant.new(t[:id], t[:name], t[:age], t[:apartment_id])
+end
+
+apartments.each do |a|
+  Apartment.new(a[:id], a[:address], a[:monthly_rent], a[:square_feet])
+end
+
+Apartment.add_all_tenants(Tenant.all)
+
+# test1 = Apartment.new(1, "9841 Tanner Key", 606, 779)
+# test2 = Apartment.new(2, "123 Fake St", 400, 1400)
+# tim = Tenant.new(1, "Tim Foley", 26, 2)
+# jack = Tenant.new(2, "Jack Curtis", 26, 2)
 
 require 'pry'
 binding.pry

@@ -6,6 +6,15 @@ class Apartment
     return @@all
   end
 
+  def self.add_all_tenants(tenants)
+    @@all.each do |apt| #for each apartment...
+      specific_tenants = tenants.select do |t|
+        t.apartment_id == apt.id
+      end
+      apt.add_tenants(specific_tenants)
+    end
+  end
+
   def initialize(id, address, monthly_rent, square_feet)
     @id = id
     @address = address
@@ -22,6 +31,4 @@ class Apartment
     end
     @tenants
   end
-
-
 end
