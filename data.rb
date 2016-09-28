@@ -1,3 +1,7 @@
+#the apartments and its relevant info are listed in one hash. #The tenants are in another hash. they are joined by the
+#apartment identifier
+
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
