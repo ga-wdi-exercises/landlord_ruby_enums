@@ -86,24 +86,90 @@ menu = [
   {id: 8, option: "add tenant"}
 ]
 
-def view_all_apartments
+def pad text, max
+  p = max - text.length
+  " " + text + (" " * p) + " "
+end
 
+def border array
+  output = "+"
+  array.each do |num|
+    output += ("-" * (num + 2)) + "+"
+  end
+  output
+end
+
+# def view_all_apartments
+#
+# end
+#
+# def view_all_tenants
+#
+# end
+#
+# def view_all_apartments_with_tenants
+#
+# end
+#
+# def search_apartments_by_tenant_name
+#
+# end
+#
+# def evict_tenant
+#
+# end
+#
+# def lease_apartment
+#
+# end
+#
+# def add_apartment
+#
+# end
+#
+# def add_tenant
+#
+# end
+
+def get_max hash, max_array
+  hash.each_with_index do |value,index|
+    if max_array.length < index + 1
+      max_array.insert(index,0)
+    end
+    max_array[index] = [max_array[index],value[0].to_s.length,value[1].to_s.length].max
+  end
+  max_array
+end
+
+def table array_of_hashes
+  max_array = []
+  array_of_hashes.each_with_index do |hash,i|
+    max_array = get_max hash, max_array
+  end
+  puts border max_array
+  array_of_hashes.each_with_index do |hash,i|
+    row = "|"
+    hash.each_with_index do |value,i|
+      row += pad value[1].to_s, max_array[i]
+      row += "|"
+    end
+    puts row
+    puts border max_array
+  end
+  nil
 end
 
 def main menu
   input = ""
   until input == "quit"
-    puts menu
-    puts "Enter a number or quit"
+    puts "APARTMENT MANAGER"
+    table menu
+    puts "Enter a number or 'quit'"
     input = gets.chomp
-
-  # display menu
-  # get user input
-  # call appropriate function
   end
 end
 
-# main menu
+main menu
 
 binding.pry
 
