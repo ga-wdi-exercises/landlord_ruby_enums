@@ -3,6 +3,28 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+# Using the .each enumerable, loop through the exisiting apartments and tenants arrays we worked with yesterday.
+#
+# In the loops
+#
+# create a new instance of a class you've defined
+# push that new instance into the corresponding ruby array.
+# We can also instead use the .map enumerable to condense the above code that uses .each.
+#{:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
+apartments.each { |o|
+    apt=Apartment.new o[:id], o[:address],o[:monthly_rent],o[:square_feet]
+    ruby_apartments.push(apt)
+}
+ruby_apartments.each {|o| puts o.address}
+#{:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
+tenants.each {|o|
+    ten=Tenant.new o[:id], o[:name],o[:age],o[:apartment_id]
+    ruby_tenants.push(ten)
+}
+ruby_tenants.each {|o| puts o.name}
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 # Explain how the data is structured
@@ -135,10 +157,10 @@ def menu
 end # menu
 
 menu_item=0
-while true
-  menu_item=menu
-  # puts menu_item
-  if handle_menu(menu_item,apartments,tenants)
-    break # exit given
-  end #if
-end
+# while true
+#   menu_item=menu
+#   # puts menu_item
+#   if handle_menu(menu_item,apartments,tenants)
+#     break # exit given
+#   end #if
+# end
