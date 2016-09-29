@@ -17,17 +17,17 @@ tenants.each do |tenant|
 end
 #
 # binding.pry
-puts ruby_apartments
-puts ruby_tenants
-puts "Hi! Please type '1' to view all the apartments and '2' to view all the tenants!"
-user_input = gets.chomp.to_i
-if user_input == 1
-  puts ruby_apartments
-elsif user_input == 2
-  puts ruby_tenants
-else
-  puts "Please enter correctly"
-end
+# puts ruby_apartments
+# puts ruby_tenants
+# puts "Hi! Please type '1' to view all the apartments and '2' to view all the tenants!"
+# user_input = gets.chomp.to_i
+# if user_input == 1
+#   puts ruby_apartments
+# elsif user_input == 2
+#   puts ruby_tenants
+# else
+#   puts "Please enter correctly"
+# end
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
     #The data are separated into two arrays Apartments and Tenants.
@@ -38,7 +38,7 @@ end
 # Use enumerables to -
   # Print all the addresses for the apartments
   ruby_apartments.each do |apartment|
-    puts ruby_apartment.address
+    puts apartment.address
   end
 #   # Print all the names for tenants
   ruby_tenants.each do |tenant|
@@ -65,17 +65,17 @@ end
   end
   end
 #   # Print all the tenants in order from youngest to oldest
-  young_to_old=ruby_tenants.sort_by do |tenant|
+  ruby_tenants.sort_by do |tenant|
     tenant.age
   end
-  puts young_to_old
+  puts tenant
 
 #
 #   # Print the names of all the tenants alphabetically
-  alpha= ruby_tenants.sort_by do |tenant|
+  ruby_tenants.sort_by do |tenant|
     tenant.name
   end
-  puts alpha
+  puts tenant
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
