@@ -16,6 +16,8 @@ tenants.each do |tenant|
     ruby_tenants << Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
 
+class
+
 puts "enter 1 if you want to access apartment's addresses"
 puts "enter 2 if you want to access the tenants list"
 user_input = gets.chomp
@@ -87,9 +89,9 @@ end
 puts name_sort
 
 
-  ## More challenging
+  # More challenging
   # When printing tenants also print out the address that the tenant resides in.
-
+  #
   # When printing all apartments, under each apartment print all of its tenants
 
   binding.pry
