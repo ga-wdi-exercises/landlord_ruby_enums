@@ -17,17 +17,17 @@ tenants.each do |tenant|
 end
 #
 # binding.pry
-# puts ruby_apartments
-# puts ruby_tenants
-# puts "Hi! Please type '1' to view all the apartments and '2' to view all the tenants!"
-# user_input = gets.chomp.to_i
-# if user_input == 1
-#   puts data[:apartments]
-# elsif user_input == 2
-#   puts data[:tenants]
-# else
-#   puts "Please enter correctly"
-# end
+puts ruby_apartments
+puts ruby_tenants
+puts "Hi! Please type '1' to view all the apartments and '2' to view all the tenants!"
+user_input = gets.chomp.to_i
+if user_input == 1
+  puts ruby_apartments
+elsif user_input == 2
+  puts ruby_tenants
+else
+  puts "Please enter correctly"
+end
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
     #The data are separated into two arrays Apartments and Tenants.
@@ -38,7 +38,7 @@ end
 # Use enumerables to -
   # Print all the addresses for the apartments
   ruby_apartments.each do |apartment|
-    puts ruby_apartment[:address]
+    puts ruby_apartment.address
   end
 #   # Print all the names for tenants
   ruby_tenants.each do |tenant|
