@@ -21,9 +21,6 @@ def data
     {:id=>19, :address=>"72108 Leuschke Greens", :monthly_rent=>661, :square_feet=>967},
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
-  #The data is structured in an object with two hashes and arrays
-  #The apartments array has the apartments id, addres, monthly_rent and square_feet
-  #the tenants array has the id, name and age of tenant and the tenants apartment id
 
 
 
@@ -83,10 +80,22 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
-addresses = []
-data[:apartments].each {|apartment| puts apartment[:address]}
-data[:tenants].each{|tenant| puts tenant[:name]}
-data[:apartments].map do
-  |apartment| puts apartment[:monthly_rent] < 700
- end
-data[:tenants].select{|tenant| puts tenant[:age] < 44}
+
+
+#My comments:
+  #The data is structured in an object with two hashes and arrays
+  #The apartments array has the apartments id, addres, monthly_rent and square_feet
+  #the tenants array has the id, name and age of tenant and the tenants apartment id
+
+  data[:apartments].each {|apartment| puts apartment[:address]}
+  data[:tenants].each{|tenant| puts tenant[:name]}
+  data[:apartments].collect do
+    |apartment| puts apartment[:monthly_rent] < 700
+   end
+  data[:tenants].select{|tenant| puts tenant[:age] < 44}
+  #Print only tenants that have an apartment id of 1
+  data[:tenants].select{|tenant| puts tenant[:name] id == 1}
+  # Print all the tenants in order from youngest to oldest
+  data[:tenants].sort{|tenant| puts tenant[:age] 18-89}
+  # Print the names of all the tenants alphabetically
+  data[:tenants].sort{|tenant| puts tenant[:name] a<=>z}
