@@ -104,39 +104,39 @@ end
         puts "Names of tenant is #{ten.name}"
       end
   # Print only apartments that are less then 700 in rent
-      # ruby_apartments.each do |apt|
-      #   if apt.rent < 700
-      #     puts "#{} is less than $700"
-      #   end
-      # end
+      ruby_apartments.each do |apt|
+        if apt.rent < 700
+          puts "Apartment #{apt.id} is less than $700"
+        end
+      end
   # Print only tenants that are over the age of 44
-      # tenants.length.times do |i|
-      #   if tenants[i][:age] > 44
-      #     puts "#{tenants[i][:name]} is over 44 years old"
-      #   end
-      # end
+      ruby_tenants.each do |ten|
+        if ten.age > 44
+          puts "#{ten.name} is over 44 years old"
+        end
+      end
   # Print only tenants that have an apartment id of 1
-      # tenants.length.times do |i|
-      #   if tenants[i][:apartment_id] ==1
-      #     puts "#{tenants[i][:name]} has an apartment id of 1"
-      #   end
-      # end
+      ruby_tenants.each do |ten|
+        if ten.id == 1
+          puts "#{ten.name} has an apartment id of 1"
+        end
+      end
   # Print all the tenants in order from youngest to oldest
-      # tenants_age_arr = []
-      #
-      # tenants.length.times do |i|
-      #   tenants_age_arr << tenants[i][:age]
-      #   tenants_age_arr = tenants_age_arr.sort!
-      # end
-      # puts tenants_age_arr
+      tenants_age_arr = []
+
+      ruby_tenants.each do |ten|
+        tenants_age_arr << ten.age
+        tenants_age_arr = tenants_age_arr.sort!
+      end
+      puts tenants_age_arr
   # Print the names of all the tenants alphabetically
-      # tenants_alph_arr = []
-      #
-      # tenants.length.times do |i|
-      #   tenants_alph_arr <<tenants[i][:name]
-      #   tenants_alph_arr = tenants_alph_arr.sort!
-      # end
-      # puts tenants_alph_arr
+      tenants_alph_arr = []
+
+      ruby_tenants.each do |ten|
+        tenants_alph_arr <<ten.name
+        tenants_alph_arr = tenants_alph_arr.sort!
+      end
+      puts tenants_alph_arr
 
 binding.pry
 puts "done"
