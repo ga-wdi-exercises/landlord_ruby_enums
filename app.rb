@@ -1,4 +1,3 @@
-require 'pry'
 
 require_relative "data"
 require_relative "models/apartment"
@@ -64,5 +63,3 @@ end
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
-
-binding.pry
