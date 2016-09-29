@@ -1,6 +1,3 @@
-require_relative "data"
-
-
 class Apartment
 
   attr_accessor :id, :address, :monthly_rent, :square_feet

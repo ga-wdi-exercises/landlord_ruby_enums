@@ -1,7 +1,3 @@
-require_relative "data"
-
-
-
 class Tenant
 
   attr_accessor :id, :name, :age, :apartment_id
