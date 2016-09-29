@@ -1,14 +1,16 @@
-# require "pry"
+require "pry"
+
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
-
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 # Explain how the data is structured
-# There are 2 arrays with 2 types of hashes
+# 1.There are 2 arrays with 2 types of hashes
 # What are the properties for each of the two types of hashes
 # 1.apartments have id, address, monthly_rent,square_feet
 # 2.tenants have id, name, age, apartment_id
@@ -67,11 +69,37 @@ names.zip(addresses).each do |name|
 end
 
 # When printing all apartments, under each apartment print all of its tenants
-# apartments.each do |apartment|
-#   apartment[:address]
-# end
+
+binding.pry
+
+puts "end of the code!"
 
 
-# binding.pry
+** Part 2 **
 
-# puts "end of the code!"
+def app_interface
+  loop do
+    puts "Hello! Press 1 for tenant info or press 2 for Leasing office information "
+    userInput = gets.chomp
+    if userInput == 1
+      puts data[:tenants]
+    elsif userInput == 2
+      puts data[:apartments]
+    else
+      puts "Unknown key. Please try again!"
+    end
+
+    ** Part 3 **
+    require "pry"
+
+    addresses = apartments.each do |apartment|
+      ruby_apartments << apartment[:address]
+    end
+
+    names = tenants.map do |tenant|
+      ruby_tenants << tenant[:name]
+    end
+
+
+    binding.pry
+    puts "end"
