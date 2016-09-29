@@ -1,3 +1,4 @@
+# require 'pry'
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
@@ -6,31 +7,38 @@ tenants = data[:tenants]
 ruby_apartments = []
 ruby_tenants = []
 
-  puts "Press 1 to view all apartment addresses."
-  puts "Press 2 to view all tenants."
-  input = gets.chomp
-  if input.to_i == 1
-    apartments.each do |apartment|
-      puts apartment[:address]
-    end
-  end
-  if input.to_i == 2
-    tenants.each do |a|
-      puts a[:name]
-    end
-  end
-
 apartments.each do |apartment|
   m = Apartment.new apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet]
   ruby_apartments << m
 end
-puts ruby_apartments
+# puts ruby_apartments
 
 tenants.each do |t|
   m = Tenant.new t[:id], t[:name], t[:age], t[:apartment_id]
   ruby_tenants << m
 end
-puts ruby_tenants
+
+
+  puts "Press 1 to view all apartment addresses."
+  puts "Press 2 to view all tenants."
+  input = gets.chomp
+  puts input
+
+  if input.to_i == 1
+    ruby_apartments.each do |apartment|
+      puts apartment.address
+    end
+  end
+  if input.to_i == 2
+    ruby_tenants.each do |a|
+      puts a.name
+    end
+  end
+
+
+# binding.pry
+# puts done
+# puts ruby_tenants
 
 
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
