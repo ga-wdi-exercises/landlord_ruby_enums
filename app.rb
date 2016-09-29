@@ -80,6 +80,10 @@ def view_all_apartments apartments
   gets
 end
 
+# def view_all_apartments ruby_apartments
+#
+# end
+
 def view_all_tenants tenants
   table tenants
   puts "Press enter to go back"
@@ -187,7 +191,6 @@ def main menu, apartments, tenants
     table menu
     puts "Enter a number or 'quit'"
     input = gets.chomp
-    binding.pry
     if input.to_i == 1
       view_all_apartments apartments
     elsif input.to_i == 2
@@ -204,7 +207,5 @@ def main menu, apartments, tenants
 end
 
 main menu, apartments, tenants
-
 binding.pry
-
 puts "done"
