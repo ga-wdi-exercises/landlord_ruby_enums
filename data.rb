@@ -1,4 +1,8 @@
+require "pry"
 def data
+  # The data is structured in two hashes one for Apartments and one for tenants
+  # The Apartments hash contains an apartment id number, address, the monthly rent and the square footage
+  # The Tenants has contains an tenant id number, the tenant's name, their age, and apartment_id number
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -74,5 +78,7 @@ def data
     {:id=>49, :name=>"Rowland Wiegand", :age=>90, :apartment_id=>11},
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
-  return {apartments:apartments, tenants:tenants}
 end
+binding.pry
+#   # return {apartments:apartments, tenants:tenants}
+puts "last line"
