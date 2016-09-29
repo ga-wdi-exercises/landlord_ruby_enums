@@ -70,20 +70,6 @@ ruby_tenants = []
 require 'pry'
 #I should have a numbered interface for my application so that
 #I can just type in a number to access different parts of my program.
-loop do
-  puts "To see all tenants, press '1'. To see all apartments, press'2', or press 'q' to quit."
-  answer = gets.chomp
-
-  if answer == "1"
-      tenants.each do |tenant|
-        puts tenant[:name]
-      end
-  elsif answer == "2"
-    puts apartments
-  end
-  break if answer == "q"
-end
-
 apartments.each do |apt_data|
   new_apartments = Apartment.new(apt_data[:id], apt_data[:address], apt_data[:monthly_rent], apt_data[:square_feet])
   ruby_apartments << new_apartments
@@ -93,6 +79,24 @@ tenants.each do |ten_data|
   new_tenants = Tenant.new(ten_data[:id], ten_data[:name], ten_data[:age], ten_data[:apartment_id])
   ruby_tenants << new_tenants
 end
+
+loop do
+  puts "To see all tenants, press '1'. To see all apartments, press'2', or press 'q' to quit."
+  answer = gets.chomp
+
+  if answer == "1"
+      ruby_tenants.each do |ten|
+        puts ten.name
+      end
+  elsif answer == "2"
+    ruby_apartments.each do |apt|
+      puts apt.addr
+    end
+  end
+  break if answer == "q"
+end
+
+
 
 # Use enumerables to -
   # Print all the addresses for the apartments
