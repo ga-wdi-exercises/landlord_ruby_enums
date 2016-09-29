@@ -1,4 +1,11 @@
+require 'pry'
 def data
+
+#data is organized in hashes! With info and key values inside of it.
+#properties for apartments are: Address, monthly rent and square footage.
+#properties for tenants are: name, age and apartment id.
+
+
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -74,5 +81,18 @@ def data
     {:id=>49, :name=>"Rowland Wiegand", :age=>90, :apartment_id=>11},
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
+  class Apartments
+    attr_accessor :address, :monthly_rent, :square_feet
+  end
+
+  user = Teanant.new
+  @name = name
+  @age = age
+  @apartment_id = apartment_id
+end
+
+
   return {apartments:apartments, tenants:tenants}
 end
+
+binding.pry
