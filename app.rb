@@ -64,8 +64,8 @@ ruby_tenants = []
       puts apartment.address
     end
   end
-  ruby_tenants.each do |tenant|
-    if number.to_i == 2
+  if number.to_i == 2
+    ruby_tenants.each do |tenant|
     puts tenant.name
     end
   end
