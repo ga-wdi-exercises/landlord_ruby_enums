@@ -94,6 +94,49 @@ tenants.each do |ten_data|
   ruby_tenants << new_tenants
 end
 
+# Use enumerables to -
+  # Print all the addresses for the apartments
+      ruby_apartments.each do |apt|
+        puts "Address of apartment is #{apt.addr}"
+      end
+  # Print all the names for tenants
+      ruby_tenants.each do |ten|
+        puts "Names of tenant is #{ten.name}"
+      end
+  # Print only apartments that are less then 700 in rent
+      # ruby_apartments.each do |apt|
+      #   if apt.rent < 700
+      #     puts "#{} is less than $700"
+      #   end
+      # end
+  # Print only tenants that are over the age of 44
+      # tenants.length.times do |i|
+      #   if tenants[i][:age] > 44
+      #     puts "#{tenants[i][:name]} is over 44 years old"
+      #   end
+      # end
+  # Print only tenants that have an apartment id of 1
+      # tenants.length.times do |i|
+      #   if tenants[i][:apartment_id] ==1
+      #     puts "#{tenants[i][:name]} has an apartment id of 1"
+      #   end
+      # end
+  # Print all the tenants in order from youngest to oldest
+      # tenants_age_arr = []
+      #
+      # tenants.length.times do |i|
+      #   tenants_age_arr << tenants[i][:age]
+      #   tenants_age_arr = tenants_age_arr.sort!
+      # end
+      # puts tenants_age_arr
+  # Print the names of all the tenants alphabetically
+      # tenants_alph_arr = []
+      #
+      # tenants.length.times do |i|
+      #   tenants_alph_arr <<tenants[i][:name]
+      #   tenants_alph_arr = tenants_alph_arr.sort!
+      # end
+      # puts tenants_alph_arr
 
 binding.pry
 puts "done"
