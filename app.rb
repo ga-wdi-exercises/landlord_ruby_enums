@@ -1,17 +1,31 @@
+require_relative "models/Apartment"
+require_relative "models/Tenant"
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+apartments.each do |apt|
+  ruby_apartment = Apartment.new apt[:id], apt[:address], apt[:monthly_rent], apt[:square_feet]
+  ruby_apartments << ruby_apartment
+end
+
+tenants.each do |tnt|
+  ruby_tenant = Tenant.new tnt[:id], tnt[:name], tnt[:age], tnt[:apartment_id]
+  ruby_tenants << ruby_tenant
+end
 
 loop do
 puts "Please press 1 to view all apartments or 2 to view tenants"
 choice = gets.chomp.to_i
 if choice == 1
-  puts apartments
+  puts ruby_apartments.inspect
 end
 if choice == 2
-  puts tenants
+  puts ruby_tenants.inspect
 end
-break if choice == 1 || choice == 2
+break if choice == 0
 end
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
