@@ -1,4 +1,5 @@
 def data
+  # Each apartment is given an ID.  Each ID is given a method for address, monthly rent, and square feet.
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -23,6 +24,7 @@ def data
   ]
 
   tenants = [
+    # each tenant is given an ID.  Each ID is given a name, age and apartment ID.
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
     {:id=>3, :name=>"Jordan Cremin DDS", :age=>54, :apartment_id=>13},
