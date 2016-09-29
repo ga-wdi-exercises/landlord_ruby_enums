@@ -1,4 +1,6 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
@@ -55,7 +57,6 @@ def view_all_apts(apartments)
   puts `clear`
   puts "View All Apartments"
   puts
-  #:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
   printf(" %10s  %-30s  %7s   %12s \n\r","ID","Address","Rent","Sq Feet")
   apartments.each_entry{ |o| printf " %10s  %-30s  $%8.2f   %10d \n",
                                      o[:id],o[:address],o[:monthly_rent],
@@ -75,7 +76,6 @@ def   view_all_tenants(tenants)
   puts `clear`
   puts "View All Apartments"
   puts
-  #{:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
   printf(" %10s    %-30s  %6s   %10s \n","ID","Name","Age","Apt ID")
   tenants.each_entry{ |o| printf " %10s  %-30s  %8d   %10d \n",
                                      o[:id],o[:name],o[:age],
