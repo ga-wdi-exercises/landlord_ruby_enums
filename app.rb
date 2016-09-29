@@ -81,8 +81,8 @@ def view_all_apts(apartments)
   puts
   printf(" %10s  %-30s  %7s   %12s \n\r","ID","Address","Rent","Sq Feet")
   apartments.each_entry{ |o| printf " %10s  %-30s  $%8.2f   %10d \n",
-                                     o[:id],o[:address],o[:monthly_rent],
-                                    o[:square_feet] }
+                                     o.id,o.address,o.monthly_rent,
+                                    o.square_feet }
   puts
 
 end
@@ -100,8 +100,8 @@ def   view_all_tenants(tenants)
   puts
   printf(" %10s    %-30s  %6s   %10s \n","ID","Name","Age","Apt ID")
   tenants.each_entry{ |o| printf " %10s  %-30s  %8d   %10d \n",
-                                     o[:id],o[:name],o[:age],
-                                    o[:apartment_id] }
+                                     o.id,o.name,o.age,
+                                    o.apartment_id }
   puts
 
 end
@@ -157,10 +157,10 @@ def menu
 end # menu
 
 menu_item=0
-# while true
-#   menu_item=menu
-#   # puts menu_item
-#   if handle_menu(menu_item,apartments,tenants)
-#     break # exit given
-#   end #if
-# end
+while true
+  menu_item=menu
+  # puts menu_item
+  if handle_menu(menu_item,ruby_apartments,ruby_tenants)
+    break # exit given
+  end #if
+end
