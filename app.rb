@@ -59,16 +59,6 @@ ruby_tenants = []
   puts "enter number"
   number = gets.chomp
 
-  if number.to_i == 1
-  ruby_apartments.each do |apartment|
-      puts apartment.address
-    end
-  end
-  if number.to_i == 2
-    ruby_tenants.each do |tenant|
-    puts tenant.name
-    end
-  end
 
   apartments.each do |apt|
     ruby_apartments << Apartment.new(apt[:id], apt[:address], apt[:monthly_rent], apt[:square_feet])
@@ -77,3 +67,15 @@ ruby_tenants = []
   tenants.each do |ten|
     ruby_tenants << Tenant.new(ten[:id], ten[:address], ten[:monthly_rent], ten[:square_feet])
   end
+
+  if number.to_i == 1
+    ruby_apartments.each do |apartment|
+      puts apartment.address
+    end
+  end
+  if number.to_i == 2
+    ruby_tenants.each do |tenant|
+      puts tenant.name
+    end
+  end
+  # puts ruby_apartments
