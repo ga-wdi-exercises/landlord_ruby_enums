@@ -3,11 +3,21 @@ apartments = data[:apartments]
 tenants = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-  # Explain how the data is structured
-  # What are the properties for each of the two types of hashes
+
+# Explain how the data is structured
+# What are the properties for each of the two types of hashes
+
+# --> The apartments hash contains keys and values identifying an apartment by an id, address, its monthly rent and the size of the apartment -- the apartment of the object.
+
+# --> The tenants hash contains information that identifys a tenant by name, a record id, their age and which apartment they are assigned -- the tenant is the object.
+
 
 # Use enumerables to -
   # Print all the addresses for the apartments
+  aptaddy = apartments.each do {|apartment| apartment[:address]}
+    puts aptaddy
+  end
+
   # Print all the names for tenants
   # Print only apartments that are less then 700 in rent
   # Print only tenants that are over the age of 44
