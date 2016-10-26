@@ -53,7 +53,7 @@ tenants = data[:tenants]
   # When printing all apartments, under each apartment print all of its tenants
   apartments.each do |apartment|
     puts apartment[:address]
-    tenant = tenants.find {|tenant| tenant[:apartment_id] == apartment[:id]}
+    tenant = tenants.select {|tenant| tenant[:apartment_id] == apartment[:id]}
     tenant.each do |tenant|
       puts tenant[:name]
     end
