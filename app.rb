@@ -40,13 +40,65 @@ tnts_alpha = tenants.sort {|a, b| a[:name] <=> b[:name]}
     puts tenants
   end
 
+  def adjust_tenant apartments, tenants
+    loop do
+      puts "Please enter an apartment ID to add or remove a tenant (type 'back' to return to home screen)"
+      apt_id = gets.chomp
+      break if apt_id == "back"
+      puts "Selected Apartment: #{apartments.find {|apartment| apartment[:id] == apt_id.to_i}[:address]}"
+      # need to add functionality to add or remove a tenant from an apartment
+      tenants_in_apt = tenants.select {|tnt| tnt[:apartment_id] == apt_id.to_i}
+      puts "The following tenants live in that apartment: \n#{tenants_in_apt.map{|tenant| tenant[:name]}.join(", ")}"
+      puts "Would you like to add or remove a tenant from this apartment (Type 'add' or 'remove')"
+      add_remove = gets.chomp
+      if add_remove == "remove"
+        puts "Enter the full name of the tenant who you would like to remove from the apartment"
+        tnt_remove = gets.chomp
+        tnt_to_remove = tenants_in_apt.find{|tenant| tenant[:name] == tnt_remove}
+        tnt_to_remove[:apartment_id] = nil
+        puts "#{tnt_remove} has been removed from the apartment!"
+      elsif add_remove =="add"
+        puts "Enter the full name of the tenant who you would like to add to the apartment"
+        tnt_add = gets.chomp
+        tnt_to_add = tenants.find{|tenant| tenant[:name] == tnt_add}
+        tnt_to_add[:apartment_id] = apt_id.to_i
+        puts "#{tnt_add} has been added to the apartment!"
+      end
+    end
+  end
+
+  def add_apartment apartments
+    lastid = apartments.last[:id]
+    puts "What is the apartment address?"
+    address = gets.chomp
+    puts "What is the monthly rent?"
+    rent = gets.chomp
+    puts "What is the square footage?"
+    sqft = gets.chomp
+    apartments << {:id => lastid +1, :address => address, :monthly_rent => rent, :square_feet => sqft}
+    puts apartments
+  end
+
+  def add_tenant tenants
+    lastid = tenants.last[:id]
+    puts "What is the tenant's full name?"
+    name = gets.chomp
+    puts "What is the tenant's age?"
+    age = gets.chomp.to_i
+    puts "What is the tenant's apartment ID?"
+    apt_id = gets.chomp.to_i
+    tenants << {:id => lastid +1, :name => name, :age => age, :apartment_id => apt_id}
+    puts tenants
+  end
+
 # USER STARTS HERE
 
-puts "******************************************************\nWelcome to Bob Pizza's Propery Management Application!\n******************************************************\n\nPlease enter the values below to access the application: \n\n'1' - View apartment data \n'2' - View tenant data \n'3' - View list of apartments and their tenants\n'4' - View list of tenants and their apartment address \n'exit' - Exit"
+puts "******************************************************\nWelcome to Bob Pizza's Propery Management Application!\n******************************************************\n\nPlease enter the values below to access the application: \n\n'1' - View apartment data \n'2' - View tenant data \n'3' - View list of apartments and their tenants\n'4' - View list of tenants and their apartment address \n'5' - Create new apartment entry \n'6' - Create new tenant entry \n'exit' - Exit"
 
 entry = ""
 
 while entry != "exit"
+  puts "\n*\n*\n*\nEnter feature number here:"
   entry = gets.chomp
   5.times do |i|
     puts "*" * i
@@ -62,17 +114,16 @@ while entry != "exit"
       apartment_tenants = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
       puts "#{i+1} - #{apartment[:address]} #{spaces} #{apartment_tenants.map{|el| el[:name]}.join(", ")}"
     end
-    apt_id = ""
-    while apt_id != "exit"
-      puts "Please enter an apartment ID to add or remove a tenant"
-      apt_id = gets.chomp
-        puts "test: #{apartments.find {|apartment| apartment[:id] == apt_id.to_i}}"
-    end
+    adjust_tenant apartments, tenants
   elsif entry == "4"
     tenants.each_with_index do |tenant, i|
       spaces = " " * (30 - tenant[:name].length)
       tenants_apartment = apartments.find{|apartment| apartment[:id] == tenant[:apartment_id]}
       puts "#{i+1} - #{tenant[:name]} #{spaces} #{tenants_apartment[:address]}"
     end
+  elsif entry == "5"
+    add_apartment apartments
+  elsif entry == "6"
+    add_tenant tenants
   end
 end
