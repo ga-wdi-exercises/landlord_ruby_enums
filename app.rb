@@ -1,9 +1,9 @@
 require_relative "data"
-require "pry"
+# require "pry"
 
 
-require_relative "models/apartment"
-require_relative "models/tenant"
+require_relative "models/apartments"
+require_relative "models/tenants"
 apartments = data[:apartments]
 tenants = data[:tenants]
 ruby_apartments = []
@@ -31,42 +31,68 @@ ruby_tenants = []
 
 
 # Print all the addresses for the apartments
+# apartments.each do |apartment|
+#   puts apartment[:address]
+# end
+#
+# # Print all the names for tenants
+# tenants.each do |tenant|
+#   puts tenant[:name]
+# end
+#
+# # Print only apartments that are less then 700 in rent
+# apartments.each do |apartment|
+#   if apartment[:monthly_rent] < 700
+#     puts apartments
+#   end
+# end
+#
+# # Print only tenants that are over the age of 44
+# tenants.each do |tenant|
+#   if tenant[:age] > 44
+#     puts tenants
+#   end
+# end
+#
+# # Print only tenants that have an apartment id of 1
+# tenants.each do |tenant|
+#   if tenant[:apartment_id] == 1
+#     puts tenants
+#   end
+# end
+#
+# # Print all the tenants in order from youngest to oldest
+# tenants.sort_by! do |tenant|
+#   tenant[:age]
+# end
+#
+# # Print the names of all the tenants alphabetically
+# tenants.sort_by! do |tenant|
+#   tenant[:name]
+# end
+
 apartments.each do |apartment|
-  puts apartment[:address]
+  ruby_apartments << Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
 
-# Print all the names for tenants
 tenants.each do |tenant|
-  puts tenant[:name]
+  ruby_tenants << Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
 
-# Print only apartments that are less then 700 in rent
-apartments.each do |apartment|
-  if apartment[:monthly_rent] < 700
-      puts apartments
+def start_app
+  puts "WELCOME TO BOB PIZZA'S APARTMENTS!!"
+  puts "Enter 1 to view all apartments information."
+  puts "Enter 2 to view all tenants information."
+  puts "Enter any other key to exit."
+
+  userInput = gets.chomp
+    if userInput == '1'
+      Apartment.view_all_apartments
+      elsif userInput == '2'
+        Tenant.view_all_tenants
+        else
+          puts "QUITTING PROGRAM..."
     end
-  end
-
-# Print only tenants that are over the age of 44
-tenants.each do |tenant|
-  if tenant[:age] > 44
-    puts tenants
-  end
 end
 
-# Print only tenants that have an apartment id of 1
-tenants.each do |tenant|
-  if tenant[:apartment_id] == 1
-    puts tenant
-  end
-end
-
-# Print all the tenants in order from youngest to oldest
-tenants.sort_by! do |tenant|
-  tenant[:age]
-end
-
-# Print the names of all the tenants alphabetically
-tenants.sort_by! do |tenant|
-  tenant[:name]
-end
+start_app
