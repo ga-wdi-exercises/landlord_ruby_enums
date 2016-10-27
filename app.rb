@@ -1,6 +1,18 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+apartments.each do |apartment|
+   ruby_apartments = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+tenants.each do |tenant|
+  ruby_tenants = Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -68,12 +80,13 @@ tenants = data[:tenants]
   #   end
   # end
 
-puts "WELCOME TO BOB PIZZA'S APP PROGRAM. Press any keys to continue."
+puts "WELCOME TO BOB PIZZA'S APP PROGRAM. Press enter to continue."
 user_input = gets.chomp
 
 while user_input != "end"
 
-puts "Please enter the number to access the option that you want or type end to cancel out the program"
+puts " "
+puts "Please enter the number to access the option that you want."
 puts "1. View all the apartments."
 puts "2. View all the tenants."
 
@@ -97,6 +110,6 @@ user_input = gets.chomp
     end
   end
   puts " "
-  puts "Would you like to continue or end the program? (type continue or end)"
+  puts "Press enter to continue or type end to exit the program?"
   user_input = gets.chomp
 end
