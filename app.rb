@@ -94,7 +94,7 @@ end
     rent = gets.chomp
     puts "What is the square footage?"
     sqft = gets.chomp
-    ruby_apartments << {:id => lastid +1, :address => address, :monthly_rent => rent, :square_feet => sqft}
+    ruby_apartments << Apartment.new(lastid + 1, address, rent, sqft)
     puts "Congrats! You've successfully added an apartment!"
   end
 
@@ -106,7 +106,7 @@ end
     age = gets.chomp.to_i
     puts "What is the tenant's apartment ID?"
     apt_id = gets.chomp.to_i
-    ruby_tenants << {:id => lastid +1, :name => name, :age => age, :apartment_id => apt_id}
+    ruby_tenants << Tenant.new(lastid + 1, name, age, apt_id)
     puts "Congrats! You've successfully added a tenant!"
   end
 
