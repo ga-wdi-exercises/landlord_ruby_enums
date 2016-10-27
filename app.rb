@@ -16,6 +16,7 @@ ruby_tenants = []
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
+################## Part 1 Commented Out ##################
 
   # Print all the addresses for the apartments
 
@@ -69,36 +70,70 @@ tenants.each do |tnt|
   ruby_tenants << newtenant
 end
 
-
-
+def menuscreen ruby_tenants, ruby_apartments
 puts "###################################################"
 puts "Welcome to landlord.ly, the premier landlording app"
 puts "###################################################"
 puts "1. list all tenants"
 puts "2. list all apartments"
 puts "3. view apartments with current tenants"
+puts "4. search apartment by tenant"
+puts "5. remove tenant from apartment"
 puts "9. exit"
 menu = gets.chomp.to_i
 case menu
 when 1
-  tenants.each do |name|
-    puts "#{name[:name]}"
+  ruby_tenants.each do |name|
+    puts "#{name.name}"
   end
+  puts ""
+  menuscreen ruby_tenants, ruby_apartments
 when 2
-  apartments.each do |apt|
-    puts "#{apt[:address]}"
+  ruby_apartments.each do |apt|
+    puts "#{apt.address}"
   end
+  puts ""
+  menuscreen ruby_tenants, ruby_apartments
 when 3
-  apartments.each do |apt|
-    tenants.each do |name|
-        if apt[:id] == name[:apartment_id]
-    puts "#{apt[:address]}, occupied by #{name[:name]}"
+  ruby_apartments.each do |apt|
+    ruby_tenants.each do |name|
+      if apt.id == name.apartment_id
+    puts "#{apt.address}, occupied by #{name.name}\n"
   end
 end
   end
+  puts ""
+  menuscreen ruby_tenants, ruby_apartments
+when 4
+  puts "enter tenant name"
+  search = gets.chomp
+  ruby_apartments.each do |apt|
+    ruby_tenants.each do |name|
+  if search == name.name && apt.id == name.apartment_id
+    puts "#{name.name} lives at #{apt.address}\n"
+end
+end
+end
+puts ""
+menuscreen ruby_tenants, ruby_apartments
+when 5
+  puts "removing tenant: enter tenant name"
+  search = gets.chomp
+  ruby_tenants.each do |name|
+  if search == name.name
+    name.apartment_id = nil  #there's gotta be a better way to do this
+  end
+end
+puts "#{search} has been removed"
+puts ""
+menuscreen ruby_tenants, ruby_apartments
 
 when 9
-  puts "enjoy your idle wealth!"
+  puts "enjoy your idle wealth!!"
 else
-  puts "NaN"
+  puts "not a valid response\n\n"
+  menuscreen ruby_tenants, ruby_apartments
 end
+end
+
+menuscreen ruby_tenants, ruby_apartments
