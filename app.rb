@@ -1,6 +1,8 @@
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
+# apartments = data[:apartments]
+# tenants = data[:tenants]
 group_of_apartments = []
 group_of_tenants = []
 
@@ -9,7 +11,7 @@ data[:apartments].each do |apartment|
 end
 
 data[:tenants].each do |tenant|
- group_of_tenants << ruby_tenant = Tenant.new(tenent[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+ group_of_tenants << ruby_tenant = Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
@@ -80,7 +82,7 @@ end
   #   end
   # end
 
-def data_system apartments, tenants
+
   puts "*********** Hello Bob Pizza! Welcome to the Building Managment Data System **********\n
   View Properties - Enter '1'\n
   List of Tenants - Enter '2'\n
@@ -91,22 +93,22 @@ def data_system apartments, tenants
   answer = gets.chomp.to_i
 
   if answer == 1
-    apartments.each do |apartment|
-      puts "Apartment number: #{apartment[:id]}, location: #{apartment[:address]}"
+    group_of_apartments.each do |apartment|
+      puts "Apartment number: #{apartment.get_id}, location: #{apartment.get_address}"
     end
   end
   if answer == 2
-    alphabet = tenants.sort_by{|tenant| tenant[:name]}
+    alphabet = group_of_tenants.sort_by{|tenant| tenant.get_name}
     alphabet.each do |tenant|
-      puts "Resident: #{tenant[:name]}"
+      puts "Resident: #{tenant.get_name}"
     end
   end
   if answer == 3
-    apartments.each do |apartment|
-      puts "*****| Apartment #{apartment[:id]} | #{apartment[:address]} |*****"
-      tenants.each do |tenant|
-       if tenant[:apartment_id] == apartment[:id]
-         puts tenant[:name]
+    group_of_apartments.each do |apartment|
+      puts "*****| Apartment #{apartment.get_id} | #{apartment.get_address} |*****"
+      group_of_tenants.each do |tenant|
+       if tenant.get_apartment == apartment.get_id
+         puts tenant.get_name
        end
       end
     end
@@ -114,14 +116,12 @@ def data_system apartments, tenants
   if answer == 4
     puts "Please enter the tenant name"
     name = gets.chomp
-    find_tenant = tenants.select do |tenant|
-       tenant[:name] == name
+    find_tenant = group_of_tenants.select do |tenant|
+       tenant.get_name == name
      end
-    find_apartment = apartments.select do |apt|
-        apt[:id] == find_tenant[0][:apartment_id]
-      end
-    puts "#{find_tenant[0][:name]} lives at #{find_apartment[0][:address]}"
-  end
-end
 
-data_system apartments, tenants
+    find_apartment = group_of_apartments.select do |apt|
+        apt.get_id == find_tenant[0].get_apartment
+    end
+    puts "#{find_tenant[0].get_name} lives at #{find_apartment[0].get_address}"
+  end
