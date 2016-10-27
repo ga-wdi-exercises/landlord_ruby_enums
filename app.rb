@@ -1,6 +1,10 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 # Use enumerables to -
   # Print all the addresses for the apartments
@@ -41,19 +45,19 @@ tenants = data[:tenants]
   # end
 
   ##Part 2 methods
-  def show_all_apartments(apartments)
-    puts "Apartments"
-    apartments.each { |apartment|
-      puts "Unit: #{apartment[:id]}, Address: #{apartment[:address]}, Size: #{apartment[:square_feet]}, rent $#{apartment[:monthly_rent]}"
-    }
-  end
-
-  def show_all_tenants(tenants)
-    puts "Tenants"
-    tenants.each { |tenant|
-      puts "Name: #{tenant[:name]} Age: #{tenant[:age]} Unit: #{tenant[:apartment_id]}"
-    }
-  end
+  # def show_all_apartments(apartments)
+  #   puts "Apartments"
+  #   apartments.each { |apartment|
+  #     puts "Unit: #{apartment[:id]}, Address: #{apartment[:address]}, Size: #{apartment[:square_feet]}, rent $#{apartment[:monthly_rent]}"
+  #   }
+  # end
+  #
+  # def show_all_tenants(tenants)
+  #   puts "Tenants"
+  #   tenants.each { |tenant|
+  #     puts "Name: #{tenant[:name]} Age: #{tenant[:age]} Unit: #{tenant[:apartment_id]}"
+  #   }
+  # end
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
@@ -68,6 +72,37 @@ tenants = data[:tenants]
 # tenants_by_age(tenants)
 # tenants_by_name(tenants)
 
+##Part Three
+
+def import_apartments(apartments, ruby_apartments)
+  apartments.each { |apartment|
+    import = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+    ruby_apartments << import
+   }
+end
+
+def import_tenants(tenants, ruby_tenants)
+  tenants.each { |tenant|
+    import = Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+    ruby_tenants << import
+  }
+end
+
+def show_apartments
+  Apartment.all.each { |apartment|
+    puts "Unit: #{apartment.id}, Address: #{apartment.address}, Size: #{apartment.square_feet}, rent $#{apartment.monthly_rent}"
+  }
+end
+
+def show_all_tenants
+  Tenant.all.each { |tenant|
+    puts "Name: #{tenant.name} Age: #{tenant.age} Unit: #{tenant.apartment_id}"
+  }
+end
+
+import_apartments(apartments, ruby_apartments)
+import_tenants(tenants, ruby_tenants)
+
 loop {
   puts "Welcome, Bob. Property Management Menu"
   puts "1 - View All Apartments"
@@ -76,11 +111,10 @@ loop {
   option = gets.chomp.to_i
   break if option == 0
   if option == 1
-    show_all_apartments(apartments)
+    show_apartments
   elsif option == 2
-    show_all_tenants(tenants)
+    show_all_tenants
   else
     puts "Unrecognized Option: #{option}"
   end
-
 }
