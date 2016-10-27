@@ -1,6 +1,6 @@
-# require_relative "data"
-# apartments = data[:apartments]
-# tenants = data[:tenants]
+require_relative "data"
+apartments = data[:apartments]
+tenants = data[:tenants]
 #
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 # # Explain how the data is structured
@@ -75,3 +75,21 @@
 #     end
 #   end
 #   end
+
+
+puts "Welcome to Management Systems"
+puts "Enter 1 to view apartment data."
+puts " Enter 2 to view tenant data."
+option = gets.chomp.to_i
+
+if option == 1
+  apartments.each do |apartment|
+    puts "Apartment: #{apartment[:id]}, address: #{apartment[:address]}, cost: #{apartment[:monthly_rent]} sqft. #{apartment[:square_feet]}\n"
+  end
+end
+if option == 2
+     names = tenants.sort_by { |name| name[:name]}
+     names.each do |name|
+       puts name[:name]
+    end
+end
