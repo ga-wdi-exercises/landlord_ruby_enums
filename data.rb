@@ -75,4 +75,17 @@ def data
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
   return {apartments:apartments, tenants:tenants}
+
 end
+
+
+
+
+
+
+
+# Use enumerables to -
+
+  ## More challenging
+  # When printing tenants also print out the address that the tenant resides in.
+  # When printing all apartments, under each apartment print all of its tenants
