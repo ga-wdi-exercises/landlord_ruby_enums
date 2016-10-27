@@ -1,9 +1,17 @@
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
-apartments = data[:apartments]
-tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
+data[:tenants].each do |tenant|
+  ruby_tenants << tenant = Tenant.new(tenant[:name], tenant[:age], tenant[:apartment_id])
+end
+
+
+data[:apartments].each do |apartment|
+  ruby_apartments << apartments = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
 
 answer = 0
 
@@ -17,45 +25,44 @@ loop do
   puts '---------------'
   answer = gets.chomp.to_i
   if answer == 1
-     data[:apartments].each do |apartment|
-       puts apartment[:address]
+     ruby_apartments.each do |apartment|
+       puts apartment.get_address
      end
   elsif answer == 2
-    data[:tenants].each do |tenant|
-      puts tenant[:name]
+    ruby_tenants.each do |tenant|
+      puts tenant.get_name
     end
   elsif answer == 3
-    data[:apartments].each do |apartment|
+    ruby_apartments.each do |apartment|
       puts ''
-      puts apartment[:address]
+      puts apartment.get_address
       puts "---------"
-      tenants_in_apartment = data[:tenants].select do |tenant|
-        tenant[:apartment_id] == apartment[:id]
+      tenants_in_apartment = ruby_tenants.select do |tenant|
+        tenant.get_apartment_id == apartment.get_id
       end
       if tenants_in_apartment.length == 0
         puts "No tenants in this apartment"
       else
         tenants_in_apartment.each do |tenant|
-          puts tenant[:name]
+          puts tenant.get_name
         end
       end
     end
   elsif answer == 4
     puts "Enter tenant name"
     name = gets.chomp
-    find_tenant = data[:tenants].select do |tenant|
-      tenant[:name] == name
+    find_tenant = ruby_tenants.select do |tenant|
+      tenant.get_name == name
     end
-    find_apartment = data[:apartments].select do |apartment|
-      find_tenant[0][:apartment_id] == apartment[:id]
+    find_apartment = ruby_apartments.select do |apartment|
+      find_tenant[0].get_apartment_id == apartment.get_id
     end
-    puts "#{name}, #{find_tenant[0][:age]}"
-    puts "Lives at #{find_apartment[0][:address]}"
+    puts "Lives at #{find_apartment[0].get_address}"
   end
 end
 
 # data[:apartment].each do |apartment|
-#   data[:tenants].select do |tenant|
+#   ruby_tenants.select do |tenant|
 #   end
 # end
 
