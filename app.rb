@@ -1,7 +1,24 @@
 require "pry"
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
+
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+# ruby_apartments = apartments.map do |apartment|
+#   Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+# end
+
+apartments.each do |apartment|
+   ruby_apartments << Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+puts ruby_apartments
+
+binding.pry
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
