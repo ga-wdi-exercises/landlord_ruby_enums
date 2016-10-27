@@ -57,6 +57,8 @@ tenants = data[:tenants]
   #   end
   # end
 
+
+
 # MVP
 puts "Buffering..\n
 -------------------------------\n
@@ -103,42 +105,42 @@ elsif user_input == 4
   end
 
 elsif user_input == 5
-  # I need to write a function that removes a tenant association or tenant from system?
+# This isn't working
 
-  def method_name
+  puts "Enter Tenant ID"
+  user_input2 = gets.chomp.to_i
 
-  end
+  tenants.find do |tenant| tenant[:id] == user_input2
+    tenant[:apartment_id] = 0
+    puts "You've removed #{tenant[:name]} from apartment #{tenant[:apartment_id]}"
+ end
 
-elsif user_input == 6
-  # I need to write a function that adds a tenant association to an apartment
+# elsif user_input == 6
+#   # I need to write a something that adds a tenant association to an apartment
+#
+#   def method_name
+#
+#   end
 
-  def method_name
-
-  end
-
-elsif user_input == 7
-  # I need to write a function that creates a new apartment and pushes it into the existing hash structure.
-  def ()
-    {:id=>,
-      :address=>,
-      :monthly_rent=>,
-      :square_feet=>},
-
-    end
-
-
+# elsif user_input == 7
+  # I need to write something that creates a new apartment and pushes it into the existing hash structure.
+  # def ()
+  #   {:id=>,
+  #     :address=>,
+  #     :monthly_rent=>,
+  #     :square_feet=>},
+  #
+  #   end
 
 
-  else user_input == 8
-    # I need to write a function that creates a new apartment and pushes it into the exisitng hash
+  # else user_input == 8
+    # I need to write a something that creates a new apartment and pushes it into the exisitng hash
 
-    def()
-      {:id=>,
-        :name=>,
-        :age=>,
-        :apartment_id=>},
-      end
+    # def()
+    #   {:id=>,
+    #     :name=>,
+    #     :age=>,
+    #     :apartment_id=>},
+    #   end
 
-    end
-  end
 end
