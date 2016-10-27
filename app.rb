@@ -5,6 +5,7 @@ tenants = data[:tenants]
 puts "hello world"
 puts ""
 
+#PART 1
   # Print all the addresses for the apartments
 addresses = apartments.map{ |apartment| apartment[:address] }
 # puts addresses
@@ -36,15 +37,28 @@ alphabetical = tenants.sort_by { |tenant| tenant[:name]}
 # When printing tenants also print out the address that the tenant resides in.
 tenants.each do |tenant|
    apartment = apartments.find {|apartment| tenant[:apartment_id] == apartment[:id]}
-    puts tenant[:name]
-    puts apartment[:address]
+    # puts tenant[:name]
+    # puts apartment[:address]
  end
 
  # When printing all apartments, under each apartment print all of its tenants
  apartments.each do |apartment|
     tenant = tenants.select {|tenant| tenant[:apartment_id] == apartment[:id]}
     tenant.each do |tenant|
-    puts apartment[:address]
-    puts tenant[:name]
+    # puts apartment[:address]
+    # puts tenant[:name]
     end
   end
+
+puts "-------------------------------------------\nBob Pizza's Propery Management Application!\n-------------------------------------------\n\nPlease enter the values below to access the application: \n\n'1' - View apartment data \n'2' - View tenant data\n\n"
+value = gets.chomp
+
+if value == "1"
+puts "APARTMENT DATA:"
+puts apartments
+puts ""
+elsif value == "2"
+puts "TENANT DATA:"
+puts tenants
+puts ""
+end
