@@ -2,29 +2,43 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-
-
 # Use enumerables to -
-
-
-
   # Print all the addresses for the apartments
   def print_addresses(apartments)
-    addresses = apartments.map { |apartment| aparment[:address]  }
+    addresses = apartments.map { |apartment| apartment[:address]  }
     addresses.each { |address| puts address }
   end
 
   # Print all the names for tenants
-  
-
-
-
+  def print_tenant_names(tenants)
+    names = tenants.map { |tenant| tenant[:name]  }
+    names.each { |name| puts name }
+  end
 
   # Print only apartments that are less then 700 in rent
+  def print_apartments_under(apartments, price)
+    deals =  apartments.select { |apartment| apartment[:monthly_rent] < price }
+    deals.each { |deal| puts deal }
+  end
+
   # Print only tenants that are over the age of 44
+  def print_tenants_older_than(tenants, age)
+    #Kappa
+    soylent = tenants.select { |tenant| tenant[:age] > age }
+    soylent.each { |person| puts person  }
+  end
   # Print only tenants that have an apartment id of 1
+  def tenants_by_apartment_id(tenants, id)
+    puts tenants.select { |tenant| tenant[:apartment_id] == id  }
+  end
   # Print all the tenants in order from youngest to oldest
+  def tenants_by_age(tenants)
+    puts tenants.sort_by { |tenant| tenant[:age]  }
+  end
   # Print the names of all the tenants alphabetically
+  def tenants_by_name(tenants)
+    puts tenants.sort_by { |tenant| tenant[:name]  }
+  end
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
@@ -32,3 +46,9 @@ tenants = data[:tenants]
 
 
 print_addresses(apartments)
+print_tenant_names(tenants)
+print_apartments_under(apartments, 700)
+print_tenants_older_than(tenants, 44)
+tenants_by_apartment_id(tenants, 1)
+tenants_by_age(tenants)
+tenants_by_name(tenants)
