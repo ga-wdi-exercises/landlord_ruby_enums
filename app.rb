@@ -79,6 +79,7 @@ puts "2. list all apartments"
 puts "3. view apartments with current tenants"
 puts "4. search apartment by tenant"
 puts "5. remove tenant from apartment"
+puts "6. add new tenant"
 puts "9. exit"
 menu = gets.chomp.to_i
 case menu
@@ -125,6 +126,19 @@ when 5
   end
 end
 puts "#{search} has been removed"
+puts ""
+menuscreen ruby_tenants, ruby_apartments
+when 6
+  puts "new tenant name"
+  newname = gets.chomp
+  puts "new tenant id"
+  newid = gets.chomp
+  puts "new tenant age"
+  newage = gets.chomp
+  puts "new tenant apartment_id"
+  newapt = gets.chomp
+ruby_tenants << Tenant.new(newid, newname, newage, newapt)
+puts "#{newname} has been added"
 puts ""
 menuscreen ruby_tenants, ruby_apartments
 
