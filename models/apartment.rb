@@ -1,7 +1,7 @@
 class Apartment
   attr_accessor :id, :address, :monthly_rent, :square_feet
 
-  def intialize id, address, rent, sqft
+  def initialize id, address, rent, sqft
     @id = id
     @address = address
     @monthly_rent = rent
