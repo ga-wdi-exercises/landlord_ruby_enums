@@ -50,15 +50,39 @@ tenants.each do |tenant|
     end
   end
 
-puts "-------------------------------------------\nBob Pizza's Propery Management Application!\n-------------------------------------------\n\nPlease enter the values below to access the application: \n\n'1' - View apartment data \n'2' - View tenant data\n\n"
+puts "-------------------------------------------\nBob Pizza's Propery Management Application!\n-------------------------------------------\n\nPlease enter the values below to access the application: \n\n'1' - View apartment data \n'2' - View tenant data\n'3' - View occupancy data\n'4' - View tenant data\n\n"
 value = gets.chomp
 
-if value == "1"
-puts "APARTMENT DATA:"
-puts apartments
-puts ""
-elsif value == "2"
-puts "TENANT DATA:"
-puts tenants
-puts ""
-end
+  if value == "1"
+    puts ""
+    puts "APARTMENT DATA:"
+    puts apartments
+    puts ""
+  elsif value == "2"
+    puts ""
+    puts "TENANT DATA:"
+    puts tenants
+    puts ""
+  elsif value == "3"
+  puts ""
+  puts "OCCUPANCY DATA:"
+  puts ""
+  apartments.each do |apartment|
+     tenant = tenants.select {|tenant| tenant[:apartment_id] == apartment[:id]}
+      puts apartment[:address].upcase
+       tenant.each do |tenant|
+         puts tenant[:name]
+       end
+       puts ""
+     end
+   elsif value == "4"
+   puts ""
+   puts "TENANT ADDRESS DATA:"
+   puts ""
+     tenants.each do |tenant|
+        apartment = apartments.find {|apartment| tenant[:apartment_id] == apartment[:id]}
+         puts tenant[:name]
+         puts apartment[:address]
+         puts ""
+      end
+   end
