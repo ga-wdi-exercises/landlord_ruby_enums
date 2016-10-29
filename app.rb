@@ -77,19 +77,64 @@ tenants = data[:tenants]
 #   end
 
 
-puts "Welcome to Management Systems"
-puts "Enter 1 to view apartment data."
-puts " Enter 2 to view tenant data."
-option = gets.chomp.to_i
+puts "Welcome to your Building Management System Application"
+puts "Enter 1 to see an overview of your apartments.\n"
+puts "Enter 2 to see all tenant information."
+data_pick = gets.chomp.to_i
 
-if option == 1
-  apartments.each do |apartment|
-    puts "Apartment: #{apartment[:id]}, address: #{apartment[:address]}, cost: #{apartment[:monthly_rent]} sqft. #{apartment[:square_feet]}\n"
-  end
+if data_pick == 1
+  puts "You now have all access to all the apartment information. There is a total of 20 apartments"
+  puts " *********\n"
+  puts "Pick from the following options to view specific apartment information:\n
+      1 for apartment addresses\n
+      2 for apartment square footage\n
+      3 for monthly rent"
+  apt_info = gets.chomp.to_i
+
+  if apt_info == 1
+     apartments.each do |apartment|
+       puts " ID:#{apartment[:id]} Address: #{apartment[:address]}"
+      end
+ elsif apt_info == 2
+     apartments.each do |apartment|
+       puts " ID:#{apartment[:id]} Square Footage: #{apartment[:square_feet]}"
+     end
+ else
+     apartments.each do |apartment|
+       puts " ID:#{apartment[:id]} Monthly Rent: #{apartment[:monthly_rent]}"
+     end
+ end
+
 end
-if option == 2
-     names = tenants.sort_by { |name| name[:name]}
-     names.each do |name|
-       puts name[:name]
+
+
+
+if data_pick ==2
+  puts "You now have access to all the tenant information.\n Pick from the following options:"
+  puts "To view specific tenant information, pick from the following list:\n
+       Enter 1 for tenant name\n
+       Enter 2 for tenant age\n
+       Enter 3 for the apartment id of each tenant"
+  tenant_info = gets.chomp.to_i
+
+
+  if tenant_info == 1
+    tenants.each do |tenant|
+      puts " ID:#{tenant[:id]} Name: #{tenant[:name]}"
+     end
+  elsif tenant_info == 2
+    tenants.each do |tenant|
+      puts "ID:#{tenant[:name]} Age: #{tenant[:age]}"
+     end
+  else
+    apartments.each do |apartment|
+      tenants.each do |tenant|
+        if tenant[:apartment_id] == apartment[:id]
+          puts  "  #{ tenant[:apartment_id]}  #{tenant[:name]}  #{apartment[:address]}\n" + " ****"
+        end
+      end
     end
+  end
+
+
 end
