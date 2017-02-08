@@ -1,3 +1,16 @@
+# Use enumerables to -
+  # Print all the addresses for the apartments
+  # Print all the names for tenants
+  # Print only apartments that are less then 700 in rent
+  # Print only tenants that are over the age of 44
+  # Print only tenants that have an apartment id of 1
+  # Print all the tenants in order from youngest to oldest
+  # Print the names of all the tenants alphabetically
+
+  ## More challenging
+  # When printing tenants also print out the address that the tenant resides in.
+  # When printing all apartments, under each apartment print all of its tenants
+
 require "pry"
 
 require_relative "data"
@@ -48,19 +61,5 @@ end
 tenants.sort_by {|tenant| tenant[:name]}. each do |tenant|
   puts "Tenant by Name: #{tenant[:name]}"
 end
-# Use enumerables to -
-  # Print all the addresses for the apartments
-  # Print all the names for tenants
-  # Print only apartments that are less then 700 in rent
-  # Print only tenants that are over the age of 44
-  # Print only tenants that have an apartment id of 1
-  # Print all the tenants in order from youngest to oldest
-  # Print the names of all the tenants alphabetically
-
-  ## More challenging
-  # When printing tenants also print out the address that the tenant resides in.
-  # When printing all apartments, under each apartment print all of its tenants
-
-
 
 binding.pry
