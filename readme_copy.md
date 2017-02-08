@@ -19,33 +19,6 @@
 - I should be allowed to create a new tenant so that I can track new tenants in my books.
 ```
 
-
-Make sure all your instance variables(attributes) are accessible within the instances of your class through getter and setters methods.
-
-### Step 3b - Converting existing data into instances of the classes we've defined in Step 1.
-
-Here's some starter code...
-
-```ruby
-require_relative "data"
-require_relative "models/apartment"
-require_relative "models/tenant"
-apartments = data[:apartments]
-tenants = data[:tenants]
-ruby_apartments = []
-ruby_tenants = []
-```
-
-> We're going to use the variables `ruby_apartments` and `ruby_tenants` to differentiate between the original arrays (`apartments` and `tenants`) and the arrays we'll be putting our ruby class objects into.
-
-Using the `.each` enumerable, loop through the exisiting apartments and tenants arrays we worked with yesterday.
-
-In the loops...
-- Create a new instance of a class you've defined
-- Push that new instance into the corresponding ruby array.
-
-> We can also instead use the `.map` enumerable to condense the above code that uses `.each`.
-
 ### Step 3c - Convert to using Ruby classes
 
 Take all of the code you wrote in Part 1. Replace all variables of `apartments` with `ruby_apartments` and all `tenants` with `ruby_tenants`.

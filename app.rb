@@ -1,8 +1,18 @@
+require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
-require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+
+ruby_apartments = apartments.map do |a|
+  Apartment.new a[:id], a[:address], a[:monthly_rent], a[:square_feet]
+end
+
+ruby_tenants = tenants.map do |t|
+  Tenant.new t[:id], t[:name], t[:age], t[:apartment_id]
+end
+
+
 
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 #   # Explain how the data is structured
