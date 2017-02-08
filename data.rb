@@ -22,6 +22,10 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+
+
+
+
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
@@ -76,3 +80,22 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+
+
+#My comments:
+  #The data is structured in an object with two hashes and arrays
+  #The apartments array has the apartments id, addres, monthly_rent and square_feet
+  #the tenants array has the id, name and age of tenant and the tenants apartment id
+
+  data[:apartments].each {|apartment| puts apartment[:address]}
+  data[:tenants].each{|tenant| puts tenant[:name]}
+  data[:apartments].collect do
+    |apartment| puts apartment[:monthly_rent] < 700
+   end
+  data[:tenants].select{|tenant| puts tenant[:age] < 44}
+  #Print only tenants that have an apartment id of 1
+  data[:tenants].select{|tenant| puts tenant[:name] id == 1}
+  # Print all the tenants in order from youngest to oldest
+  data[:tenants].sort{|tenant| puts tenant[:age] 18-89}
+  # Print the names of all the tenants alphabetically
+  data[:tenants].sort{|tenant| puts tenant[:name] a<=>z}
