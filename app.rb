@@ -10,6 +10,7 @@ ruby_tenants = []
 apartments.each do |apartment|
   ruby_apartments << Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
+
 tenants.each do |tenant|
   ruby_tenants << Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
