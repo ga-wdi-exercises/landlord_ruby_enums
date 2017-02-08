@@ -1,3 +1,6 @@
+#the data is described in terms of apartments and tenants.
+#an apartment is described in terms of an id number, address, monthly rent, and square footage
+#a tennant is described in terms of an id number, name, age, and apartment_id
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
