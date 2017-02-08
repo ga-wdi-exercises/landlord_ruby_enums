@@ -75,30 +75,42 @@ def data
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
   # return {apartments:apartments, tenants:tenants}
-  apartments.each do |apt|  # Prints all the addresses for the apartments
-    print apt[:address]
-  end
-  tenants.each do |tenant|# Prints all the names for tenants
-    print tenant[:name]
-  end
-  apartments.each do |apt|
-    if apt[:monthly_rent] < 700  # Print only apartments that are less then 700 in rent
-      print apt[:address]
-    end
-  end
+  # apartments.each do |apt|  # Prints all the addresses for the apartments
+  #   print apt[:address]
+  # end
   tenants.each do |tenant|
-    if tenant[:age] > 44 # Print only tenants that are over the age of 44
-      print tenant[:name]
+    apartments.each do |apt|# Prints all the names for tenants # When printing tenants also print out the address that the tenant resides in.
+      if tenant[:apartment_id] == apt[:id]
+      puts "#{tenant[:name]} #{apt[:address]}"
+      end
     end
   end
-  tenants.each do |tenant|
-    if tenant[:apartment_id] == 1  # Print only tenants that have an apartment id of 1
-      print tenant[:name]
-    end
-  end
-   puts tenants.sort_by{|tenant| tenant[:age]} #  Print all the tenants in order from youngest to oldest
+  # apartments.each do |apt|
+  #   if apt[:monthly_rent] < 700  # Print only apartments that are less then 700 in rent
+  #     puts apt[:address]
+  #   end
+  # end
+  # tenants.each do |tenant|
+  #   if tenant[:age] > 44 # Print only tenants that are over the age of 44
+  #     puts tenant[:name]
+  #   end
+  # end
+  # tenants.each do |tenant|
+  #   if tenant[:apartment_id] == 1  # Print only tenants that have an apartment id of 1
+  #     puts tenant[:name]
+  #   end
+  # end
+  #  puts tenants.sort_by{|tenant| tenant[:age]} #  Print all the tenants in order from youngest to oldest
+  #
+  #  puts tenants.sort_by{|name| name[:name]} # Print the names of all the tenants alphabetically
 
-   puts tenants.sort_by{|name| name[:name]} # Print the names of all the tenants alphabetically
+  apartments.each do |apt|   # When printing all apartments, under each apartment print all of its tenants
+    tenants.each do |tenant|
+      if apt[:id] == tenant[:apartment_id]
+        
+      end
+    end
+  end
 
 
 end
