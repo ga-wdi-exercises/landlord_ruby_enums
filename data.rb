@@ -19,7 +19,7 @@ def data
     {:id=>17, :address=>"6611 Cierra Gardens", :monthly_rent=>702, :square_feet=>1272},
     {:id=>18, :address=>"80498 Mafalda Extensions", :monthly_rent=>603, :square_feet=>1221},
     {:id=>19, :address=>"72108 Leuschke Greens", :monthly_rent=>661, :square_feet=>967},
-    {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
+    {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168},
   ]
 
   tenants = [
@@ -72,7 +72,7 @@ def data
     {:id=>47, :name=>"Elody Bogisich MD", :age=>90, :apartment_id=>8},
     {:id=>48, :name=>"Raven McGlynn", :age=>50, :apartment_id=>16},
     {:id=>49, :name=>"Rowland Wiegand", :age=>90, :apartment_id=>11},
-    {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
+    {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1},
   ]
   return {apartments:apartments, tenants:tenants}
 end
