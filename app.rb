@@ -29,14 +29,25 @@ apartments.each do |unit|
   end
 end
 
-tenants.select do |tenant|
+tenants.each do |tenant|
   if tenant[:age] > 44
     puts "Tenant Over 44: #{tenant[:name]}, #{tenant[:age]}"
   end
 end
 
+tenants.each do |tenant|
+  if tenant[:apartment_id] == 1
+    puts "Tenant in apartment 1: #{tenant[:name]}"
+  end
+end
 
+tenants.sort_by {|tenant| tenant[:age]}.each do |tenant|
+  puts "Tenant by Age: #{tenant[:name]}, #{tenant[:age]}"
+end
 
+tenants.sort_by {|tenant| tenant[:name]}. each do |tenant|
+  puts "Tenant by Name: #{tenant[:name]}"
+end
 # Use enumerables to -
   # Print all the addresses for the apartments
   # Print all the names for tenants
