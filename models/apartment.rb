@@ -10,7 +10,7 @@ class Apartment
     @square_feet = square_feet
     @@total += 1
   end
-  
+
   def all
     return @@total
   end
