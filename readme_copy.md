@@ -1,15 +1,3 @@
-## Part 1 - Practice With Enumerables
-
-Read the comments in `app.rb` to follow the directions practicing enumerables
-
-> Store the enumerable methods into variables and use `puts` to verify the results of your methods.
-
-## Part 2 - Build the App
-
-> Comment out any functional code in app.rb, but save it, you can leverage the code from Part 1 to write out parts of this application.
-
-Bob Pizza is old school and he wants a sick command line interface for this app. Below are Bob's user stories. It is essential that he implement the MVP user stories. **The Silver and Gold user stories are considered to be bonuses.**
-
 ### MVP
 ```
 - I should have a numbered interface for my application so that I can just type in a number to access different parts of my program.
@@ -31,37 +19,6 @@ Bob Pizza is old school and he wants a sick command line interface for this app.
 - I should be allowed to create a new tenant so that I can track new tenants in my books.
 ```
 
-## Part 3 -  Refactor Using Ruby Classes
-
-Bob Pizza likes what you built. But he looks at your code and wants a custom made object to represent your tenants and apartments.
-
-### Step 3a - Defining our models.
-Create a `models` folder. In this folder, create two files `apartment.rb` and `tenant.rb`.
-
-Link these two files at the top of `app.rb`...
-
-```ruby
-require_relative "models/apartment"
-require_relative "models/tenant"
-```
-
-In the two files, create class definitions for an `apartment` and a `tenant`.
-
-In `models/apartment.rb`...
-
-```ruby
-class Apartment
-  # Place your code here
-end  
-```
-
-In `models/tenant.rb`...
-
-```ruby
-class Tenant
-  # Place your code here
-end  
-```
 
 Make sure all your instance variables(attributes) are accessible within the instances of your class through getter and setters methods.
 
