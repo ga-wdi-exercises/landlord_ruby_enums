@@ -76,3 +76,8 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+# Explain how the data is structured:
+#The data is in a function with two arrays (apartments and tenants), within the arrays there are hashes with details for each individual apartment or tenant.
+# What are the properties for each of the two types of hashes
+# tenants: id, name, age, and apartment 
+# apartments: id, address, monthly_rent, square_feet
