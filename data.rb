@@ -1,3 +1,9 @@
+#Two categories of data: apartments and tenants
+# - Apartments have 4 fields:
+#       ID (number), address (string), monthly_rent (number), square_feet (number)
+# - Tenants have 4 fields:
+#       ID (number), name (string), age (number), apartment_id (number)
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
