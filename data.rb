@@ -1,5 +1,5 @@
 def data
-  apartments = [
+   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
     {:id=>3, :address=>"630 McDermott Islands", :monthly_rent=>501, :square_feet=>774},

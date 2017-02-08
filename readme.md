@@ -1,6 +1,6 @@
 # Landlord - Ruby Enums edition!
 
-OH NOES, A up and coming property manager, Bob Pizza has too much data now and is having trouble managing it all. He wants US to build him a sick new app. But before he just pays us money he wants to see our chops with ruby enumerables...
+OH NOES, An up and coming property manager, Bob Pizza has too much data now and is having trouble managing it all. He wants US to build him a sick new app. But before he just pays us money he wants to see our chops with ruby enumerables...
 
 ## Part 1 Practice With enumerables
 Read the comments in `app.rb` to follow the directions practicing enumerables
