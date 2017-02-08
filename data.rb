@@ -76,3 +76,13 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+
+# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
+  # Explain how the data is structured
+
+  # The data is structured like two database relations with each having a primary key. To relate the two, Tenets has a foreign key linking to apartments.
+
+  # What are the properties for each of the two types of hashes
+
+  # apartment: pk id, address, rent (monthly), and apartment siye in square feet
+  # tenants: pk id, name of tenant, age of tenant, the apartment they live in.
