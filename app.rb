@@ -1,10 +1,41 @@
+# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
+  # Explain how the data is structured
+    # LAB - #The data is structured in 2 arrays each with an internal hash structure utilizing symbol objects for keys.
+  # What are the properties for each of the two types of hashes
+    # LAB -  numbers and strings
+
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-  # Explain how the data is structured
-  # What are the properties for each of the two types of hashes
+# class Units
+#   def initialize(id, address, monthly_rent, square,feet)
+#     @id = id
+#     @address = address
+#     @rent = monthly_rent
+#     @sqft = square_feet
+#   end
+#
+#   def address
+#     return"#{@address}"
+#     puts
+#   end
+#
+#   def
+
+apartments.each do |address|
+  puts "Unit Address: #{address[:address]}"
+end
+
+tenants.each do |name|
+  puts "Tenant Name: #{name[:name]}"
+end
+
+apartments.select do |unit,lo_rent|
+  puts "Low Rent Apartments: #{unit[:id]}, #{lo_rent[:monthly_rent] < 700}"
+end
+
+
 
 # Use enumerables to -
   # Print all the addresses for the apartments
