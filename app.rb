@@ -4,7 +4,11 @@ tenants = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
+  ## The data is structured in apartments to a specific address, monthly_rent, and square_feet so in all the specifics of the actual apartment and the tenants describe their name, age, and apartment_id which are more specific to them.
+  ## In short apartments describes the apartment's properties and tenants describe the tenant's properties
   # What are the properties for each of the two types of hashes
+  ## apartment: address, monthly_rent, square_feet
+  ## tenants: name, age, apartment_id
 
 # Use enumerables to -
   # Print all the addresses for the apartments
