@@ -74,10 +74,38 @@ def data
     {:id=>49, :name=>"Rowland Wiegand", :age=>90, :apartment_id=>11},
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
-  return {apartments:apartments, tenants:tenants}
+  # return {apartments:apartments, tenants:tenants}
+  apartments.each do |apt|  # Prints all the addresses for the apartments
+    print apt[:address]
+  end
+  tenants.each do |tenant|# Prints all the names for tenants
+    print tenant[:name]
+  end
+  apartments.each do |apt|
+    if apt[:monthly_rent] < 700  # Print only apartments that are less then 700 in rent
+      print apt[:address]
+    end
+  end
+  tenants.each do |tenant|
+    if tenant[:age] > 44 # Print only tenants that are over the age of 44
+      print tenant[:name]
+    end
+  end
+  tenants.each do |tenant|
+    if tenant[:apartment_id] == 1  # Print only tenants that have an apartment id of 1
+      print tenant[:name]
+    end
+  end
+   puts tenants.sort_by{|tenant| tenant[:age]} #  Print all the tenants in order from youngest to oldest
+
+   puts tenants.sort_by{|name| name[:name]} # Print the names of all the tenants alphabetically
+
+
 end
-# Explain how the data is structured:
+## Explain how the data is structured:
 #The data is in a function with two arrays (apartments and tenants), within the arrays there are hashes with details for each individual apartment or tenant.
-# What are the properties for each of the two types of hashes
-# tenants: id, name, age, and apartment 
+## What are the properties for each of the two types of hashes
+# tenants: id, name, age, and apartment
 # apartments: id, address, monthly_rent, square_feet
+
+data()
