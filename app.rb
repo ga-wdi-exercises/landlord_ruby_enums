@@ -1,38 +1,38 @@
+require "pry"
+
+require_relative "data"
+apartments = data[:apartments]
+tenants = data[:tenants]
+
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
     # LAB - #The data is structured in 2 arrays each with an internal hash structure utilizing symbol objects for keys.
   # What are the properties for each of the two types of hashes
     # LAB -  numbers and strings
 
-require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
 
-# class Units
-#   def initialize(id, address, monthly_rent, square,feet)
-#     @id = id
-#     @address = address
-#     @rent = monthly_rent
-#     @sqft = square_feet
-#   end
-#
-#   def address
-#     return"#{@address}"
-#     puts
-#   end
-#
-#   def
+apartments.each{|unit| puts "Unit Address: #{unit[:address]}"}
 
-apartments.each do |address|
-  puts "Unit Address: #{address[:address]}"
+# apartments.each do |address|
+#   puts "Unit Address: #{address[:address]}"
+# end
+
+tenants.each{|tenant| puts "Tenant Name: #{tenant[:name]}"}
+
+# tenants.each do |name|
+#   puts "Tenant Name: #{name[:name]}"
+# end
+
+apartments.each do |unit|
+  if unit[:monthly_rent] < 700
+    puts "Low Rent Apartments: #{unit[:address]}, $#{unit[:monthly_rent]}.00"
+  end
 end
 
-tenants.each do |name|
-  puts "Tenant Name: #{name[:name]}"
-end
-
-apartments.select do |unit,lo_rent|
-  puts "Low Rent Apartments: #{unit[:id]}, #{lo_rent[:monthly_rent] < 700}"
+tenants.select do |tenant|
+  if tenant[:age] > 44
+    puts "Tenant Over 44: #{tenant[:name]}, #{tenant[:age]}"
+  end
 end
 
 
@@ -49,3 +49,7 @@ end
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+
+
+binding.pry
