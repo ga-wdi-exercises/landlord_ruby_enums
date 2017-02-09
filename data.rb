@@ -1,3 +1,4 @@
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
@@ -21,7 +22,8 @@ def data
     {:id=>19, :address=>"72108 Leuschke Greens", :monthly_rent=>661, :square_feet=>967},
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
-
+#creates an array of appartments
+#The hash is seperated with an id, address, monthly rent, and square feet
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
@@ -76,3 +78,5 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+#creates and array of tenants
+#The hass is seperated into id, name, age, and apartment id
