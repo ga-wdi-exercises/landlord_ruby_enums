@@ -77,4 +77,10 @@ def data
   return {apartments:apartments, tenants:tenants}
 end
 
-#
+puts "Hello Mr Landlord! Please follow instructions!  Type 1 to view all apartments.  Type 2 to view all tenants!"
+answer = gets.chomp
+if answer == 1
+  return apartments
+elsif answer == 2
+  return tenants
+end
