@@ -40,13 +40,21 @@ tenants = data[:tenants]
       #   end
       # end
   # Print all the tenants in order from youngest to oldest
-      for ascending in tenants do
-        tenants.sort_by!{|ascending| [:age]}
-          puts tenants.sort_by!{|ascending| [:age]}
-        end 
+      #  arrange = tenants.sort_by do |item| item[:age]
+      #   end
+      #   puts arrange
+
 
   # Print the names of all the tenants alphabetically
+    # alpha = tenants.sort_by do |item| item[:name]
+    # end
+    # puts alpha
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+    name_add = tenants.each do |name, address|
+    end
+      puts "#{name}" if tenants.include?(address.each)
+
+
   # When printing all apartments, under each apartment print all of its tenants
