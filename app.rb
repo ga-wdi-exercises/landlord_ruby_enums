@@ -48,14 +48,54 @@ tenants = data[:tenants]
 #     end
 #   end
 # end
+# apartments.each do |apartment|
+#       apt_tenants = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
+#     puts apartment
+#     puts apt_tenants
+#   end
+##Opps- misinterpreted the directions for MVP
+# puts "Would you like to see data for apartments or tenants?"
+# user_input = gets.chomp.to_s
+# if user_input == "tenants"
+#   puts "enter the tenant id to see the data or 'all tenants' to see full list."
+#   user_input_t = gets.chomp.to_s
+#   if user_input_t == "all tenants"
+#     puts tenants
+#   else
+#       selected_tenant = tenants.select{|tenant| tenant[:id] == user_input_t}
+#       puts selected_tenant
+#     end
+#
+# elsif user_input == "apartments"
+#   puts "enter the apartment id to see the data or 'all apartments' to see full list."
+#   user_input_a = gets.chomp.to_s
+#   if user_input_a == "all apartments"
+#     puts apartments
+#   else
+    # tenants.each do |tenant|
+    #   # if user_input_t == tenant[:id]
+        # puts tenants
+    #   # end
+    #
+#     # end
+#
+#   end
+#
+# end
+###OOPS
 
-puts "Would you like to see data for apartments or tenants?"
-user_input = gets.chomp.to_s
-if user_input == "tenants"
-  puts "enter the tenant id to see the data"
-  user_input_t = gets.chomp.to_s
-  
-elsif user_input == "apartments"
-  puts "enter the apartment id to see the data"
-  user_input_a = gets.chomp.to_s
+puts "OPTIONS"
+puts "Type '1' to view all the apartments"
+puts "Type '2' to view all the tenants"
+
+
+user_input = gets.chomp
+if user_input == "1"
+  apartments.each do |apt|
+    puts apt
+  end
+elsif user_input == "2"
+  tenants.each do |tenant|
+    puts tenant
+  end
 end
