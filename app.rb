@@ -23,19 +23,19 @@ end
   Print only apartments that are less then 700 in rent
   apartments.select do |apartment|
      if apartment[:monthly_rent] < 700
-       puts fruit[:address]
+       puts apartments[:address]
   end
 end
   Print only tenants that are over the age of 44
   tenants.select do |tenant|
     if tenant[:age] > 44
-      puts carrot[:name]
+      puts tenant[:name]
     end
   end
   Print only tenants that have an apartment id of 1
   tenants.select do |tenant|
     if tenant[:id] == 1
-      puts apple[:name]
+      puts tenant[:name]
     end
   end
 
