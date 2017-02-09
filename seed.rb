@@ -13,3 +13,7 @@ end
 end
 
 puts tenants.join(", ")
+
+binding.pry
+
+puts " done!"
