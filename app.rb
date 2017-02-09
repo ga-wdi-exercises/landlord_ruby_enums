@@ -1,6 +1,10 @@
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
+ruby_apartments = [:apartments]
+ruby_tenants = [:tenants]
 
 ## Explain how the data is structured:
 #The data is in a function with two arrays (apartments and tenants), within the arrays there are hashes with details for each individual apartment or tenant.
