@@ -1,3 +1,10 @@
+
+#the fata is structured in hashes, one hash is the object or apartment while the other is the person living inside the object
+#apartment {
+# => :id , :address :monthly_rent, :square_feet
+#tenant {
+# => :id , :name, :age, :apartment_id
+#}
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
