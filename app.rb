@@ -3,17 +3,16 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
-ruby_apartments = []
-ruby_tenants = []
+
 
 ## created an instance of the classes
-apartments.each do |apartment|
-  ruby_apartments << Apartment.new("id", "name", "age", "apartment_id")
+ruby_apartments = apartments.each do |apartment|
+  Apartment.new(apartment[:id], apartment[:address],apartment[:monthly_rent], apartment[:square_feet])
 end
 puts ruby_apartments
 
-tenants.each do |tenant|
-  ruby_tenants << Tenant.new('id', 'name', 'age', 'apartment_id')
+ruby_tenants = tenants.each do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
 puts ruby_tenants
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
@@ -76,7 +75,3 @@ while input != 1 || 2
 end
 
 ## did not do silve or gold yet.
-
-
-
-## Part 3 Convert
