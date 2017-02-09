@@ -8,7 +8,7 @@ tenants = data[:tenants]
 # tenants: id, name, age, and apartment
 # apartments: id, address, monthly_rent, square_feet
 
-# return {apartments:apartments, tenants:tenants}
+#
 # apartments.each do |apt|  # Prints all the addresses for the apartments
 #   print apt[:address]
 # end
@@ -48,3 +48,14 @@ tenants = data[:tenants]
 #     end
 #   end
 # end
+
+puts "Would you like to see data for apartments or tenants?"
+user_input = gets.chomp.to_s
+if user_input == "tenants"
+  puts "enter the tenant id to see the data"
+  user_input_t = gets.chomp.to_s
+  
+elsif user_input == "apartments"
+  puts "enter the apartment id to see the data"
+  user_input_a = gets.chomp.to_s
+end
