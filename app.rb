@@ -75,3 +75,21 @@ tenants = data[:tenants]
       #     puts tenant[:name]
       #   end
       # end
+
+puts "Type '1' for a list of apartments, type '2' for a list of tenants"
+while input != "exit"
+  if input == "1"
+      input = gets.chomp
+      puts "List of Apartments"
+      apartments_owned = apartments.each do |apartment|
+        puts apartment
+      end
+  elsif input == "2"
+      input = gets.chomp
+    puts "list of Tenants"
+    tenants_list = tenants.each do |tenant|
+      puts tenant
+    end
+
+  end
+end
