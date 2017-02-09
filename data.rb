@@ -1,4 +1,7 @@
 def data
+  ## The data is structured in a way that all of the information for the apartments are grouped together in one
+  ## hash. The informationfor tenants are grouped in to a separate hash. The data hash contains a unique ID for
+  ## each apartment along with its address, rent and size.
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -22,6 +25,9 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+
+  ## Each tenant is assigned an ID which is different from to apartment ID. Name and age is also provided
+  ## for each tenant. Each tenant is placed in to an apartment
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
