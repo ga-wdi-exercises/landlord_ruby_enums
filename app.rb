@@ -8,8 +8,20 @@ tenants = data[:tenants]
 
 # Use enumerables to -
   # Print all the addresses for the apartments
+  apartments.each do |apartment|
+    puts apartment[:address]
+  end
+
   # Print all the names for tenants
+  tenants.each do |tenant|
+    puts tenant[:name]
+  end
+
   # Print only apartments that are less then 700 in rent
+  apartment.each do |tenant|
+    puts tenant[:name]
+  end
+
   # Print only tenants that are over the age of 44
   # Print only tenants that have an apartment id of 1
   # Print all the tenants in order from youngest to oldest
