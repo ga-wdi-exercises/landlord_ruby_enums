@@ -3,9 +3,12 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
+  # There are two properties, the first of which details an array of different apartments and the second details an array of the tenants
   # What are the properties for each of the two types of hashes
   # apartments: id, address, monthly rent, and square feet.
   # tenants: id, name, age, apartment id.
