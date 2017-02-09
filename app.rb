@@ -98,11 +98,15 @@ elsif choice == 2
 
 else choice == 3
   puts "//////// Occupancy Overview //////////"
-  occupancy = new_tenants.each do |num|
-    num.apartment_id == apartment_id
-    puts apartment_id
+  # I didn't get this one on my own and running out of time
+  new_apartments.each do |apartment|
+        puts apartment.address
+        puts "Residents:"
+        apartment_tenants = new_tenants.select{|tenant| tenant.apartment_id == apartment.id}
+        puts "No occupants" if apartment_tenants.length == 0
+        apartment_tenants.each{|tenant| puts tenant.name}
   end
-  puts occupancy.name
+
 end
 
   ## More challenging
