@@ -1,8 +1,11 @@
 require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
 require_relative "models/apartment"
 require_relative "models/tenant"
+apartments = data[:apartments]
+tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
 
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 #   # Explain how the data is structured
@@ -61,13 +64,33 @@ require_relative "models/tenant"
 #     puts apartments
 
 
-puts "\nThank you for calling Bob Pizza's Pizza Bomb.\nPlease listen closely to the following instructions.\n\n"
-puts "If you would like to view all of your APARTMENTS, please press 1"
-puts "If you would like to view all of the TENANTS in your apartments, please press 2"
-puts "Go ahead. I'll wait."
-input = gets.chomp
-if input == "1"
-  puts apartments
-elsif input == "2"
-  puts tenants
+apartments.each do |apartment|
+  id = apartment[:id]
+  address = apartment[:address]
+  monthly_rent = apartment[:monthly_rent]
+  square_feet = apartment[:square_feet]
+  new_apartment = Apartment.new("#{id}", "#{address}", "#{monthly_rent}", "#{square_feet}")
+  ruby_apartments << new_apartment
 end
+
+tenants.each do |tenant|
+  id = tenant[:id]
+  name = tenant[:name]
+  age = tenant[:age]
+  apartment_id = tenant[:apartment_id]
+  new_tenant = Tenant.new("#{id}", "#{name}", "#{age}", "#{apartment_id}")
+  ruby_tenants << new_tenant
+end
+puts ruby_tenants
+
+
+# puts "\nThank you for calling Bob Pizza's Pizza Bomb.\nPlease listen closely to the following instructions.\n\n"
+# puts "If you would like to view all of your APARTMENTS, please press 1"
+# puts "If you would like to view all of the TENANTS in your apartments, please press 2"
+# puts "Go ahead. I'll wait."
+# input = gets.chomp
+# if input == "1"
+#   puts apartments
+# elsif input == "2"
+#   puts tenants
+# end
