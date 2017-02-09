@@ -1,3 +1,4 @@
+require "pry"
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
@@ -43,12 +44,17 @@ tenants = data[:tenants]
   # When printing all apartments, under each apartment print all of its tenants
 
 #Part 2
-puts "Welcome, landlord! For apartments type '1', and for tenants type '2'"
-user_input = gets.chomp.to_i
-if user_input == 1
-  p apartments
-elsif user_input == 2
-  p tenants
-else
-  puts "Sorry, I didn't undersatnd this!"
-end
+# puts "Welcome, landlord! For apartments type '1', and for tenants type '2'"
+# user_input = gets.chomp.to_i
+# if user_input == 1
+#   p apartments
+# elsif user_input == 2
+#   p tenants
+# else
+#   puts "Sorry, I didn't undersatnd this!"
+# end
+
+apt21 = Apartment.new(21, "1 1st St. NW", 900, 500)
+tena51 = Tenant.new(51, "John", 40, 21)
+
+binding.pry
