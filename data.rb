@@ -1,3 +1,10 @@
+# First, Open the data.rb and inspect the data. Identify and write, in comments, the following:
+  # Explain how the data is structured
+    #The data is structured as a series of hashes within arrays within a overall object, data
+  # What are the properties for each of the two types of hashes
+    #apartments = :id, :address, :monthly_rent, :square_feet
+    #tenants = :id, :name, :age, :apartment_id
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
@@ -76,3 +83,39 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+=begin
+for apartment in data[:apartments]
+  print apartment[:address]
+end
+
+for tenant in data[:tenants]
+  print tenant[:name]
+end
+
+for apartment in data[:apartments]
+  if apartment[:monthly_rent] < 700
+    print apartment
+  end
+end
+
+for tenant in data[:tenants]
+  if tenant[:age] > 44
+  print tenant
+  end
+end
+
+for tenant in data[:tenants]
+  if tenant[:apartment_id] == 1
+  print tenant +
+  end
+end
+
+print data[:tenants].sort_by {|tenant| tenant[:age]}
+
+print data[:tenants].sort_by {|tenant| tenant[:name]}
+=end
+
+  require "pry"
+
+  binding.pry
+  puts "done"
