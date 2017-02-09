@@ -52,9 +52,14 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
-    name_add = tenants.each do |name, address|
-    end
-      puts "#{name}" if tenants.include?(address.each)
+    # name_add = tenants.each do |name, address|
+    # end
+    #    if tenants.include?(tenants[:address].each)
+    #   puts "#{name}" && "#{address}"
+    # end
 
 
   # When printing all apartments, under each apartment print all of its tenants
+      # (apartments).find {|address| address}
+      # (tenants).find {|name| name}
+      #   puts address.join(",") + name
