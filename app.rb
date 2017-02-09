@@ -1,9 +1,23 @@
+
+# require "pry"
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
+
+apartments.each_with_index do |a, i|
+  ruby_apartments << eval("apartment_#{i + 1} = Apartment.new(a[:id],a[:address],a[:monthly_rent],a[:square_feet])")
+end
+
+tenants.each_with_index do |t, i|
+  ruby_tenants << eval("tenant_#{i + 1} = Tenant.new(t[:id],t[:name],t[:age],t[:apartment_id])")
+end
+
+# binding.pry
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
       # apartments - array of hashes, each hash is an apartment with an ID
@@ -37,10 +51,10 @@ tenants = data[:tenants]
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
-# START APP #
+# START APP PART 2 #
 br = "*" *100 +"\n"
-all_apartments = apartments.each {|apartment| apartment}
-all_tenants = tenants.each {|tenant| tenant}
+all_apartments = ruby_apartments.each {|apartment|}
+all_tenants = ruby_tenants.each {|tenant| tenant}
 
 
 while true
@@ -49,21 +63,22 @@ while true
 
   user_input = gets.chomp
     if user_input == "1"
-      puts all_apartments
+      all_apartments.each {|a| puts "Apartment: #{a.id}  Address: #{a.address}"}
     elsif user_input == "2"
-      puts all_tenants
+      all_tenants.each {|t| puts t.name}
     elsif user_input == "3"
-      apartments.each do |apartment|
-        puts "#{br}  APARTMENT\n#{apartment.to_s}\n#{br}"
-        tenants_by_id = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
-        puts "  TENANTS\n#{tenants_by_id.to_s}\n"
+      all_apartments.each do |apartment|
+        puts "#{br}  APARTMENT #{apartment.id}  #{apartment.address}\n#{br}"
+        tenants_by_id = all_tenants.select{|tenant| tenant.apartment_id == apartment.id}
+        puts "  TENANTS:\n"
+        tenants_by_id.each {|t| puts t.name}
       end
     elsif user_input == "4"
       puts "Enter a name:"
       tenant_name = gets.chomp
-      tenants.each do |tenant|
-        if tenant[:name].downcase.include? tenant_name
-          puts tenant
+      all_tenants.each do |tenant|
+        if tenant.name.downcase.include? tenant_name
+          puts tenant.inspect
         end
       end
     elsif user_input == "5"
