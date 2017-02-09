@@ -4,10 +4,10 @@ require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 ruby_apartments = apartments.map do |apartment|
-  Aparment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
 end
 ruby_tenants = tenants.map do |tenant|
-  Tenent.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -111,3 +111,4 @@ ruby_tenants = tenants.map do |tenant|
     gets.chomp
     input = options
   end
+end
