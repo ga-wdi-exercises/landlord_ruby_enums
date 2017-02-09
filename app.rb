@@ -42,11 +42,15 @@ tenants = data[:tenants]
 
 
   # Print all the tenants in order from youngest to oldest
-    young_to_old = tenants.sort_by do |tenant|
-       tenant[:age]
-    end
-    p young_to_old
+    # young_to_old = tenants.sort_by do |tenant|
+    #    tenant[:age]
+    # end
+    # p young_to_old
   # Print the names of all the tenants alphabetically
+    a_to_z = tenants.sort_by do |tenant|
+      tenant[:name]
+    end
+     p a_to_z
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
