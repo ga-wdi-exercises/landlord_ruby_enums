@@ -87,53 +87,133 @@ tenants = data[:tenants]
     #   end
     # end
 
-# Listing command line options for Mr. Pizza
+# Listing command line options for Mr. Pizza (while allows restart for multiple uses)
+i = 0
 puts "Hello, Mr. Pizza. What function do you need to perform today (enter #1-7)?"
-puts "1. View all apartments"
-puts "2. View all tenants"
-puts "3. View a list of tenants for each apartment"
-puts "4. Find tenant's address by tenant name"
-puts "5. Remove a tenant from an apartment"
-puts "6. Add tenant to an apartment"
-puts "7. Create a new apartment"
+while i == 0
+  puts "1. View all apartments"
+  puts "2. View all tenants"
+  puts "3. View a list of tenants for each apartment"
+  puts "4. Find tenant's address by tenant name"
+  puts "5. Remove a tenant from an apartment"
+  puts "6. Add tenant to an apartment"
+  puts "7. Create a new apartment"
 
-# Ensuring his choice is an option
-pizza_choice = gets.chomp.to_i
-if pizza_choice < 1 || pizza_choice > 7
-  puts "Sorry, Mr. Pizza, but that selection is invalid.  Please try again (1-7):"
+  # Ensuring his choice is an option
   pizza_choice = gets.chomp.to_i
-end
-
-# Option 1 - All Apartments
-if pizza_choice == 1
-  apartments.each do |unit|
-    puts unit
+  if pizza_choice < 1 || pizza_choice > 7
+    puts "Sorry, Mr. Pizza, but that selection is invalid.  Please try again (1-7):"
+    pizza_choice = gets.chomp.to_i
   end
-end
 
-# Option 2 - All Tenants
-if pizza_choice == 2
-  tenants.each do |renter|
-    puts renter[:name]
+  # Option 1 - All Apartments
+  if pizza_choice == 1
+    apartments.each do |unit|
+      puts unit
+    end
   end
-end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
 
-# Option 3 - Tenants Per Apartment
-if pizza_choice == 3
-end
+  # Option 2 - All Tenants
+  if pizza_choice == 2
+    tenants.each do |renter|
+      puts renter
+    end
+  end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
 
-# Option 4 - Tenant's Address By Name
-if pizza_choice == 4
-end
+  # Option 3 - Tenants Per Apartment
+  if pizza_choice == 3
+    for unit in apartments
+      puts unit
+      for renter in tenants
+        if unit[:id] == renter[:apartment_id]
+          puts renter[:name]
+        end
+      end
+    end
+  end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
 
-# Option 5 - Remove Tenant
-if pizza_choice == 5
-end
+  # Option 4 - Tenant's Address By Name.
+  if pizza_choice == 4
+    puts "Which tenant would you like to look up?  Please type in at least the first seven characters, including spaces."
+    tenant_name = gets.chomp.to_s
+    x = 0
+    for renter in tenants
+      if renter[:name][0..6] == tenant_name[0..6]
+        puts "You requested #{renter[:name]}'s address.  The address is:"
+        puts "#{apartment[renter[:apartment_id]-1][:address]}"
+        x += 1
+      end
+    end
+    if x == 0
+      puts "No tenants matched what you typed.  Please try again from the main menu."
+    end  
+  end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
 
-# Option 6 - Add Tenant
-if pizza_choice == 6
-end
+  # Option 5 - Remove Tenant
+  if pizza_choice == 5
+  end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
 
-# Option 7 - Create Apartment
-if pizza_choice == 7
+  # Option 6 - Add Tenant
+  if pizza_choice == 6
+  end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
+
+  # Option 7 - Create Apartment
+  if pizza_choice == 7
+  end
+  puts "Would you like to do something else? (y/n)"
+  pizza_response = gets.chomp.to_s.downcase
+  if pizza_response == 'y'
+    puts "What function do you need to perform today (enter #1-7)?"
+  else
+    puts "Have a great day!"
+    i += 1
+  end
 end
