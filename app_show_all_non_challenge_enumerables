@@ -1,25 +1,7 @@
-##################################
-# 201702081919L  EL MIERCOLES   JAY
-##################################
-
-
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
-  DATA SHARES A COMMON KEY,
-  APARTMENTS HAS "id":        {:id=>1, ...
-                    # {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
-  TENANTS HAS "apartment_id"  ... :apartment_id=>8}
-                # {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
-
-
   # What are the properties for each of the two types of hashes
-    APARTMENTS HAS
-        :id, :address, :monthly_rent, :square_feet
-            # {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
-    TENANTS HAS
-        :id, :name, :age, :apartment_id
-            # {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
 
 
               # ---------------------------------
@@ -28,6 +10,7 @@
   tenants = data[:tenants]
   # Use enumerables to -
               # ENUMERABLES: # each  is an enumerable # users = ["Alice", "Bob", "Carol"] # users.each do |user| #  puts user # end
+
               # ALL
               # Print all the addresses for the apartments
               puts ''
@@ -35,12 +18,8 @@
               # puts apartment                    # {:id=>19, :address=>"72108 Leuschke Greens", :monthly_rent=>661, :square_feet=>967} # {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168} #   Wed Feb 08 11:50:12 ~/wdi/homework/due_201702090900L/landlord_ruby_no_AR (master *)
               # puts "apartments_address: #{apartment[:address]}"  # [22] pry(main)*   puts "unit Addr: #{apt[:address]}" [22] pry(main)* end unit Addr: 9841 Tanner Key unit Addr: 6971 Corwin Locks
               p    "apartment_address: #{apartment[:address]}"
-            end
-
+end
               # Print all the names for tenants
-              puts ''
-              tenants.each do |tenant|
-              puts "tenant_name: #{tenant[:name]}}"  # THIS WORKS THANKS TO WILL
 
 
               # SELECT
@@ -50,7 +29,7 @@
                 apartment[:monthly_rent] < 700
                   # puts "apartments_cheap: #{apartment[:address]}"
                   p     "apartment_cheap:  #{apartment[:address]}"
-              end
+end
 
 
               # SELECT
@@ -60,7 +39,7 @@
                 tenant[:age] > 44
               # puts "tenants_44: #{tenants44[:name]}" # puts "tenants_44: #{tenants44[:name][:age]}" # puts "tenants_44: #{tenants44[:name]} , #{tenants44[:age]}" # puts "tenants_44: name: #{tenants44[:name]} , age: #{tenants44[:age]}"
               p    "tenant_44: name: #{tenant[:name]} , age: #{tenant[:age]}"
-            end
+end
 
               # SORT
               # WILLS SORT BY
@@ -77,7 +56,7 @@
               apartment_id_is_1 =  apartments.select do |apartment_id_is_1|
               apartment_id_is_1[:id] = 1
               p     "apartment_id_is_1:  #{apartment_id_is_1[:address]}"
-            end
+end
 
               # SORT
               # Print all the tenants in order from youngest to oldest
