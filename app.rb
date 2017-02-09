@@ -1,11 +1,37 @@
+require 'pry'
+
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-  # Explain how the data is structured
-  # What are the properties for each of the two types of hashes
 
+apartments.each do |x|
+  puts x[:address]
+end
+
+tenants.each do |x|
+  puts x[:name]
+end
+
+apartments.each do |x|
+  if x[:rent] < 700
+    puts x
+  end
+end
+
+tenants.each do |x|
+  if x[:age] > 44
+    puts x
+  end
+end
+
+tenants.each do |x|
+  if x[:id] == 1
+    puts x
+  end
+end
+
+sort_tenants = tenants.sort {|a,b| a[:age] <=> b[:age] }
 # Use enumerables to -
   # Print all the addresses for the apartments
   # Print all the names for tenants
@@ -18,3 +44,6 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+binding.pry
+
+puts 'program resumes here.'
