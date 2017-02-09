@@ -1,8 +1,29 @@
 require 'pry'
 
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+apartments.each do |x|
+  new_ap = Apartment.new(x[:id])
+  new_ap.address = x[:address]
+  new_ap.monthly_rent = x[:monthly_rent]
+  new_ap.square_feet = x[:address]
+  ruby_apartments << new_ap
+end
+
+tenants.each do |x|
+  new_ten = Tenant.new(x[:id])
+  new_ten.name = x[:name]
+  new_ten.age = x[:age]
+  new_ten.apartment_id = x[:apartment_id]
+  ruby_tenants << new_ten
+end
+
 playing = true
 until playing ==false
   puts 'Action? 1. Get particular apartment 2. Get particular tenant 3. Get all tenants 4. Get all apartments'
@@ -10,15 +31,15 @@ until playing ==false
   input = input.to_i
 
   while input == 3
-    tenants.each do |x|
-      puts x
+    ruby_tenants.each do |x|
+      puts x.name
     end
     input = 0
   end
 
   while input == 4
-    apartments.each do |x|
-      puts x
+    ruby_apartments.each do |x|
+      puts x.address
     end
     input = 0
   end
@@ -27,9 +48,9 @@ until playing ==false
     puts 'Which ID?'
     inp = gets.chomp
     inp = inp.to_i
-    apartments.each do |x|
-      if inp == x[:id]
-        puts x
+    ruby_apartments.each do |x|
+      if inp == x.id
+        puts x.address
       end
     end
     input = 0
@@ -39,9 +60,9 @@ until playing ==false
     puts 'Which ID?'
     inp = gets.chomp
       inp = inp.to_i
-      tenants.each do |x|
-        if inp == x[:id]
-          puts x
+      ruby_tenants.each do |x|
+        if inp == x.id
+          puts x.name
         end
       end
       input = 0

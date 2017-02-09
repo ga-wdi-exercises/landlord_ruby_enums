@@ -76,3 +76,6 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+
+# both apartments and tenants are arrays of hashes, the apartment hashes have id, address, monthly_rent, square_feet keys
+# the tenant hashes have id, name, age, and apartment_id keys
