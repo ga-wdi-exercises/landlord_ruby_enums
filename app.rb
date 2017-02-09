@@ -1,4 +1,6 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
@@ -40,6 +42,7 @@ br = "*" *100 +"\n"
 all_apartments = apartments.each {|apartment| apartment}
 all_tenants = tenants.each {|tenant| tenant}
 
+
 while true
   puts "#{br} Welcome to Landlord.app, you have the following options: "
   puts "  1. View all apartments\n  2. View all tenants\n  3. View tenants by apartments\n  4. Find tenant by name\n  5. Make changes \n (Select an option by entering the corresponding number)\n#{br}"
@@ -49,7 +52,21 @@ while true
       puts all_apartments
     elsif user_input == "2"
       puts all_tenants
-    elsif "3"
-      
+    elsif user_input == "3"
+      apartments.each do |apartment|
+        puts "#{br}  APARTMENT\n#{apartment.to_s}\n#{br}"
+        tenants_by_id = tenants.select{|tenant| tenant[:apartment_id] == apartment[:id]}
+        puts "  TENANTS\n#{tenants_by_id.to_s}\n"
+      end
+    elsif user_input == "4"
+      puts "Enter a name:"
+      tenant_name = gets.chomp
+      tenants.each do |tenant|
+        if tenant[:name].downcase.include? tenant_name
+          puts tenant
+        end
+      end
+    elsif user_input == "5"
+      puts "Sorry, this functionality is still in alpha testing"
     end
   end
