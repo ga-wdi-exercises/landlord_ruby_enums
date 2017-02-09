@@ -170,7 +170,7 @@ while i == 0
     end
     if x == 0
       puts "No tenants matched what you typed.  Please try again from the main menu."
-    end  
+    end
   end
   puts "Would you like to do something else? (y/n)"
   pizza_response = gets.chomp.to_s.downcase
@@ -183,6 +183,19 @@ while i == 0
 
   # Option 5 - Remove Tenant
   if pizza_choice == 5
+    puts "Which tenant would you like to remove?"
+    remove = gets.chomp.to_s
+    x = 0
+    for renter in tenants
+      if renter[:name][0..6] == remove[0..6]
+        puts "You are removing #{renter[:name]}."
+        tenants.delete(renter)
+        x += 1
+      end
+    end
+    if x == 0
+      puts "No tenants matched what you typed.  Please try again from the main menu."
+    end
   end
   puts "Would you like to do something else? (y/n)"
   pizza_response = gets.chomp.to_s.downcase
@@ -195,6 +208,19 @@ while i == 0
 
   # Option 6 - Add Tenant
   if pizza_choice == 6
+    tenant_name = ''
+    tenant_age = 0
+    unit_id = 0
+    renter_id = 0
+    puts "What is the tenant's name?"
+    tenant_name = gets.chomp.to_s
+    puts "How old is the tenant?"
+    tenant_age = gets.chomp.to_i
+    puts "What is the ID for their apartment?"
+    unit_id = gets.chomp.to_i
+    renter_id = tenants.length + 1
+    tenants << {id: renter_id, name: tenant_name, age: tenant_age, apartment_id: unit_id}
+    puts "You have added #{tenant_name}, age #{age}, to apartment #{apartment_id}.  The tenant ID is #{renter_id}."
   end
   puts "Would you like to do something else? (y/n)"
   pizza_response = gets.chomp.to_s.downcase
@@ -207,6 +233,19 @@ while i == 0
 
   # Option 7 - Create Apartment
   if pizza_choice == 7
+    unit_id = 0
+    location = ''
+    rent = 0
+    size = 0
+    puts "What is the apartment address?"
+    location = gets.chomp.to_s
+    puts "What is the monthly rent (no $, numbers only)?"
+    rent = gets.chomp.to_i
+    puts "What is the square footage?"
+    size = gets.chomp.to_i
+    unit_id = apartments.length + 1
+    apartments << {id: unit_id, address: location, monthly_rent: rent, square_feet: size}
+    puts "You have added unit #{unit_id} at #{location}, which is #{size} square feet and costs $#{rent} per month."
   end
   puts "Would you like to do something else? (y/n)"
   pizza_response = gets.chomp.to_s.downcase
