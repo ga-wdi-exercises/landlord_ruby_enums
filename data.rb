@@ -1,3 +1,7 @@
+# The below "data" is a method, wich contains two hashes .
+# The first hash is called "apartment" and the second one is called "tenants".
+# The "apartments" hash contains four properties: "id", "address", "monthly_rent", and "square_feet".
+# The "tenants" hash also contains four properties: "id", "name", "age", and "apartment_id".
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
