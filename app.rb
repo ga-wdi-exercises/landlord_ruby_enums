@@ -86,3 +86,54 @@ tenants = data[:tenants]
     #     end
     #   end
     # end
+
+# Listing command line options for Mr. Pizza
+puts "Hello, Mr. Pizza. What function do you need to perform today (enter #1-7)?"
+puts "1. View all apartments"
+puts "2. View all tenants"
+puts "3. View a list of tenants for each apartment"
+puts "4. Find tenant's address by tenant name"
+puts "5. Remove a tenant from an apartment"
+puts "6. Add tenant to an apartment"
+puts "7. Create a new apartment"
+
+# Ensuring his choice is an option
+pizza_choice = gets.chomp.to_i
+if pizza_choice < 1 || pizza_choice > 7
+  puts "Sorry, Mr. Pizza, but that selection is invalid.  Please try again (1-7):"
+  pizza_choice = gets.chomp.to_i
+end
+
+# Option 1 - All Apartments
+if pizza_choice == 1
+  apartments.each do |unit|
+    puts unit
+  end
+end
+
+# Option 2 - All Tenants
+if pizza_choice == 2
+  tenants.each do |renter|
+    puts renter[:name]
+  end
+end
+
+# Option 3 - Tenants Per Apartment
+if pizza_choice == 3
+end
+
+# Option 4 - Tenant's Address By Name
+if pizza_choice == 4
+end
+
+# Option 5 - Remove Tenant
+if pizza_choice == 5
+end
+
+# Option 6 - Add Tenant
+if pizza_choice == 6
+end
+
+# Option 7 - Create Apartment
+if pizza_choice == 7
+end
