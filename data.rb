@@ -1,3 +1,6 @@
+#method called data
+# apartments is organized in hashes with keys: id, address, monthly_rent, and square_feet
+# tenants is organized in hashses with keys: id, name, age, apartment_id
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
