@@ -5,6 +5,8 @@ require_relative "models/tenant"
 
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 #Part 1
 # First, Open the data.rb and inspect the data. Identify and write, in comments, the following:
@@ -54,7 +56,18 @@ tenants = data[:tenants]
 #   puts "Sorry, I didn't undersatnd this!"
 # end
 
-apt21 = Apartment.new(21, "1 1st St. NW", 900, 500)
-tena51 = Tenant.new(51, "John", 40, 21)
+#testing classes
+# apt21 = Apartment.new(21, "1 1st St. NW", 900, 500)
+# tena51 = Tenant.new(51, "John", 40, 21)
 
-binding.pry
+apartments.each do |apt|
+  values = apt.values
+  ruby_apartments << Apartment.new(apt.values[0], apt.values[1], apt.values[2], apt.values[3])
+end
+
+tenants.each do |tena|
+  values = tena.values
+  ruby_tenants << Tenant.new(tena.values[0], tena.values[1], tena.values[2], tena.values[3])
+end
+
+# binding.pry
