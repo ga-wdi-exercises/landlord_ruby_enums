@@ -9,18 +9,24 @@ puts "Enter the option number."
 input = gets.chomp
 
 if input == '1'
+  puts "View Apartments"
+  puts "#"*30
   apartments.each {|all_addresses| puts all_addresses[:address]}
 elsif input == '2'
+  puts "View Tenants"
+  puts "#"*30
   tenants.each{|tenant| puts tenant[:name]}
 elsif input == '3'
-  puts "Doesn't work"
+  puts "View Appartments and Their Tenants"
   puts "#"*30
-  tenants.each do |id_of_apartment|
-    id_of_apartment[:apartment_id]
-      if id_of_apartment[:apartment_id] == apartments[:id]
-        puts "#{tenant} lives at #{id_of_apartment}."
+  tenants.each do |lives_at|
+    apartments.each do |id|
+      if lives_at[:apartment_id] == id[:id]
+        puts "#{lives_at[:name]} lives at #{id[:address]}."
       end
     end
+    end
+
   end
 # loop do
 #   if input == 1
