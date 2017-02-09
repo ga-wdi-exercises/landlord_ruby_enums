@@ -4,8 +4,6 @@ require_relative "models/tenant"
 # require_relative "seed"
 apartments = data[:apartments]
 tenants = data[:tenants]
-# all_apartments = []
-# all_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -46,11 +44,11 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
-# for tenant in tenants do
+# all_tenants = tenants.map do |tenant|
 #   puts tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id]
 # end
   # When printing all apartments, under each apartment print all of its tenants
-# for apartment in apartments do
+# all_apartments = apartments.map do |apartment|
 #   puts apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet]
 # end
 
