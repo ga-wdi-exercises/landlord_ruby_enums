@@ -38,7 +38,7 @@ end
 
   # Print only tenants that are over the age of 44
       # over44tenants = tenants.select do |tenant|
-      #   tenant[:age] < 44
+      #   tenant[:age] > 44
       # end
       # puts over44tenants
 
