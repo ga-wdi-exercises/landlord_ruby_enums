@@ -61,3 +61,47 @@ tenants = data[:tenants]
     #   puts apartment
     #   puts all_tenants
     # end
+
+selection = nil
+
+while selection != 0
+  puts "1: View all apartments
+2: View all tenants
+3: View all apartments with their tenants
+4: Find tenant's address
+0: Exit the program"
+
+  selection = gets.chomp.to_i
+
+  if selection == 1
+    puts apartments
+  end
+
+  if selection == 2
+    puts tenants
+  end
+
+  if selection == 3
+    apartments.each do |apartment|
+      all_tenants = tenants.select do |tenant|
+        tenant[:apartment_id] == apartment[:id]
+      end
+      puts apartment
+      puts all_tenants
+    end
+  end
+
+  if selection == 4
+    puts "Enter name of tenant."
+    tenant_name = gets.chomp
+    find_tenant = tenants.find do |tenant|
+      tenant_name == tenant[:name]
+    end
+    puts find_tenant
+    find_address = apartments.find do |apartment|
+      find_tenant[:apartment_id] == apartment[:id]
+    end
+    puts find_address
+  end
+
+end
