@@ -13,6 +13,11 @@ end
 ruby_tenants = tenants.each do |tenant|
   Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
+# ruby_tenants_in_objects =[]
+# ruby_tenants.each do |tenant|
+#   ruby_tenants_in_objects << OpenStruct.new(:id => tenant[:id],:name => tenant[:name],:age => tenant[:age],:apartment_id => tenant[:apartment_id])
+# end
+# puts ruby_tenants_in_objects
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   ## The data is structured in apartments to a specific address, monthly_rent, and square_feet so in all the specifics of the actual apartment and the tenants describe their name, age, and apartment_id which are more specific to them.
@@ -61,13 +66,15 @@ end
 ## Part 2: building the APP
 # gets input to choose which path to take
 puts "Different Programs of App: Type [1] to view apartments [2] to view tenants."
-input = gets.strip.to_i
+input = gets.strip
 # runs to
-while input != 1 || 2
-  if input == 1
-  apartments.each {|apartment| puts apartment[:address]}
-  elsif input == 2
-  tenants.each {|tenant| puts tenant[:name]}
+while input != "exit"
+  if input == "1"
+    puts "Here is a list of currently owned properties."
+  ruby_apartments.each {|apartment| puts apartment[:address]}
+elsif input == "2"
+  puts "Here is a list of current tenants."
+  ruby_tenants.each {|tenant| puts tenant[:name]}
   end
   break if input == 1 || 2
 end
