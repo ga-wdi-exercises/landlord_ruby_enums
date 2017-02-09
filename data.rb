@@ -1,4 +1,5 @@
-def data
+def data 
+   # Each location is identified by an ID, it's physical address, current monthly rent and the square footage. 
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -22,6 +23,7 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+  # Each tenant is also identified by an ID (which duplicare the tenant ID's but do not correlate and essentially create multiple indexes), tenant name, age and the apartment ID associated with their residence.
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
