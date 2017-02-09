@@ -8,7 +8,7 @@ ruby_apartments = apartments.map do |apartment|
 end
 ruby_tenants = tenants.map do |tenant|
   Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
-
+end
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
@@ -95,15 +95,15 @@ ruby_tenants = tenants.map do |tenant|
   while input != 'exit'
     if input == "1"
       puts "List of Apartments:"
-        apartments.each do |apartment|
-          puts apartment[:address]
+        ruby_apartments.each do |apartment|
+          puts apartment.address
       end
       puts "PRESS ENTER TO GO BACK TO THE MAIN MENU"
 
     elsif input == "2"
       puts "List of Tenants:"
-        tenants.each do |tenant|
-          puts tenant[:name]
+        ruby_tenants.each do |tenant|
+          puts tenant.name
         end
         puts "PRESS ENTER TO GO BACK TO THE MAIN MENU"
       end
@@ -111,4 +111,3 @@ ruby_tenants = tenants.map do |tenant|
     gets.chomp
     input = options
   end
-end
