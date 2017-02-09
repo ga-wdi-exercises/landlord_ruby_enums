@@ -19,7 +19,7 @@ puts
 input = gets.chomp.to_i
 
 if input == 1
-  ruby_apartments.each{|a| p a}
+  ruby_apartments.each{|apartment| p apartment}
 elsif input == 2
-  ruby_tenants.each{|t| p t}
+  ruby_tenants.each{|tenant| p tenant}
 end
