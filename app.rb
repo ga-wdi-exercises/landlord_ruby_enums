@@ -18,3 +18,14 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+  puts "Hello. What would you like to do?"
+  puts "1. apartment list"
+  puts "2. tenants list"
+  input = gets.chomp.to_i
+
+  if input == 1
+    ruby_apartments.each{|a| p a}
+  elsif input == 2
+    ruby_tenants.each{|t| p t}
+  end
