@@ -1,3 +1,9 @@
+# 1.  The data is structured in key:value pairs within hashes.
+# 2. An apartment is composed of an id, address, monthly_rent, and square_feet
+#    A tenant is composed of an id, name, age, and apartment_id
+
+
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
