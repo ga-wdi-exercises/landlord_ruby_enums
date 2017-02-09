@@ -57,11 +57,11 @@ while input == 1 || 2 || 3
 
   if input == 1
     puts "Here is a list of apartment addresses."
-    apartments.each{|apartment| puts apartment[:address]}
+    ruby_apartments.each{|apartment| puts apartment[:address]}
     puts "Would you like to see more details? Y/N"
     input_1 = gets.chomp.upcase
     if input_1 == "Y"
-      apartments.each{|apartment| puts apartment}
+      ruby_apartments.each{|apartment| puts apartment}
       break
     else input_1 == "N"
       nil
@@ -69,11 +69,11 @@ while input == 1 || 2 || 3
     break
   elsif input == 2
     puts "Here is a list of current tenants of the properties."
-    tenants.each{|full_name| puts full_name[:name]}
+    ruby_tenants.each{|full_name| puts full_name[:name]}
     puts "Would you like to see more details? Y/N"
     input_2 = gets.chomp.upcase
     if input_2 == "Y"
-      tenants.each{|tenant| puts tenant}
+      ruby_tenants.each{|tenant| puts tenant}
       break
     else input_2 == "N"
       nil
