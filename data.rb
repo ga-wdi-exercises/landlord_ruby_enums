@@ -1,4 +1,7 @@
+#data method has two arrays and one output
 def data
+  #Array of appartments, each element is a hash. Each hash has 4 symbols and their values
+  #the 4 properties of this hash are: id, address, monthly_rent, square_feet
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -22,6 +25,8 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+  #Array of tenants, each element is a hash. Each hash has 4 symbols and their values
+  #The 4 properties of this hash are id, name, age, and apartment_id
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
@@ -74,5 +79,7 @@ def data
     {:id=>49, :name=>"Rowland Wiegand", :age=>90, :apartment_id=>11},
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
+
+  #method creating a new hash. This hash has two symbols (apartments and tenants). The value of each symbol is an array of hashes.
   return {apartments:apartments, tenants:tenants}
 end
