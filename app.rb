@@ -18,14 +18,71 @@ tenants = data[:tenants]
 
 # Use enumerables to -
   # Print all the addresses for the apartments
-  puts 
+
+    # apartments.each do |unit|
+    #   puts unit[:address]
+    # end
+
   # Print all the names for tenants
+
+    # tenants.each do |renter|
+    #   puts renter[:name]
+    # end
+
   # Print only apartments that are less then 700 in rent
+
+    # apartments.each do |unit|
+    #   if unit[:monthly_rent] < 700
+    #     puts unit
+    #   end
+    # end
+
   # Print only tenants that are over the age of 44
+
+    # tenants.each do |renter|
+    #   if renter[:age] > 44
+    #     puts renter
+    #   end
+    # end
+
   # Print only tenants that have an apartment id of 1
+
+    # tenants.each do |renter|
+    #   if renter[:apartment_id] == 1
+    #     puts renter
+    #   end
+    # end
+
   # Print all the tenants in order from youngest to oldest
+
+    # sorted_tenants = tenants.sort_by{|renter| renter[:age]}
+    # puts sorted_tenants
+
   # Print the names of all the tenants alphabetically
+
+    # sorted_tenants = []
+    # sorted_tenants = tenants.sort_by!{|renter| renter[:name]}
+    # for renter in sorted_tenants
+    #   puts renter[:name]
+    # end
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+
+    # sorted_tenants = []
+    # sorted_tenants = tenants.sort_by!{|renter| renter[:name]}
+    # for renter in sorted_tenants
+    #   puts renter[:name]
+    #   puts apartments[renter[:apartment_id]-1][:address]
+    # end
+
   # When printing all apartments, under each apartment print all of its tenants
+
+    # for unit in apartments
+    #   puts unit
+    #   for renter in tenants
+    #     if unit[:id] == renter[:apartment_id]
+    #       puts renter[:name]
+    #     end
+    #   end
+    # end
