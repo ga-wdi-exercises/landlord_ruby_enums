@@ -35,3 +35,9 @@ if user_input_silver == apartments[:id]
     puts "#{tenants[:name]}"
   end
 end
+
+user_input_silver1 = gets.chomp.to_s
+
+if user_input_silver1 == tenants[:name]
+  puts tenants[:apartment_id]
+end
