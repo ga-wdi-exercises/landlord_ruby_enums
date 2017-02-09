@@ -121,5 +121,52 @@ tenants.each{|tenant| ruby_tenants <<
 # end
 #
 
+addresses = []
+dwellers = []
+less_than = []
+old_folks = []
+id_one = []
+young_to_old = []
+alphabetically = []
+
+
+# ruby_apartments.each{|apartment| puts apartment[:address]}
+
+ruby_apartments.each{|apartment| addresses << apartment.address} # array
+
+# tenants.each{|tenant| puts tenant.name}
+ruby_tenants.each{|tenant| dwellers << tenant.name} # array
+
+
+# ruby_apartments.each{|apartment|
+#   if (apartment.rent < 700)
+#     puts apartment
+#   end
+# }
+# in array
+ruby_apartments.each{|apartment|
+  if (apartment.rent < 700)
+    less_than << apartment
+  end
+}
+
+ruby_tenants.each{|tenant|
+  if(tenant.age > 44)
+    old_folks << tenant
+  end
+}
+
+ruby_tenants.each{|tenant|
+  if(tenant.apt_id == 1)
+    id_one << tenant
+  end
+  }
+
+ruby_tenants.each{ |tenant| young_to_old << tenant.age }
+young_to_old.sort!
+
+ruby_tenants.each{ |tenant| alphabetically << tenant.name }
+alphabetically.sort!
+
 
 binding.pry
