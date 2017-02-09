@@ -1,7 +1,21 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
+## created an instance of the classes
+apartments.each do |apartment|
+  ruby_apartments << Apartment.new("id", "name", "age", "apartment_id")
+end
+puts ruby_apartments
+
+tenants.each do |tenant|
+  ruby_tenants << Tenant.new('id', 'name', 'age', 'apartment_id')
+end
+puts ruby_tenants
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   ## The data is structured in apartments to a specific address, monthly_rent, and square_feet so in all the specifics of the actual apartment and the tenants describe their name, age, and apartment_id which are more specific to them.
@@ -45,3 +59,24 @@ tenants = data[:tenants]
     #   puts apartment
     #   puts house_tenants
     # end
+
+
+## Part 2: building the APP
+# gets input to choose which path to take
+puts "Different Programs of App: Type [1] to view apartments [2] to view tenants."
+input = gets.strip.to_i
+# runs to
+while input != 1 || 2
+  if input == 1
+  apartments.each {|apartment| puts apartment[:address]}
+  elsif input == 2
+  tenants.each {|tenant| puts tenant[:name]}
+  end
+  break if input == 1 || 2
+end
+
+## did not do silve or gold yet.
+
+
+
+## Part 3 Convert
