@@ -8,34 +8,34 @@ class Apartment
   end
 
   #get and set ID
-  def get_apt_id
+  def get_id
     @id
   end
-  def set_apt_id(new_id)
+  def set_id(new_id)
     @id = new_id
   end
 
   #get and set address
-  def get_apt_address
+  def get_address
     @address
   end
-  def set_apt_address(new_address)
+  def set_address(new_address)
     @address = new_address
   end
 
   #get and set monthly rent
-  def get_apt_monthly_rent
+  def get_monthly_rent
     @monthly_rent
   end
-  def set_apt_monthly_rent(new_monthly_rent)
+  def set_monthly_rent(new_monthly_rent)
     @monthly_rent= new_monthly_rent
   end
 
   #get and set mapartment square feeet
-  def get_apt_square_feet
+  def get_square_feet
     @square_feet
   end
-  def set_apt_square_feet(new_square_feet)
+  def set_square_feet(new_square_feet)
     @square_feet = new_square_feet
   end
 
