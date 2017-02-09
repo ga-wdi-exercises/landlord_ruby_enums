@@ -2,6 +2,30 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
+options = [{selection: "1. View Apartments"}, {selection: "2. View Tenants"}, {selection: "3. View Appartments and Their Tenants"}, {selection: "4. View Tenant's Address"}, {selection: "5. Evict a Tenant"}, {selection: "6. Add a Tenant to an Apartment"}, {selection: "7. Create New Apartment Building"}, {selection: "8. Create New Tenant"}]
+
+options.each {|option| puts option[:selection]}
+puts "Enter the option number."
+input = gets.chomp
+
+if input == '1'
+  apartments.each {|all_addresses| puts all_addresses[:address]}
+elsif input == '2'
+  tenants.each{|tenant| puts tenant[:name]}
+elsif input == '3'
+  puts "Doesn't work"
+  puts "#"*30
+  tenants.each do |id_of_apartment|
+    id_of_apartment[:apartment_id]
+      if id_of_apartment[:apartment_id] == apartments[:id]
+        puts "#{tenant} lives at #{id_of_apartment}."
+      end
+    end
+  end
+# loop do
+#   if input == 1
+#     puts options
+
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
 
