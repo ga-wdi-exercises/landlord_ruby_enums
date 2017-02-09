@@ -58,36 +58,22 @@ end
    end
 
   # Print all the tenants in order from youngest to oldest
-
+ p tenants.sort_by{|tenant| tenant[:age]}
   # Print the names of all the tenants alphabetically
-  tenants.each do |tenant|
-      array = []
-      sorted = tenant[:name].downcase
-       array.push(sorted)
-      puts array
-      puts array.sort_by {|name| name}
+  p tenants.sort_by{|tenant| tenant[:name]}
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
-  array = []
   tenants.each do |tenant|
+  apartment = apartments.find {|apartment| tenant[:apartment_id] == apartment[:id]}
   puts tenant[:name]
-
-  puts tenant[:apartment_id]
-    p array.push(tenant[:apartment_id])
-
-
+ puts apartment[:address]
+end
+  # When printing all apartments, under each apartment print all of its tenants
 
   apartments.each do |apartment|
-      puts apartment[:id]
-
-  array.each
-
-      if array == tenant[:apartment_id]
-        puts apartment[:address]
+      tenant = tenants.select {|tenant| tenant[:apartment_id] == apartment[:id]}
+      tenant.each do |tenant|
+       puts apartment[:address]
+       puts tenant[:name]
       end
-      break
-    end
-  end
-
-    p array
-  # When printing all apartments, under each apartment print all of its tenants
+      end
