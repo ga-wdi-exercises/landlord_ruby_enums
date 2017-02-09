@@ -22,6 +22,9 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+  # data is sorted out by a Huge array, and as hashes as each element of the array
+  # properties are all different except for ID
+
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
