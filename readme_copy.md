@@ -1,12 +1,12 @@
-## BONUS
-
-Create a class method `.all` for `Tenant` and/or `Apartment`. When called on the class it will return all of the instances that have been created through this class.
-
 ### Silver
 ```
 - I should be allowed an option to view all the apartments with their tenants so that I can get an overview of Occupancy.
 - I should be able to find where a tenant lives based on tenant name in case of emergencies.
 ```
+
+## BONUS
+
+Create a class method `.all` for `Tenant` and/or `Apartment`. When called on the class it will return all of the instances that have been created through this class.
 
 ### Gold
 ```
