@@ -1,4 +1,3 @@
-require "pry"
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
@@ -16,8 +15,6 @@ tenants.each do |tenant|
   create_tenant = Tenant.new(tenant[:id],tenant[:name],tenant[:age],tenant[:apartment_id])
   ruby_tenants << create_tenant
 end
-
-binding.pry
 
 # First, Open the data.rb and inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -92,17 +89,17 @@ while selection != 0
   selection = gets.chomp.to_i
 
   if selection == 1
-    puts apartments
+    puts ruby_apartments
   end
 
   if selection == 2
-    puts tenants
+    puts ruby_tenants
   end
 
   if selection == 3
-    apartments.each do |apartment|
-      all_tenants = tenants.select do |tenant|
-        tenant[:apartment_id] == apartment[:id]
+    ruby_apartments.each do |apartment|
+      all_tenants = ruby_tenants.select do |tenant|
+        tenant.apartment_id == apartment.id
       end
       puts apartment
       puts all_tenants
@@ -112,13 +109,13 @@ while selection != 0
   if selection == 4
     puts "Enter name of tenant."
     tenant_name = gets.chomp
-    find_tenant = tenants.find do |tenant|
-      tenant_name == tenant[:name]
+    find_tenant = ruby_tenants.find do |tenant|
+      tenant_name == tenant.name
     end
-    find_address = apartments.find do |apartment|
-      find_tenant[:apartment_id] == apartment[:id]
+    find_address = ruby_apartments.find do |apartment|
+      find_tenant.apartment_id == apartment.id
     end
-    puts find_address[:address]
+    puts find_address.address
   end
 
 end
