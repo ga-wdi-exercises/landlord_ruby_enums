@@ -1,3 +1,5 @@
+
+#  data is structured using hashes (apartments, tenants). The apartment hash has the following keys: id, address, monthly_rent, square_feet
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
@@ -22,6 +24,7 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+# the 'tenants' hash has the following keys: id, name, age, and apartment id
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
