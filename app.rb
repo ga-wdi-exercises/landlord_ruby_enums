@@ -39,34 +39,34 @@ end
 
 ##Now that everything actually exists here I should be able to finish the enumerables
 
-# Use enumerables to -
-  # Print all the addresses for the apartments
+# # Use enumerables to -
+#   # Print all the addresses for the apartments
   
-  new_apartments.each do |apartment|
-    puts apartment.address
-  end
+#   new_apartments.each do |apartment|
+#     puts apartment.address
+#   end
 
-  # Print all the names for tenants
+#   # Print all the names for tenants
 
-  new_tenants.each do |tenants|
-    puts tenants.name
-  end
+#   new_tenants.each do |tenants|
+#     puts tenants.name
+#   end
 
-  # Print only apartments that are less then 700 in rent
+#   # Print only apartments that are less then 700 in rent
   
-  new_apartments.each do |cheap_ones|
-    if cheap_ones.monthly_rent < 700
-      puts cheap_ones.address
-    end
-  end
+#   new_apartments.each do |cheap_ones|
+#     if cheap_ones.monthly_rent < 700
+#       puts cheap_ones.address
+#     end
+#   end
 
-  # Print only tenants that are over the age of 44
+#   # Print only tenants that are over the age of 44
 
-  new_tenants.each do |elders|
-    if elders.age > 44
-      puts elders.name
-    end
-  end
+#   new_tenants.each do |elders|
+#     if elders.age > 44
+#       puts elders.name
+#     end
+#   end
 
   # Print only tenants that have an apartment id of 1
 
