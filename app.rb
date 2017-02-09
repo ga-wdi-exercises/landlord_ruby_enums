@@ -63,3 +63,16 @@ tenants = data[:tenants]
       # (apartments).find {|address| address}
       # (tenants).find {|name| name}
       #   puts address.join(",") + name
+
+
+  # I should have a numbered interface for my application so that I can just type in a number to access different parts of my program.
+  # I should be allowed an option to view all the apartments so that I can get an overview of my properties.
+  # I should be allowed an option view all the tenants so that I can get an overview of my tenants
+      class App
+        def initialize (number, id, apartment_id)
+          @number = number
+          @id = id
+          @apartment_id = apartment_id
+          @@all
+        end
+      end
