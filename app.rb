@@ -13,34 +13,44 @@ tenants = data[:tenants]
 
 # Use enumerables to -
   # Print all the addresses for the apartments
-  apartments.each {|all_addresses| p all_addresses[:address]}
+  # apartments.each {|all_addresses| p all_addresses[:address]}
   # Print all the names for tenants
-  tenants.each{|tenant| p tenant[:name]}
+  # tenants.each{|tenant| p tenant[:name]}
   # Print only apartments that are less then 700 in rent
-  apartments.select do |less_than_700|
-    if less_than_700[:monthly_rent] <= 700
-      p less_than_700
-    end
-  end
+  # puts "rent less than 700"
+  # puts "#"*30
+  # apartments.select do |less_than_700|
+  #   if less_than_700[:monthly_rent] <= 700
+  #     p less_than_700
+  #   end
+  # end
   # Print only tenants that are over the age of 44
-  tenants.select do |older_than_44|
-    if older_than_44[:age] > 44
-      p older_than_44
-    end
-  end
+  # puts "older than 44"
+  # puts "#"*30
+  # tenants.select do |older_than_44|
+  #   if older_than_44[:age] > 44
+  #     p older_than_44
+  #   end
+  # end
   # Print only tenants that have an apartment id of 1
-  tenants.each do |id_of_1|
-    if id_of_1[:apartment_id] == 1
-      p id_of_1
-    end
-  end
+  # puts "apartment id of 1"
+  # puts "#"*30
+  # tenants.each do |id_of_1|
+  #   if id_of_1[:apartment_id] == 1
+  #     p id_of_1
+  #   end
+  # end
   # Print all the tenants in order from youngest to oldest
   # I really don't know
-  sort_by_age = tenants.sort_by do |tenant|
-    p tenant[:age]
-  end
+  # puts "sorting? Omg it does. 2 hours wasted on 'puts sorted' in the wrong place"
+  # puts "#"*30
+  # sorted = tenants.sort_by {|tenant|tenant[:age]}
+  # puts sorted
   # Print the names of all the tenants alphabetically
-  # same here
+  # puts "sorting alphabetically, still surprised"
+  # puts "#"*30
+  # sorted = tenants.sort_by {|tenant|tenant[:name]}
+  # puts sorted
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
