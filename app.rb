@@ -2,7 +2,9 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-options = [{selection: "1. View Apartments"}, {selection: "2. View Tenants"}, {selection: "3. View Appartments and Their Tenants"}, {selection: "4. View Tenant's Address"}, {selection: "5. Evict a Tenant"}, {selection: "6. Add a Tenant to an Apartment"}, {selection: "7. Create New Apartment Building"}, {selection: "8. Create New Tenant"}]
+options = [{selection: "1. View Apartments"}, {selection: "2. View Tenants"}, {selection: "3. View Appartments and Their Tenants"}
+  # , {selection: "4. View Tenant's Address"}, {selection: "5. Evict a Tenant"}, {selection: "6. Add a Tenant to an Apartment"}, {selection: "7. Create New Apartment Building"}, {selection: "8. Create New Tenant"}
+]
 
 options.each {|option| puts option[:selection]}
 puts "Enter the option number."
