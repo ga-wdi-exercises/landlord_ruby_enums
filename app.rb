@@ -3,8 +3,8 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
-ruby_apartments = []
-ruby_tenants = []
+ruby_apartments = [:apartments]
+ruby_tenants = [:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -47,6 +47,13 @@ ruby_tenants = []
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
+ruby_apartments = apartments.map do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+ruby_tenants = tenants.map do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
 
 puts "Please select which list you would like to access."
 puts "Enter [1] to view apartments, Enter [2] to view tenants, Enter [3] to quit."
@@ -57,27 +64,27 @@ while input == 1 || 2 || 3
 
   if input == 1
     puts "Here is a list of apartment addresses."
-    ruby_apartments.each{|apartment| puts apartment[:address]}
-    puts "Would you like to see more details? Y/N"
-    input_1 = gets.chomp.upcase
-    if input_1 == "Y"
-      ruby_apartments.each{|apartment| puts apartment}
-      break
-    else input_1 == "N"
-      nil
-      end
+    ruby_apartments.each{|apartment| puts apartment.address}
+    # puts "Would you like to see more details? Y/N"
+    # input_1 = gets.chomp.upcase
+    # if input_1 == "Y"
+    #   ruby_apartments.sort_by{puts apartments}
+    #   break
+    # else input_1 == "N"
+    #   nil
+    #   end
     break
   elsif input == 2
     puts "Here is a list of current tenants of the properties."
-    ruby_tenants.each{|full_name| puts full_name[:name]}
-    puts "Would you like to see more details? Y/N"
-    input_2 = gets.chomp.upcase
-    if input_2 == "Y"
-      ruby_tenants.each{|tenant| puts tenant}
-      break
-    else input_2 == "N"
-      nil
-      end
+    ruby_tenants.each{|full_name| puts full_name.name}
+    # puts "Would you like to see more details? Y/N"
+    # input_2 = gets.chomp.upcase
+    # if input_2 == "Y"
+    #   ruby_tenants.each{puts tenants}
+    #   break
+    # else input_2 == "N"
+    #   nil
+    #   end
     break
   elsif input == 3
     puts "Thank you for using this app. Have a nice day."
