@@ -79,7 +79,7 @@ end
 # #
 # # # Use enumerables to -
 # #   # Print all the addresses for the apartments
-# #   puts apartments.map{|unit| "#{unit[:address]}\n#{tenants.find_all{|peon| peon[:apartment_id]==unit[:id]}.map{|moneybag| moneybag[:name]}.join(", ")}"}
+# # puts apartments.map{|unit| "#{unit[:address]}\n#{tenants.find_all{|peon| peon[:apartment_id]==unit[:id]}.map{|moneybag| moneybag[:name]}.join(", ")}"}
 puts ruby_apartments.map{|unit| "#{unit.address}\n#{ruby_tenants.find_all{|peon| peon.apartment_id == unit.id}.map{|moneybag| moneybag.name}.join(", ")}"}
 # #   # Print all the names for tenants
 # #   puts tenants.map{|peon| "#{peon[:name]}, #{apartments[peon[:apartment_id]][:address]}"}
