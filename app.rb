@@ -6,7 +6,7 @@ tenants = data[:tenants]
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
 
-    # method used called data
+    # method used for data
     # apartments is organized in hashes with keys: id, address, monthly_rent, and square_feet
     # tenants is organized in hashses with keys: id, name, age, apartment_id
 
@@ -76,20 +76,31 @@ tenants = data[:tenants]
       #   end
       # end
 
-puts "Type '1' for a list of apartments, type '2' for a list of tenants"
-while input != "exit"
-  if input == "1"
-      input = gets.chomp
-      puts "List of Apartments"
-      apartments_owned = apartments.each do |apartment|
-        puts apartment
-      end
-  elsif input == "2"
-      input = gets.chomp
-    puts "list of Tenants"
-    tenants_list = tenants.each do |tenant|
-      puts tenant
-    end
+  puts "My Landlord App"
 
+  def options
+    puts "MAIN MENU:\n  Type '1' for a list of apartments \n  Type '2' for a list of tenants \n  Type 'exit' to close the app"
+    input = gets.chomp
   end
-end
+
+  input = options
+
+  while input != 'exit'
+    if input == "1"
+      puts "List of Apartments:"
+        apartments.each do |apartment|
+          puts apartment[:address]
+      end
+      puts "PRESS ENTER TO GO BACK TO THE MAIN MENU"
+
+    elsif input == "2"
+      puts "List of Tenants:"
+        tenants.each do |tenant|
+          puts tenant[:name]
+        end
+        puts "PRESS ENTER TO GO BACK TO THE MAIN MENU"
+      end
+
+    gets.chomp
+    input = options
+  end
