@@ -1,3 +1,11 @@
+# a table of apartments, a row of tenents with fields for name, age, and apartment_id
+
+
+
+
+
+
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
@@ -76,3 +84,12 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+
+
+apartments.each{|x| puts x[:address]}
+tenants.each{|x| puts x[:name]}
+apartments.each{|x| puts x[:monthly_rent] < 700}
+tenants.each{|x| puts x[:age] > 44}
+tenants.each{|x| puts x[:id] == 1}tenants.each{|x| puts x[:id] == 1}
+tenants.sort_by[:age]
+tenants.sort_by[:name]
