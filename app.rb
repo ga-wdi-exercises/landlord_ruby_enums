@@ -1,3 +1,4 @@
+require('pry')
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
@@ -43,13 +44,20 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
-  apartments.each do |apartment|
-    tenants.each do |tenant|
-      id = tenant[:apartment_id]
-      puts "#{tenant[:name]} - #{apartments[id]}" 
-    end
+  tenants.each do |hsh|
+    tenant_apart_id = hsh[:apartment_id]
+    arr_index = apartments.find_index{ |item| item[:id] == tenant_apart_id }
+    puts "#{hsh[:name]}  +++  #{apartments[arr_index][:address]}"
   end
 
   puts "============================================="
 
   # When printing all apartments, under each apartment print all of its tenants
+apartments.each do |hsh|
+  apartment_id = hsh[:id]
+  homes = []
+  resident_indexes = tenants.find_all{ |item| item[:apartment_id] == apartment_id }
+  # resident_indexes.each { |item| puts item}
+  # puts "#{hsh}\n#{homes}\n"
+  puts resident_indexes
+end
