@@ -32,25 +32,34 @@ tenants = data[:tenants]
   # Print only apartments that are less then 700 in rent
   puts "Q3 $700 rent"
   cheap_rents = apartments.find_all {|apartment| apartment[:monthly_rent] < 700}
-  cheap_rent = cheap_rents.each do |apartment|
+  cheap_rents_addresses = cheap_rents.each do |apartment|
     puts apartment[:address]
- 
-end
+  end
   # Print only tenants that are over the age of 44
   puts "Q4 tenants over 44"
   older_tenants = tenants.find_all {|tenant| tenant[:age] > 44}
+  older_tenants_names = older_tenants.each do |tenant|
+    puts tenant[:name]
+  end
   puts older_tenants
-  # Print only tenants that have an apartment id of 
-  puts "Q5"
+  # Print only tenants that have an apartment id of 1
+  puts "Q5 apartment id of 1"
   apartment_one = tenants.find_all {|tenant| tenant[:apartment_id] == 1}
-  puts apartment_one
+  apartment_one_names = apartment_one.each do |tenant|
+    puts tenant[:name]
+  end
   # Print all the tenants in order from youngest to oldest
-  puts "Q6"
+  puts "Q6 youngest to oldest"
   youngest_to_oldest = tenants.sort_by {|tenant| tenant[:age]}
-  puts youngest_to_oldest
+  youngest_to_oldest_names = youngest_to_oldest.each do |tenant|
+    puts tenant[:name]
+  end
   # Print the names of all the tenants alphabetically
+  puts "Q7 tenants alphabetically"
   tenants_alphabetically = tenants.sort_by {|tenant| tenant[:name]}
-  puts tenants_alphabetically
+  tenants_alphabetically_name = tenants_alphabetically.each do |tenant|
+    puts tenant[:name]
+  end
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
