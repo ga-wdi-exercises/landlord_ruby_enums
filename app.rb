@@ -55,9 +55,11 @@ tenants = data[:tenants]
   # When printing all apartments, under each apartment print all of its tenants
 apartments.each do |hsh|
   apartment_id = hsh[:id]
-  homes = []
-  resident_indexes = tenants.find_all{ |item| item[:apartment_id] == apartment_id }
-  # resident_indexes.each { |item| puts item}
-  # puts "#{hsh}\n#{homes}\n"
-  puts resident_indexes
+  puts "#{hsh}"
+
+  tenants.each do |item|
+    if item[:apartment_id] == apartment_id
+      puts "+++++ #{item[:name]}"
+    end
+  end
 end
