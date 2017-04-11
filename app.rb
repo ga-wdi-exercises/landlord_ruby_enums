@@ -4,7 +4,10 @@ tenants = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
+    # data is structured with two key values in a method.
   # What are the properties for each of the two types of hashes
+    # For first hash, contains an array that include properties of id, address, rent and square feet.
+    # For second hash, contains a array that include properties of id, name, age, and id of apartments.
 
 # Use enumerables to -
   # Print all the addresses for the apartments
@@ -47,5 +50,5 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
-  
+
   # When printing all apartments, under each apartment print all of its tenants
