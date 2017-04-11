@@ -1,3 +1,17 @@
+# Explain how the data is structured
+#The data is structured in a method with values
+# What are the properties for each of the two types of hashes
+#Type 1 is the apartments hash that has the properties of :id, :address, :monthly_rent,  and :square_feet
+#Type 2 is the tenets hash that has the properties of :id, :name, :age, and :apartment_id
+
+# Use enumerables to -
+  # Print all the addresses for the apartments
+  # Print all the names for tenants
+  # Print only apartments that are less then 700 in rent
+  # Print only tenants that are over the age of 44
+  # Print only tenants that have an apartment id of 1
+  # Print all the tenants in order from youngest to oldest
+  # Print the names of all the tenants alphabetically
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
