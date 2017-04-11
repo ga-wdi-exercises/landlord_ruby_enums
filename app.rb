@@ -6,6 +6,10 @@ tenants = data[:tenants]
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
 
+# It appears that the data file is a functions that stores 2 arrays of objects
+#   - Apartments Hash - contains 4 keys.  id (integer), address(string), monthly_rent(integer), square_feet(integrer)
+#   - Tenants Hash - contains 4 keys. id(integer), name(string), age(integer), apartment_id(integer)
+
 # Use enumerables to -
   # Print all the addresses for the apartments
   # Print all the names for tenants
