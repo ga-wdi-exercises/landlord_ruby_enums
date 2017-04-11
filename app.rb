@@ -11,59 +11,64 @@ tenants = data[:tenants]
 
 # Use enumerables to -
   # Print all the addresses for the apartments
-
-
-#why won't this work?
-  #   address_info = apartments.each do |apartment|
-  #   return apartment[:address]
-  # end
-  # puts address_info
+  puts "Q1 addresses"
+  address_info = apartments.map do |apartment|
+    apartment[:address]
+  end
+  puts address_info
   
-  # puts "Q1 addresses"
-  # address_info = apartments.each do |apartment|
-  #   puts apartment[:address]
-  # end
 
   # Print all the names for tenants
-  # puts "Q2 tenant names"
-  # name_info = tenants.each do |tenant|
-  #   puts tenant[:name]
-  # end
+  puts "Q2 tenant names"
+  name_info = tenants.map do |tenant|
+    puts tenant[:name]
+  end
+  puts name_info
+
 
   # Print only apartments that are less then 700 in rent
-  # puts "Q3 $700 rent"
-  # cheap_rents = apartments.find_all {|apartment| apartment[:monthly_rent] < 700}
-  # cheap_rents_addresses = cheap_rents.each do |apartment|
-  #   puts apartment[:address]
-  # end
+  puts "Q3 $700 rent"
+  cheap_rents = apartments.find_all {|apartment| apartment[:monthly_rent] < 700}
+  cheap_rents_addresses = cheap_rents.map do |apartment|
+    puts apartment[:address]
+  end
+  puts cheap_rents_addresses
+
 
   # Print only tenants that are over the age of 44
-  # puts "Q4 tenants over 44"
-  # older_tenants = tenants.find_all {|tenant| tenant[:age] > 44}
-  # older_tenants_names = older_tenants.each do |tenant|
-  #   puts tenant[:name]
-  # end
+  puts "Q4 tenants over 44"
+  older_tenants = tenants.find_all {|tenant| tenant[:age] > 44}
+  older_tenants_names = older_tenants.map do |tenant|
+    puts tenant[:name]
+  end
+  puts older_tenants_names
+
 
   # Print only tenants that have an apartment id of 1
-  # puts "Q5 apartment id of 1"
-  # apartment_one = tenants.find_all {|tenant| tenant[:apartment_id] == 1}
-  # apartment_one_names = apartment_one.each do |tenant|
-  #   puts tenant[:name]
-  # end
+  puts "Q5 apartment id of 1"
+  apartment_one = tenants.find_all {|tenant| tenant[:apartment_id] == 1}
+  apartment_one_names = apartment_one.map do |tenant|
+    puts tenant[:name]
+  end
+  puts apartment_one_names
+
 
   # Print all the tenants in order from youngest to oldest
-  # puts "Q6 youngest to oldest"
-  # youngest_to_oldest = tenants.sort_by {|tenant| tenant[:age]}
-  # youngest_to_oldest_names = youngest_to_oldest.each do |tenant|
-  #   puts tenant[:name]
-  # end
+  puts "Q6 youngest to oldest"
+  youngest_to_oldest = tenants.sort_by {|tenant| tenant[:age]}
+  youngest_to_oldest_names = youngest_to_oldest.map do |tenant|
+    puts tenant[:name]
+  end
+  puts youngest_to_oldest_names
+
 
   # Print the names of all the tenants alphabetically
-  # puts "Q7 tenants alphabetically"
-  # tenants_alphabetically = tenants.sort_by {|tenant| tenant[:name]}
-  # tenants_alphabetically_names = tenants_alphabetically.each do |tenant|
-  #   puts tenant[:name]
-  # end
+  puts "Q7 tenants alphabetically"
+  tenants_alphabetically = tenants.sort_by {|tenant| tenant[:name]}
+  tenants_alphabetically_names = tenants_alphabetically.map do |tenant|
+    puts tenant[:name]
+  end
+  puts tenants_alphabetically_names
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
@@ -81,5 +86,17 @@ elsif user_input == 2
   tenant_info = tenants.each do |tenant|
     puts tenant
   end
-  
 end
+
+def occupancy
+  apartment_one = tenants.find_all {|tenant| tenant[:apartment_id] == 1}
+  apartment_one.each do |tenant|
+  # apartments[0][:name] = tenant[:name]
+  apartments[0][:name] = "test"
+  end
+end
+# apartments [0][:name] = "test"
+puts apartments[0] 
+
+
+
