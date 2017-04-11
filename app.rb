@@ -50,5 +50,62 @@ tenants = data[:tenants]
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+  # When printing all apartments, under each apartment print all of its tenants.
 
-  # When printing all apartments, under each apartment print all of its tenants
+puts "Welcome to Bob Pizza's App, Press enter key to continue."
+user_input = gets.chomp
+
+while user_input != "end"
+
+puts "Enter one of number below to access to App program"
+puts "1. Overview lists of all properties of apartment"
+puts "2. Overview of all the tenants"
+puts "3. Overview of Occupancy"
+puts "4. Apartment by Tenant Name"
+
+user_input = gets.chomp
+
+if user_input == "1"
+  apartments.each do |apartment|
+    puts "#{apartment[:id]}, #{apartment[:address]}"
+  end
+end
+
+if user_input == "2"
+  tenants.sort_by {|tenant| tenant[:name]}
+  tenants.each do |tenant|
+    puts "Name: #{tenant[:name]}"
+  end
+end
+
+if user_input == "3"
+  apartments.each do |apartment|
+    puts "#{apartment[:id]}, #{apartment[:address]}"
+    tenants.each do |tenant|
+      if tenant[:apartment_id] == apartment[:id]
+        puts tenant[:name]
+      end
+    end
+  end
+end
+
+if user_input == "4"
+  tenants.each do |tenant|
+    puts tenant[:name]
+  end
+  puts " "
+  puts "Enter the tenant name"
+  name = gets.chomp
+  search_tenant = tenants.select do |tenant|
+    tenant[:name] == name
+  end
+  search_apartment = apartments.select do |apartment|
+        apartment[:id] == search_tenant[0][:apartment_id]
+      end
+    puts "#{search_tenant[0][:name]}, #{search_apartment[0][:address]}"
+  end
+
+puts " "
+puts "If you want to continue to search, type continue or type stop to end the program"
+user_input = gets.chomp
+end
