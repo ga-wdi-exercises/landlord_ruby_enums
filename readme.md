@@ -85,7 +85,7 @@ ruby_tenants = []
 
 > We're going to use the variables `ruby_apartments` and `ruby_tenants` to differentiate between the original arrays (`apartments` and `tenants`) and the arrays we'll be putting our ruby class objects into.
 
-Using the `.each` enumerable, loop through the exisiting apartments and tenants arrays we worked with yesterday.
+Using the `.each` enumerable, loop through the existing apartments and tenants arrays we worked with yesterday.
 
 In the loops...
 - Create a new instance of a class you've defined
