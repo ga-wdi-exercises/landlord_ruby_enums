@@ -75,4 +75,12 @@ def data
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
   return {apartments:apartments, tenants:tenants}
+
 end
+
+
+# All data is contained within a function called data.
+# Within the function data there are two arrays. One is called 'apartments' and the other is 'tenants'.
+# Within each array there ara a collection of hashes representing each apartment and tenant respecively.
+# The hash called apartment is composed of four key value pairs. The keys are id, address, monthly_rent, and square_feet.
+# The hash called tenants is also composed of four keay value pairs. The keys are id, name, age, and apartment_id.
