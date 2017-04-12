@@ -6,3 +6,4 @@ class Apartment
 		@monthly_rent = monthly_rent
 		@square_feet = square_feet
 end
+end

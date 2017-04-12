@@ -6,6 +6,7 @@ class Tenant
 		@age = age
 		@apartment_id = apartment_id
 end
+end
 
 
 
