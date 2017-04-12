@@ -79,11 +79,11 @@ table = Terminal::Table.new :title => "Enter a code to perform a function:", :he
 #   end
 # end
 apartments.each do |hsh|
-  ruby_apartments << apartment = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
+	ruby_apartments << apartment = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
 end
 
 tenants.each do |hsh|
-  ruby_tenants << tenant = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
+	ruby_tenants << tenant = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
 end
 
 
@@ -93,34 +93,34 @@ rows = []
 rows << ["All Apartments",1]
 
 def all_items(arr, title)
-  puts "\nList of #{title}\n+++++++++++++++++++++++++++++++"
-  arr.each { |hsh| puts hsh}
-  puts "+++++++++++++++++++++++++++++++\n\n\n"
+	puts "\nList of #{title}\n+++++++++++++++++++++++++++++++"
+	arr.each { |hsh| puts hsh}
+	puts "+++++++++++++++++++++++++++++++\n\n\n"
 end
 
 def apartments_with_tenants(apart_arr, tenant_arr, title)
-  puts "\n#{title}\n+++++++++++++++++++++++++++++++"
-  apart_arr.each do |hsh|
-    apartment_id = hsh[:id]
-    puts "#{hsh}"
+	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
+	apart_arr.each do |hsh|
+		apartment_id = hsh[:id]
+		puts "#{hsh}"
 
-    tenant_arr.each do |item|
-      if item[:apartment_id] == apartment_id
-        puts "+++++ #{item[:name]}"
-      end
-    end
-  end
-  puts "+++++++++++++++++++++++++++++++\n\n\n"
+		tenant_arr.each do |item|
+			if item[:apartment_id] == apartment_id
+				puts "+++++ #{item[:name]}"
+			end
+		end
+	end
+	puts "+++++++++++++++++++++++++++++++\n\n\n"
 end
 
 def tenant_with_address(apart_arr, tenant_arr, title)
-  puts "\n#{title}\n+++++++++++++++++++++++++++++++"
-  tenant_arr.each do |hsh|
-    tenant_apart_id = hsh[:apartment_id]
-    arr_index = apart_arr.find_index{ |item| item[:id] == tenant_apart_id }
-    puts "#{hsh[:name]}  +++  #{apart_arr[arr_index][:address]}"
-  end
-  puts "+++++++++++++++++++++++++++++++\n\n\n"
+	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
+	tenant_arr.each do |hsh|
+		tenant_apart_id = hsh[:apartment_id]
+		arr_index = apart_arr.find_index{ |item| item[:id] == tenant_apart_id }
+		puts "#{hsh[:name]}  +++  #{apart_arr[arr_index][:address]}"
+	end
+	puts "+++++++++++++++++++++++++++++++\n\n\n"
 end
 
 
@@ -128,26 +128,21 @@ end
 user_active = true
 user_response = nil
 
-def start
-
-
-end
-
 while user_active
-  puts table
-  puts "\n"
-  start
-  user_response = gets.chomp
-  if user_response.to_i == 1
-    all_items(apartments, 'Apartments')
-  elsif user_response.to_i == 2
-    all_items(apartments, 'Tenants')
-  elsif user_response.to_i == 5
-    tenant_with_address(apartments, tenants, 'Tenant w/ Address')
-  elsif user_response.to_i == 4
-    apartments_with_tenants(apartments, tenants, 'Apartments w/ Tenants')
-  end
-  break if user_response.downcase == "quit"
+	puts table
+	puts "\n"
+	start
+	user_response = gets.chomp
+	if user_response.to_i == 1
+		all_items(apartments, 'Apartments')
+	elsif user_response.to_i == 2
+		all_items(apartments, 'Tenants')
+	elsif user_response.to_i == 5
+		tenant_with_address(apartments, tenants, 'Tenant w/ Address')
+	elsif user_response.to_i == 4
+		apartments_with_tenants(apartments, tenants, 'Apartments w/ Tenants')
+	end
+	break if user_response.downcase == "quit"
 end
 
 binding.pry
