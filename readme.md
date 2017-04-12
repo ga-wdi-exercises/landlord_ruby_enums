@@ -25,7 +25,7 @@ puts "Property Overview!"
 	    ruby_apartments.each do |apartment|
 	      puts apartment.address
 	    end
-puts "Tenet Overview!"
+puts "Tenant Overview!"
 	    ruby_tenants.each do |tenant|
 	      puts tenant.name
 		end	 	
