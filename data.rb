@@ -1,3 +1,56 @@
+# Explain how the data is structured
+  #   The data is structured in a method with values
+
+# What are the properties for each of the two types of hashes
+  #   Type 1 is the apartments hash that has the properties of :id, :address, :monthly_rent,  and :square_feet
+  #   Type 2 is the tenets hash that has the properties of :id, :name, :age, and :apartment_id
+
+# Use enumerables to -
+  # Print all the addresses for the apartments
+    #   apartments.each do |apartment|
+    #   puts apartment.address
+    #   end
+
+  # Print all the names for tenants
+    #   tenants.each do |tenant|
+    #   puts tenant.name
+    #   end
+
+  # Print only apartments that are less then 700 in rent
+    #   apartments.each do |apartment|
+    #   puts apartment.monthly_rent <= 700
+    #   end
+
+  # Print only tenants that are over the age of 44
+    #   tenets.each do |tenet|
+    #   puts tenet.age >= 44
+    #   end
+
+  # Print only tenants that have an apartment id of 1
+    #   tenets.each do |tenet|
+    #   puts tenet.apartment_id == 1
+    #   end
+
+  # Print all the tenants in order from youngest to oldest
+    #   tenets.sort do |tenet|
+    #   puts tenet.age
+    #   end
+
+  # Print the names of all the tenants alphabetically
+    #   tenets.sort do |tenet|
+    #   puts tenet.name
+    #   end
+
+  # When printing tenants also print out the address that the tenant resides in.
+    #   tenets.sort do |tenet|
+    #   puts tenet.apartment_id == apartment.id
+    #   end
+
+  # When printing all apartments, under each apartment print all of its tenants
+    #   apartment.each do |apartment|
+    #   puts apartment.id == tenet.apartment_id
+    #   end
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},

@@ -1,4 +1,7 @@
 require_relative "data"
+require_relative "/apartment.rb"
+require_relative "/tenant.rb"
+
 apartments = data[:apartments]
 tenants = data[:tenants]
 
