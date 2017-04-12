@@ -1,6 +1,23 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
+
 apartments = data[:apartments]
 tenants = data[:tenants]
+
+# ruby_apartments = []
+# ruby_tenants = []
+
+ruby_apartments = apartments.map do |apartment|
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+ruby_tenants = tenants.map do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
+
+
+
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -108,4 +125,16 @@ if user_input == "4"
 puts " "
 puts "If you want to continue to search, type continue or type stop to end the program"
 user_input = gets.chomp
+end
+
+
+group_of_apartments = []
+group_of_tenants = []
+
+data[:apartments].each do |apartment|
+  group_of_apartments << ruby_apartment = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+end
+
+data[:tenants].each do |tenant|
+ group_of_tenants << ruby_tenant = Tenant.new(tenent[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
 end
