@@ -5,17 +5,19 @@ require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-# ruby_apartments = []
-# ruby_tenants = []
+ruby_apartments = []
+apartments.each { |apartment|
+  ruby_apartments << Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+}
+  # puts "objects"
+  # puts ruby_apartments
 
-ruby_apartments = apartments.map do |apartment|
-  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
-end
-
-ruby_tenants = tenants.map do |tenant|
-  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
-end
-
+ruby_tenants = []
+tenants.each { |tenant|
+  ruby_tenants << Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+}
+  # puts "objects"
+  # puts ruby_tenants
 
 
 
@@ -106,22 +108,22 @@ puts "2. Overview of all the tenants"
 puts "3. Overview of Occupancy"
 puts "4. Apartment by Tenant Name"
 
-user_input = gets.chomp
+user_input = gets.chomp.to_i
 
-if user_input == "1"
+if user_input == 1
   ruby_apartments.each do |apartment|
     puts "#{apartment[:id]}, #{apartment[:address]}"
   end
 end
 
-if user_input == "2"
+if user_input == 2
   ruby_tenants.sort_by {|tenant| tenant[:name]}
   ruby_tenants.each do |tenant|
     puts "Name: #{tenant[:name]}"
   end
 end
 
-if user_input == "3"
+if user_input == 3
   ruby_apartments.each do |apartment|
     puts "#{apartment[:id]}, #{apartment[:address]}"
     ruby_tenants.each do |tenant|
@@ -132,7 +134,7 @@ if user_input == "3"
   end
 end
 
-if user_input == "4"
+if user_input == 4
   ruby_tenants.each do |tenant|
     puts tenant[:name]
   end
