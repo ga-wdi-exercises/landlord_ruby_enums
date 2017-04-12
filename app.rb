@@ -64,3 +64,10 @@ tenants = data[:tenants]
   #   end
   #   puts tenant[:name]
   # end
+
+enter_id = gets.chomp
+
+apartment_id = apartments.find do |apartment|
+  enter_id == apartment[:id]
+  puts apartment
+end
