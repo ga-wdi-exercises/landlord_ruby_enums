@@ -20,6 +20,16 @@ Bob Pizza is old school and he wants a sick command line interface for this app.
 - I should be allowed an option to view all the apartments so that I can get an overview of my properties.
 - I should be allowed an option view all the tenants so that I can get an overview of my tenants
 ```
+<!-- 
+puts "Property Overview!"
+	    ruby_apartments.each do |apartment|
+	      puts apartment.address
+	    end
+puts "Tenet Overview!"
+	    ruby_tenants.each do |tenant|
+	      puts tenant.name
+		end	 	
+ -->
 
 ### Silver
 ```
@@ -54,17 +64,62 @@ In the two files, create class definitions for an `apartment` and a `tenant`.
 In `models/apartment.rb`...
 
 ```ruby
+<!-- require 'pry'
 class Apartment
-  # Place your code here
-end  
+attr_accessor :address, :square_feet, :monthly_rent
+def initialize (address,square_feet,monthly_rent)
+  @address =  address 
+  @square_feet = square_feet  
+  @monthly_rent = monthly_rent
+end
+
+def address[]
+  @address << address
+end
+
+def monthly_rent[]
+  @monthly_rent << monthly_rent
+end
+
+def square_feet[] 
+  @square_feet << square_feet
+end
+
+  binding.pry
+puts "End of file" -->
 ```
 
 In `models/tenant.rb`...
 
 ```ruby
+<!-- require 'pry'
 class Tenant
-  # Place your code here
-end  
+attr_accessor :id :name :age :apartment_id 
+def initialize (id, name, age, apartment_id)
+  @id = id 
+  @name = name  
+  @age = age
+  @apartment_id = apartment_id
+end
+
+def id[]
+  @id << id
+end
+
+def name[]
+  @name << name
+end
+
+def age[]
+  @age << age
+end
+
+def apartment_id[]
+  @apartment_id << apartment_id
+end
+end
+  binding.pry
+puts "End of file" --> 
 ```
 
 Make sure all your instance variables(attributes) are accessible within the instances of your class through getter and setters methods.
