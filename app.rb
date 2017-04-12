@@ -78,6 +78,7 @@ table = Terminal::Table.new :title => "Enter a code to perform a function:", :he
 #     end
 #   end
 # end
+
 apartments.each do |hsh|
 	ruby_apartments << apartment = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
 end
@@ -103,29 +104,35 @@ rows << ["All Apartments",1]
 # 	puts "+++++++++++++++++++++++++++++++\n\n\n"
 # end
 
-def apartments_with_tenants(apart_arr, tenant_arr, title)
-	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
+def apartments_with_tenants(apart_arr, tenant_arr)
+	'Apartments w/ Tenants'
+  rows = []
 	apart_arr.each do |hsh|
 		apartment_id = hsh.id
-		puts "#{hsh.address}"
 
+    names = []
 		tenant_arr.each do |item|
 			if item.apartment_id == apartment_id
-				puts "+++++ #{item.name}"
+				names << item.name
 			end
 		end
+    render_names = names.join("\n")
+    puts render_names
+    rows << ["#{hsh.address}", render_names.to_s]
 	end
-	puts "+++++++++++++++++++++++++++++++\n\n\n"
+	query_table = Terminal::Table.new :title => 'Apartments w/ Tenants', :headings => ['Apartment ID', 'Tenants' ], :rows => rows, :style => {:width => 60, :all_separators => true}
+  puts query_table
 end
 
 def tenant_with_address(apart_arr, tenant_arr, title)
-	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
+  rows = []
 	tenant_arr.each do |hsh|
 		tenant_apart_id = hsh.apartment_id
 		arr_index = apart_arr.find_index{ |item| item.id == tenant_apart_id }
-		puts "#{hsh.name}  +++  #{apart_arr[arr_index].address}"
+    rows << ["#{hsh.name}", "#{apart_arr[arr_index].address}"]
 	end
-	puts "+++++++++++++++++++++++++++++++\n\n\n"
+	query_table = Terminal::Table.new :headings => ['Tenant', 'Address' ], :rows => rows, :style => {:width => 60}
+  puts query_table
 end
 
 def search_tenants(ten_name)
@@ -152,20 +159,20 @@ while user_active
 	user_response = gets.chomp
   break if user_response.downcase == "quit"
 	if user_response.to_i == 1
-    puts "\nList of Apartments\n+++++++++++++++++++++++++++++++"
-  	ruby_apartments.each { |item| puts item.address }
-  	puts "+++++++++++++++++++++++++++++++\n\n\n"
+    rows = []
+  	ruby_apartments.each { |item| rows << ["#{item.id}","#{item.address}"]  }
+  	puts Terminal::Table.new :headings => ['Apt. Id', 'Address' ], :rows => rows, :style => {:width => 60}
 	elsif user_response.to_i == 2
-    puts "\nList of tenants\n+++++++++++++++++++++++++++++++"
-  	ruby_tenants.each { |item| puts item.name }
-  	puts "+++++++++++++++++++++++++++++++\n\n\n"
+    rows = []
+  	ruby_tenants.each { |item| rows << ["#{item.name}", "#{item.age}", "#{item.apartment_id}"]  }
+    puts Terminal::Table.new :headings => ['Tenant', 'Age', "Apartment ID" ], :rows => rows, :style => {:width => 80, :all_separators => true}
 	elsif user_response.to_i == 3
-		apartments_with_tenants(ruby_apartments, ruby_tenants, 'Apartments w/ Tenants')
+		apartments_with_tenants(ruby_apartments, ruby_tenants)
   # BUG: search tenant does not work right now
-  elsif user_response.to_i = 4
-    puts "Type the full name of the tenant:"
-    user_response = gets.chomp
-    search_tenants(user_response)
+  # elsif user_response.to_i = 4
+  #   puts "Type the full name of the tenant:"
+  #   user_response = gets.chomp
+  #   search_tenants(user_response)
   elsif user_response.to_i == 5
 		tenant_with_address(ruby_apartments, ruby_tenants, 'Tenant w/ Address')
 	end
