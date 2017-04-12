@@ -1,10 +1,28 @@
+require 'pry'
+
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+apartments.each do |apartment|
+  ruby_apartments << Apartment.new(apartment[:id], apartment[:address], apartment[:square_feet],apartment[:monthly_rent])
+end
+
+tenants.each do |tenant|
+  ruby_tenants << Tenant.new(tenant[:apartment_id], tenant[:name], tenant[:age],tenant[:id])
+end
+
+binding.pry
+
+
 
 #All data written in a method. Separated into an array of Apartment hashes and an array of tenant hashes
-# apartment props: address, monthly_rent, square_feet
-# tenant props: name, age, apartment_id
+# apartment props: address, monthly_rent, square_feet, id
+# tenant props: name, age, apartment_id, id
 
 
 # Print all the addresses for the apartments
@@ -73,20 +91,20 @@ tenants = data[:tenants]
 #     puts "    " + occupants.join(", ")
 # end
 
-def get_command(apartments, tenants)
-  puts "Enter 1 to view apartments. Enter 2 to view tenants."
-  user_input = gets.chomp
-
-  if user_input == '1'
-    apartments.each do |apartment|
-      puts apartment
-    end
-  elsif user_input == '2'
-    tenants.each do |tenant|
-      puts tenant
-    end
-  else
-    get_command
-  end
-end
-get_command(apartments, tenants)
+# def get_command(apartments, tenants)
+#   puts "Enter 1 to view apartments. Enter 2 to view tenants."
+#   user_input = gets.chomp
+#
+#   if user_input == '1'
+#     apartments.each do |apartment|
+#       puts apartment
+#     end
+#   elsif user_input == '2'
+#     tenants.each do |tenant|
+#       puts tenant
+#     end
+#   else
+#     get_command
+#   end
+# end
+# get_command(apartments, tenants)
