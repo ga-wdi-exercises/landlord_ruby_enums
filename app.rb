@@ -12,7 +12,7 @@ rows = []
 rows << ["All Apartments",1]
 rows << ["All Tenants",2]
 rows << ['Apartments w/ Tenants',3]
-rows << ['Search Tenant Names',4]
+rows << ['Search Tenant Names', "n/a"]
 rows << ['Tenant w/ Address',5]
 rows << ['Quit program', 'quit']
 table = Terminal::Table.new :title => "Enter a code to perform a function:", :headings => ['Command', 'Code' ], :rows => rows, :style => {:width => 40}
@@ -106,12 +106,12 @@ rows << ["All Apartments",1]
 def apartments_with_tenants(apart_arr, tenant_arr, title)
 	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
 	apart_arr.each do |hsh|
-		apartment_id = hsh[:id]
-		puts "#{hsh}"
+		apartment_id = hsh.id
+		puts "#{hsh.address}"
 
 		tenant_arr.each do |item|
-			if item[:apartment_id] == apartment_id
-				puts "+++++ #{item[:name]}"
+			if item.apartment_id == apartment_id
+				puts "+++++ #{item.name}"
 			end
 		end
 	end
@@ -121,11 +121,25 @@ end
 def tenant_with_address(apart_arr, tenant_arr, title)
 	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
 	tenant_arr.each do |hsh|
-		tenant_apart_id = hsh[:apartment_id]
-		arr_index = apart_arr.find_index{ |item| item[:id] == tenant_apart_id }
-		puts "#{hsh[:name]}  +++  #{apart_arr[arr_index][:address]}"
+		tenant_apart_id = hsh.apartment_id
+		arr_index = apart_arr.find_index{ |item| item.id == tenant_apart_id }
+		puts "#{hsh.name}  +++  #{apart_arr[arr_index].address}"
 	end
 	puts "+++++++++++++++++++++++++++++++\n\n\n"
+end
+
+def search_tenants(ten_name)
+  person = ten_name
+  ten_id = nil
+  ruby_tenants.each do |hsh|
+    if hsh.name = person
+      puts "#{hsh.name} - apartment:"
+      ten_id = hsh.apartment_id
+    end
+    ruby_apartments.each do |item|
+      puts item.address if item.id = ten_id
+    end
+  end
 end
 
 
@@ -136,6 +150,7 @@ while user_active
 	puts table
 	puts "\n"
 	user_response = gets.chomp
+  break if user_response.downcase == "quit"
 	if user_response.to_i == 1
     puts "\nList of Apartments\n+++++++++++++++++++++++++++++++"
   	ruby_apartments.each { |item| puts item.address }
@@ -144,12 +159,16 @@ while user_active
     puts "\nList of tenants\n+++++++++++++++++++++++++++++++"
   	ruby_tenants.each { |item| puts item.name }
   	puts "+++++++++++++++++++++++++++++++\n\n\n"
-	elsif user_response.to_i == 5
-		tenant_with_address(ruby_apartments, ruby_tenants, 'Tenant w/ Address')
-	elsif user_response.to_i == 4
+	elsif user_response.to_i == 3
 		apartments_with_tenants(ruby_apartments, ruby_tenants, 'Apartments w/ Tenants')
+  # BUG: search tenant does not work right now
+  elsif user_response.to_i = 4
+    puts "Type the full name of the tenant:"
+    user_response = gets.chomp
+    search_tenants(user_response)
+  elsif user_response.to_i == 5
+		tenant_with_address(ruby_apartments, ruby_tenants, 'Tenant w/ Address')
 	end
-	break if user_response.downcase == "quit"
 end
 
 binding.pry
