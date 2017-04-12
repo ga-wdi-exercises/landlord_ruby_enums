@@ -112,23 +112,23 @@ user_input = gets.chomp.to_i
 
 if user_input == 1
   ruby_apartments.each do |apartment|
-    puts "#{apartment[:id]}, #{apartment[:address]}"
+    puts "#{apartment.id}, #{apartment.address}"
   end
 end
 
 if user_input == 2
-  ruby_tenants.sort_by {|tenant| tenant[:name]}
+  ruby_tenants.sort_by {|tenant| tenant.name}
   ruby_tenants.each do |tenant|
-    puts "Name: #{tenant[:name]}"
+    puts "Name: #{tenant.name}"
   end
 end
 
 if user_input == 3
   ruby_apartments.each do |apartment|
-    puts "#{apartment[:id]}, #{apartment[:address]}"
+    puts "#{apartment.id}, #{apartment.address}"
     ruby_tenants.each do |tenant|
-      if tenant[:apartment_id] == apartment[:id]
-        puts tenant[:name]
+      if tenant.apartment_id == apartment.id
+        puts tenant.name
       end
     end
   end
@@ -136,18 +136,18 @@ end
 
 if user_input == 4
   ruby_tenants.each do |tenant|
-    puts tenant[:name]
+    puts tenant.name
   end
   puts " "
   puts "Enter the tenant name"
   name = gets.chomp
   search_tenant = ruby_tenants.select do |tenant|
-    tenant[:name] == name
+    tenant.name == name
   end
   search_apartment = ruby_apartments.select do |apartment|
-        apartment[:id] == search_tenant[0][:apartment_id]
+        apartment.id == search_tenant[0].apartment_id
       end
-    puts "#{search_tenant[0][:name]}, #{search_apartment[0][:address]}"
+    puts "#{search_tenant[0].name}, #{search_apartment[0].address}"
   end
 
 puts " "
