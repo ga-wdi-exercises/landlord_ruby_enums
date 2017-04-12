@@ -13,8 +13,6 @@ end
 
 
 
-puts ruby_apartments[18].print_address
-
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   #We have a function called "data" that pulls from two arrays (with each array comprised of hashes) and returns a hash with the apartments and tenants
@@ -30,6 +28,12 @@ puts ruby_apartments[18].print_address
   # end
   # puts address_info
   
+  #something like this?
+  address_info = ruby_apartments.map do |apartment|
+  puts "address is #{@address}"
+  end
+  puts address_info
+
 
   # Print all the names for tenants
   # puts "Q2 tenant names"
@@ -87,19 +91,19 @@ puts ruby_apartments[18].print_address
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
-# puts "Hey Bob.  Type 1 to view all your apartments.  Type 2 to view all your tenants."
-# user_input = gets.chomp.to_i
-# if user_input == 1
-#   puts "Here are all your apartments: "
-#   address_info = apartments.each do |apartment|
-#   puts apartment
-#   end
-# elsif user_input == 2
-#   puts "Here are all your tenants: "
-#   tenant_info = tenants.each do |tenant|
-#     puts tenant
-#   end
-# end
+puts "Hey Bob.  Type 1 to view all your apartments.  Type 2 to view all your tenants."
+user_input = gets.chomp.to_i
+if user_input == 1
+  puts "Here are all your apartments: "
+  address_info = apartments.each do |apartment|
+  puts apartment
+  end
+elsif user_input == 2
+  puts "Here are all your tenants: "
+  tenant_info = tenants.each do |tenant|
+    puts tenant
+  end
+end
 
 # will work on this later
 # def occupancy
