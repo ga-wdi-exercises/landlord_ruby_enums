@@ -37,6 +37,9 @@ end
       # puts tenant[:name]
     # end
 
+    # or
+    # tenants.each{|tenant| puts tenant[:name]}
+
   # Print only apartments that are less then 700 in rent
     # less_apartments = ruby_apartments.select do |apartment|
       # apartment[:monthly_rent] < 700
@@ -59,15 +62,38 @@ end
     # order_age_tenants = ruby_tenants.sort_by do |tenant|
       # tenant[:age]
     # end
+    # puts order_age_tenants
 
   # Print the names of all the tenants alphabetically
-    # order_name_tenants = ruby_tenants.sort_by do |a, b|
-      # a[:name].downcase <=> b[:name].downcase
+    # order_name_tenants = ruby_tenants.sort_by do |tenant|
+      # tenant[:name]
     # end
+    # puts order_name_tenants
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+    # tenants.each { |tenant|
+      # puts tenant[:name]
+      # lives_in = apartments.select { |apartment|
+        # apartment[:id] == tenant[:apartment_id]
+      # }
+         # puts lives_in.first[:address]
+    # }
+
+    # or
+
+    # ruby_apartments.each { |apt|
+      # puts apt[:address]
+      # freeloaders = ruby_tenants.select { |tenant|
+        # tenant[:apartnment_id] == apt[:id]
+  #     }
+        # names = freeloaders.map{ |fl| fl[:name] }
+        # puts names.join(", ")
+  #   }
+
   # When printing all apartments, under each apartment print all of its tenants.
+
+
 
 puts "Welcome to Bob Pizza's App, Press enter key to continue."
 user_input = gets.chomp
