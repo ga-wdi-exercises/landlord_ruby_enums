@@ -22,7 +22,7 @@ tenants = data[:tenants]
     end
   # Print only apartments that are less then 700 in rent
     apartments.each do |apartment|
-      if (apartment[monthly_rent < 700])
+      if (apartment[:monthly_rent] <700 )
       puts apartment[:address]
     end
   # Print only tenants that are over the age of 44
