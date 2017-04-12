@@ -22,6 +22,12 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+  # Explain how the data is structured
+    #Data is an array of hashes. id, monthly rent and square feet are integer values; address is a string
+  # What are the properties for each of the two types of hashes
+    #peroperties are id, address, monthly_rent, square_feet, id, name, apartment_id
+
+
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},

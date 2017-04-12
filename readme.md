@@ -40,7 +40,7 @@ Bob Pizza is old school and he wants a sick command line interface for this app.
 Bob Pizza likes what you built. But he looks at your code and wants a custom made object to represent your tenants and apartments.
 
 ### Step 3a - Defining our models.
-Create a `models` folder. In this folder, create two files `apartment.rb` and `tenant.rb`.
+Create a `models` folder. In this folder, create two files `apartment.rb` and `tenant.rb`. DONE
 
 Link these two files at the top of `app.rb`...
 
@@ -49,7 +49,7 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 ```
 
-In the two files, create class definitions for an `apartment` and a `tenant`.
+In the two files, create class definitions for an `apartment` and a `tenant`. DONE
 
 In `models/apartment.rb`...
 
@@ -89,6 +89,9 @@ Using the `.each` enumerable, loop through the exisiting apartments and tenants 
 
 In the loops...
 - Create a new instance of a class you've defined
+array.each do |apartment|
+
+
 - Push that new instance into the corresponding ruby array.
 
 > We can also instead use the `.map` enumerable to condense the above code that uses `.each`.
