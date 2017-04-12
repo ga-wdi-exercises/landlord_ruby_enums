@@ -1,5 +1,3 @@
-require "pry"
-
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
@@ -46,12 +44,12 @@ tenants = data[:tenants]
   # When printing all apartments, under each apartment print all of its tenants
   apartments.each do |apartment|
     puts apartments[:address]
-    apartment_tenants = 
+    apartment_tenants =
 
   puts "Welcome back Bob. Select an option"
   puts "make a selection. 1 for apartments. 2 for tenants. 3 to exit "
   bob_input = gets.chomp
-  while true
+  while
     if bob_input == "1"
       puts "Apartments:"
       apartments_addresses = apartments.map {|apartment| apartment[:address]}
@@ -67,8 +65,3 @@ tenants = data[:tenants]
     end
     break if bob_input == "3"
   end
-
-
-
-
-  binding.pry
