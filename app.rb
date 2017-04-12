@@ -43,10 +43,24 @@ tenants = data[:tenants]
   # puts tenants
 
   # Print the names of all the tenants alphabetically
-  # tenants.each.sort do |tenant|
-  #   puts tenant[:name]
-  # end
+  # alpha_order = tenants.sort_by {|tenant| tenant[:name].downcase}
+  # puts alpha_order
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
+  # tenants.each do |tenant|
+  #   puts tenant[:name]
+  #   apartment = apartments.find do |apartment|
+  #     tenant[:id] == apartment[:id]
+  #   end
+  #   puts apartment[:address]
+  # end
+
   # When printing all apartments, under each apartment print all of its tenants
+  # apartments.each do |apartment|
+  #   puts apartment[:address]
+  #   tenant = tenants.find do |tenant|
+  #     tenant[:id] == apartment[:id]
+  #   end
+  #   puts tenant[:name]
+  # end
