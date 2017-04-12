@@ -4,6 +4,13 @@ require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
 ruby_apartments = []
+## Loop through apartments list and push into apartments array
+apartments.each {|apartment|
+  ruby_apartments <<
+  Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+}
+puts ruby_apartments
+
 ruby_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
@@ -53,11 +60,11 @@ ruby_tenants = []
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # tenants.each do |tenant|
-  #   puts tenant[:name]
-  #   apartment = apartments.find do |apartment|
-  #     tenant[:id] == apartment[:id]
+  #   puts "#{tenant[:name]} lives in"
+  #   apartment = apartments.select do |apartment|
+  #     tenant[:apartment_id] == apartment[:id]
   #   end
-  #   puts apartment[:address]
+  #   puts "#{apartment.first[:address]}"
   # end
 
   # When printing all apartments, under each apartment print all of its tenants
@@ -70,13 +77,13 @@ ruby_tenants = []
   # end
 
 puts "Would you like to view your type '1' for apartments or '2' for tenants?"
-user_input = gets.chomp
+user_input = gets.chomp.to_i
 
-if user_input == '1'
+if user_input == 1
   apartments.each do |apartment|
     puts apartment
   end
-elsif user_input == '2'
+elsif user_input == 2
   tenants.each do |tenant|
     puts tenant
   end
