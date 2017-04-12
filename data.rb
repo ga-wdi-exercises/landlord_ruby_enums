@@ -76,3 +76,11 @@ def data
   ]
   return {apartments:apartments, tenants:tenants}
 end
+
+# Print all the addresses for the apartments
+apartments, tenants = data
+apartments.each do |apartment|
+ puts apartments.index(apartment)[:address]
+end
+# The data is structured two arrays of hashes. One for the apartments, the second for the tenants.
+# The properties for the apartment hashes are id, address, monthly_rent and  square_feet. For tenants, the properties are id, name, age, and apartment_id.
