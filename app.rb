@@ -83,20 +83,25 @@ apartments.each do |hsh|
 end
 
 tenants.each do |hsh|
-	ruby_tenants << tenant = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
+	ruby_tenants << tenant = Tenant.new(hsh[:id], hsh[:name], hsh[:age], hsh[:apartment_id])
 end
-
-
 
 
 rows = []
 rows << ["All Apartments",1]
 
-def all_items(arr, title)
-	puts "\nList of #{title}\n+++++++++++++++++++++++++++++++"
-	arr.each { |hsh| puts hsh}
-	puts "+++++++++++++++++++++++++++++++\n\n\n"
-end
+# DID NOT WORK
+# def all_apartments(arr, title)
+# 	puts "\nList of #{title}\n+++++++++++++++++++++++++++++++"
+# 	arr.each { |item| puts item.address }
+# 	puts "+++++++++++++++++++++++++++++++\n\n\n"
+# end
+#
+# def all_tenants(arr, title, key)
+# 	puts "\nList of #{title}\n+++++++++++++++++++++++++++++++"
+# 	arr.each { |hsh| puts hsh.key }
+# 	puts "+++++++++++++++++++++++++++++++\n\n\n"
+# end
 
 def apartments_with_tenants(apart_arr, tenant_arr, title)
 	puts "\n#{title}\n+++++++++++++++++++++++++++++++"
@@ -124,23 +129,25 @@ def tenant_with_address(apart_arr, tenant_arr, title)
 end
 
 
-
 user_active = true
 user_response = nil
 
 while user_active
 	puts table
 	puts "\n"
-	start
 	user_response = gets.chomp
 	if user_response.to_i == 1
-		all_items(apartments, 'Apartments')
+    puts "\nList of Apartments\n+++++++++++++++++++++++++++++++"
+  	ruby_apartments.each { |item| puts item.address }
+  	puts "+++++++++++++++++++++++++++++++\n\n\n"
 	elsif user_response.to_i == 2
-		all_items(apartments, 'Tenants')
+    puts "\nList of tenants\n+++++++++++++++++++++++++++++++"
+  	ruby_tenants.each { |item| puts item.name }
+  	puts "+++++++++++++++++++++++++++++++\n\n\n"
 	elsif user_response.to_i == 5
-		tenant_with_address(apartments, tenants, 'Tenant w/ Address')
+		tenant_with_address(ruby_apartments, ruby_tenants, 'Tenant w/ Address')
 	elsif user_response.to_i == 4
-		apartments_with_tenants(apartments, tenants, 'Apartments w/ Tenants')
+		apartments_with_tenants(ruby_apartments, ruby_tenants, 'Apartments w/ Tenants')
 	end
 	break if user_response.downcase == "quit"
 end
