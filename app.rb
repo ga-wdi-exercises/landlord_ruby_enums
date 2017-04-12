@@ -65,9 +65,15 @@ tenants = data[:tenants]
   #   puts tenant[:name]
   # end
 
-enter_id = gets.chomp
+puts "Would you like to view your 'apartments' or your 'tenants'?"
+user_input = gets.chomp
 
-apartment_id = apartments.find do |apartment|
-  enter_id == apartment[:id]
-  puts apartment
+if user_input == 'apartments'
+  apartments.each do |apartment|
+    puts apartment
+  end
+elsif user_input == 'tenants'
+  tenants.each do |tenant|
+    puts tenant
+  end
 end
