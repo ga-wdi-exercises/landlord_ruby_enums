@@ -117,7 +117,6 @@ def apartments_with_tenants(apart_arr, tenant_arr)
 			end
 		end
     render_names = names.join("\n")
-    puts render_names
     rows << ["#{hsh.address}", render_names.to_s]
 	end
 	query_table = Terminal::Table.new :title => 'Apartments w/ Tenants', :headings => ['Apartment ID', 'Tenants' ], :rows => rows, :style => {:width => 60, :all_separators => true}
