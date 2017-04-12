@@ -65,14 +65,14 @@ tenants = data[:tenants]
   #   puts tenant[:name]
   # end
 
-puts "Would you like to view your 'apartments' or your 'tenants'?"
+puts "Would you like to view your type '1' for apartments or '2' for tenants?"
 user_input = gets.chomp
 
-if user_input == 'apartments'
+if user_input == '1'
   apartments.each do |apartment|
     puts apartment
   end
-elsif user_input == 'tenants'
+elsif user_input == '2'
   tenants.each do |tenant|
     puts tenant
   end
