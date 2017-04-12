@@ -4,6 +4,20 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+apartments.each do |apartment|
+  new_apartment = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])#these are the attributes specific to THIS INSTANCE of new_apartment.  i think you could probably also use self.
+  ruby_apartments << new_apartment
+end
+
+tenants.each do |tenant|
+  new_tenant = Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+  ruby_tenants << new_tenant
+end
+
+
 
 
 puts "Hello, Mr. Pizza.  What would you like to do today?  Press 1 to see a list of your properties.  Press 2 to see a list of your tenants."
@@ -40,14 +54,14 @@ end
 
 # # Use enumerables to -
 #   # Print all the addresses for the apartments
-      ruby_apartments = apartments.each do |apartment|
-        puts apartment[:address]
-      end
+      # ruby_apartments = apartments.each do |apartment|
+      #   puts apartment[:address]
+      # end
 #
 #   # Print all the names for tenants
-      ruby_tenants = tenants.each do |tenant|
-        puts tenant[:name]
-      end
+      # ruby_tenants = tenants.each do |tenant|
+      #   puts tenant[:name]
+      # end
 #
 #   # Print only apartments that are less then 700 in rent
       # cheaper_apartments = apartments.each do |apartment|
