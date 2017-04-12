@@ -5,6 +5,18 @@ require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+rows = []
+rows << ["All Apartments",1]
+rows << ["All Tenants",2]
+rows << ['Apartments w/ Tenants',3]
+rows << ['Search Tenant Names',4]
+rows << ['Tenant w/ Address',5]
+rows << ['Quit program', 'quit']
+table = Terminal::Table.new :title => "Enter a code to perform a function:", :headings => ['Command', 'Code' ], :rows => rows, :style => {:width => 40}
+
 #
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 #   # Explain how the data is structured
@@ -66,15 +78,19 @@ tenants = data[:tenants]
 #     end
 #   end
 # end
+apartments.each do |hsh|
+  ruby_apartments << apartment = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
+end
+
+tenants.each do |hsh|
+  ruby_tenants << tenant = Apartment.new(hsh[:id], hsh[:address], hsh[:monthly_rent], hsh[:square_feet])
+end
+
+
+
 
 rows = []
 rows << ["All Apartments",1]
-rows << ["All Tenants",2]
-rows << ['Apartments w/ Tenants',3]
-rows << ['Search Tenant Names',4]
-rows << ['Tenant w/ Address',5]
-rows << ['Quit program', 'quit']
-table = Terminal::Table.new :title => "Enter a code to perform a function:", :headings => ['Command', 'Code' ], :rows => rows, :style => {:width => 40}
 
 def all_items(arr, title)
   puts "\nList of #{title}\n+++++++++++++++++++++++++++++++"
@@ -133,3 +149,5 @@ while user_active
   end
   break if user_response.downcase == "quit"
 end
+
+binding.pry
