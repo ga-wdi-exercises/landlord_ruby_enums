@@ -55,7 +55,7 @@ In `models/apartment.rb`...
 
 ```ruby
 class Apartment
-  # Place your code here
+  apartment.each
 end  
 ```
 
@@ -63,7 +63,7 @@ In `models/tenant.rb`...
 
 ```ruby
 class Tenant
-  # Place your code here
+  tenant.each
 end  
 ```
 
