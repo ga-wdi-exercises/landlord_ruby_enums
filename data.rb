@@ -1,4 +1,9 @@
+
+
+
+
 def data
+
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -75,4 +80,35 @@ def data
     {:id=>50, :name=>"Rigoberto Armstrong IV", :age=>60, :apartment_id=>1}
   ]
   return {apartments:apartments, tenants:tenants}
-end
+
+  class Landlord
+
+    def self.display
+      while 1
+        puts "Choose one of the following:"
+        puts "1 - See All Apartments"
+        puts "2 - See All Tenants"
+        puts "E - Exit Program"
+        input = gets.chomp
+        if ["1","2"].include? input
+          self.select input
+          break
+        else
+          puts "Invalid option."
+        end
+      end
+    if input == "1"
+      Flashcard.display_all
+    elsif input == "2"
+      Flashcard.new_card
+    else input == "E"
+      puts "Goodbye"
+      exit(true)
+      end
+    end
+    def self.select number
+      puts "You selected #{number}"
+    end
+  end
+
+  Menu.display
