@@ -56,9 +56,10 @@ class Landlord
       puts "1 to display apartments"
       puts "2 to display tenants"
       puts "3 to display apartments with tenants"
+      puts "4 find tenant location bt name"
       puts "10 Exit"
       input = gets.chomp!
-        if ["1","2","3","10"].include? input
+        if ["1","2","3","4","10"].include? input
           menu_selection input
           break
         else
@@ -82,7 +83,9 @@ class Landlord
     when "3"
       apt_with_tenants
       display
-    when ""
+    when "4"
+      who = gets.chomp!
+      find_by_name who
     else
       return
     end
@@ -99,9 +102,19 @@ class Landlord
     end 
   end
 
+  def find_by_name (whoo)
+    @tenants.each_with_index do |value, index|
+      if value[:name] == whoo
+        apt = value[:apartment_id]
+        @apartments.each do |x|
+          if x[:id]==apt
+            puts x
+          end
+        end
+      end
+    end
+  end
 end
 
 landlord_app = Landlord.new(apartments,tenants)
 landlord_app.display
-
-
