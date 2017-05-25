@@ -30,7 +30,7 @@ tenants = data[:tenants]
 # The propeties are every with the symbol ":" IE: ":address"
 
   # apartment = apartments.each {|address| print address[:address]}
-  # tenant = tenants.each {|names| print names[:name]}
+  
   
 
 # puts "Options from app.rb for apartments"
@@ -40,15 +40,34 @@ tenants = data[:tenants]
 #   case input
 #   when address
 #     apartments.each {|address| print address[:address]}
-#   when adress under 700
-#     apartments.each {
-#       if [:monthly_rent] < 700
-#         print [:address]
-#     end}
+#   when address under 700
+#     apartments.each_with_index {
+#   |address, index| if index < 700
+#    print "#{address}" 
+# }
+#     end
 # end
 
-# Tried using "# apartment.select{|number| number[:monthly_rent] <= 700}"
-# Also tried .find and nesting a if/elsif inside to gett 700 under. 
+# puts "Options from app.rb for tenants" 
+# loop do
+# input = gets.chomp
+# case input
+# when names
+# tenant = tenants.each {|names| print names[:name]}
+# when tenants over 44
+# tenants.each_with_index {
+# |tenant, index| if index > 44
+# print "#{tenant}"
+# }
+# 
+# 
+# 
+
+# For getting under 700, Each_with_index seems to be working,
+# Though I am sure it should be doing it for a multitude of numbers.
+
+# Using .select is invalid "# apartment.select{|number| number[:monthly_rent] <= 700}"
+# .find and nesting a if/elsif inside to get 700 undernot valid methods. 
 
 
 
