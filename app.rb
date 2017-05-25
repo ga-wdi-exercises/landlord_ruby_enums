@@ -6,6 +6,7 @@ tenants = data[:tenants]
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
 
+
 # Use enumerables to -
   # Print all the addresses for the apartments
   # Print all the names for tenants
@@ -18,3 +19,57 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+
+
+
+
+# Here the data class structure has two variables 
+# containing an array of hashes.
+
+# The propeties are every with the symbol ":" IE: ":address"
+
+  # apartment = apartments.each {|address| print address[:address]}
+  # tenant = tenants.each {|names| print names[:name]}
+  
+
+# puts "Options from app.rb for apartments"
+
+# loop do 
+#   input = gets.chomp
+#   case input
+#   when address
+#     apartments.each {|address| print address[:address]}
+#   when adress under 700
+#     apartments.each {
+#       if [:monthly_rent] < 700
+#         print [:address]
+#     end}
+# end
+
+# Tried using "# apartment.select{|number| number[:monthly_rent] <= 700}"
+# Also tried .find and nesting a if/elsif inside to gett 700 under. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
