@@ -1,10 +1,19 @@
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
-$apartments = data[:apartments]
+$ruby_apartments = data[:apartments]
 $tenants = data[:tenants
 ruby_apartments = []
 ruby_tenants = []
+
+class Ruby_array
+  attr_accessor :name
+
+  def initialize(name)
+    @name= name
+    ruby_tenants.push(name)
+  end
+end
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 # The data is structred as hashes inside and array.
