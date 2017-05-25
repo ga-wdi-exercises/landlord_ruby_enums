@@ -8,6 +8,8 @@ Read the comments in `app.rb` to follow the directions practicing enumerables
 
 > Store the enumerable methods into variables and use `puts` to verify the results of your methods.
 
+
+
 ## Part 2 - Build the App
 
 > Comment out any functional code in app.rb, but save it, you can leverage the code from Part 1 to write out parts of this application.

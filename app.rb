@@ -1,7 +1,25 @@
+require_relative "models/apartment"
+require_relative "models/tenant"
 
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+
+ruby_apartments = []
+ruby_tenants = []
+
+# Using the `.each` enumerable, loop through the exisiting apartments and tenants arrays.
+# In the loops;
+# - Create a new instance of a class you've defined
+# - Push that new instance into the corresponding ruby array.
+
+ruby_apartments = apartments.map do |apartment|
+# ???
+
+ruby_tenants = tenants.map do |tenant|
+# ???
+
+
 
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 #   # Explain how the data is structured
@@ -14,6 +32,7 @@ tenants = data[:tenants]
 #
 #    Tenants have "id", "name", "age", and "apartment_id" properties.
 #
+
 # # Use enumerables to -
 #   # Print all the addresses for the apartments
 #   apartments.each do |apartment|
@@ -67,6 +86,11 @@ tenants = data[:tenants]
 
   # When printing all apartments, under each apartment print all of its tenants
 
+
+
+ #  I should have a numbered interface for my application so that I can just type in a number to access different parts of my program.
+ # - I should be allowed an option to view all the apartments so that I can get an overview of my properties.
+ # - I should be allowed an option view all the tenants so that I can get an overview of my tenants
 
   puts "Welcome to Landlord"
 
