@@ -55,7 +55,7 @@ class Landlord
       puts ""
       puts "1 to display apartments"
       puts "2 to display tenants"
-      puts "3"
+      puts "3 to display apartments with tenants"
       puts "10 Exit"
       input = gets.chomp!
         if ["1","2","3","10"].include? input
