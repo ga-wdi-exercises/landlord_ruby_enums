@@ -1,6 +1,10 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -86,6 +90,7 @@ class Landlord
     when "4"
       who = gets.chomp!
       find_by_name who
+      display
     else
       return
     end
