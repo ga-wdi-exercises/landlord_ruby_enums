@@ -28,10 +28,11 @@ apartments = [
     puts "#{i[:name]}"
   end
   # Print only apartments that are less then 700 in rent
-  i < 700
   apartments.map do |i|
-    puts "#{i[:address]}"
+    rent = []
+    rent.push("#{i[:monthly_rent]}") 
   end
+
   # Print only tenants that are over the age of 44
   # Print only tenants that have an apartment id of 1
   # Print all the tenants in order from youngest to oldest
