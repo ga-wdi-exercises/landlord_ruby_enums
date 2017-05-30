@@ -21,8 +21,8 @@ def data
     {:id=>19, :address=>"72108 Leuschke Greens", :monthly_rent=>661, :square_feet=>967},
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
-
-  tenants = [
+  
+ tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
     {:id=>3, :name=>"Jordan Cremin DDS", :age=>54, :apartment_id=>13},
