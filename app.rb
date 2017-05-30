@@ -2,6 +2,12 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
+temp_apartment = apartments.new {|hash,key| hash[key] = []}
+temp_tenant = tenants.new {|hash,key| has[key] = []}
+
+temp_apartment << [:id, :address, :monthly_rent, :square_feet]
+temp_tenant << [:id, :name, :age, :apartment_id]
+
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   # What are the properties for each of the two types of hashes
@@ -39,11 +45,10 @@ tenants = data[:tenants]
 #   input = gets.chomp
 #   case input
 #   when address
-#     apartments.each {|address| print address[:address]}
-#   when address under 700
-#     apartments.each_with_index {
-#   |address, index| if index < 700
-#    print "#{address}" 
+    # apartments.each {|address| print address[:address]}
+  # when address under < 700
+  #   temp_apartments.each {
+  # |address| print temp_apartment.get_address
 # }
 #     end
 # end
@@ -53,13 +58,12 @@ tenants = data[:tenants]
 # input = gets.chomp
 # case input
 # when names
-# tenant = tenants.each {|names| print names[:name]}
-# when tenants over 44
-# tenants.each_with_index {
-# |tenant, index| if index > 44
-# print "#{tenant}"
+# tenant = temp_tenant.each {|names| print names[:name]}
+# when tenant.get_age > 44
+# temp_tenant.each {
+# |tenant| print temp_tenant.get_name
 # }
-# 
+# when temp_tenant
 # 
 # 
 
