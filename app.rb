@@ -51,6 +51,34 @@ tenants = data[:tenants]
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
 
+# Apartment info + Occupant List
+# .each do |unit|
+house_info = apartments.each do |apt|
+# unit[:tenants] =[]
+  apt[:tenants] = []
+# tenants.each ..
+  tenants.each do |tenant|
+# if ap id == unit id
+    if apt[:id] == tenant[:apartment_id]
+# unit[tenant].push name
+      apt[:tenants].push(tenant[:name])
+    end
+  end
+end
+
+# occupant_info = tenants.each do |person|
+#   person[:addr] = []
+#   apartments.each do |apt|
+#     if person[:apartment_id] == apt[:id]
+#       puts person[:apartment_id]
+#       puts apt[:id]
+#       person[:add].push(apartments[:address].to_s)
+#       puts person[:add]
+#     end
+#   end
+# end
+# puts occupant_info
+
 # enter a number to access apartments (1) or tenants (2)
 initial_input = nil
 while initial_input != 1 || 2
