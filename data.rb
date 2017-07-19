@@ -1,3 +1,7 @@
+# The tenants and apartments are stored in different arrays, associated by id/apartment_id.
+# Each apartment hash has an id, an address, a monthly rent, and its square footage.
+# Each tenant hash has an id, a name, an age, and the id of their apartment.
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
