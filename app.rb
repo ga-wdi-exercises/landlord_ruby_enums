@@ -68,6 +68,7 @@ puts '------------------'
 puts 'Options:'
 puts '[1] View all apartments with tenants.'
 puts '[2] View all tenants and their apartments.'
+puts '[3] Remove tenant from apartment.'
 
 input = gets.chomp
 if input == '1'
@@ -92,4 +93,12 @@ elsif input == '2'
   end
   answer = ten_with_apt.find_all{|x| x[:name] == ten_name}
   puts "Adress is: #{answer[0][:apartment]}"
+
+elsif input == '3'
+  puts 'Enter tenant name'
+  ten_name = gets.chomp
+  found_ten = tenants.find{ |x| x[:name] == ten_name }
+  found_ten[:apartment_id] = 0
+  puts found_ten
+  puts 'Tenant removed.'
 end
