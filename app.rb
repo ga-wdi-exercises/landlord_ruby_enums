@@ -49,7 +49,7 @@ tenants = data[:tenants]
   #   i[:apartment] = apts[:address]
   #   puts i
   # end
-  # # When printing all apartments, under each apartment print all of its tenants
+  # # # When printing all apartments, under each apartment print all of its tenants
   # puts "Apartments and their Tenants------------------"
   # for i in apartments do
   #   i[:tenants] = nil
@@ -58,16 +58,8 @@ tenants = data[:tenants]
   #   i[:tenants] = apt_tenants.map{ |x| x[:name]}
   #   puts i
   # end
-# App MVP
-def apt_with_tenants
-  for i in apartments do
-    i[:tenants] = nil
-    apt_id = i[:id]
-    apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
-    i[:tenants] = apt_tenants.map{ |x| x[:name]}
-    puts i
-  end
-end
+
+# App
 
 puts '------------------'
 puts '   Landlord App'
@@ -79,7 +71,25 @@ puts '[2] View all tenants and their apartments.'
 
 input = gets.chomp
 if input == '1'
-  apt_with_tenants
+  for i in apartments do
+    i[:tenants] = nil
+    apt_id = i[:id]
+    apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
+    i[:tenants] = apt_tenants.map{ |x| x[:name]}
+    puts "Appartment: #{i[:address]},   tenants: #{i[:tenants].join(', ')}"
+  end
+
 elsif input == '2'
-  puts tenants
+  puts 'Enter tenant name'
+  ten_name = gets.chomp
+  ten_with_apt = []
+  for i in tenants do
+    i[:apartment] = nil
+    tenant_apt_id = i[:apartment_id]
+    apts = apartments.find{ |x| x[:id] == tenant_apt_id}
+    i[:apartment] = apts[:address]
+    ten_with_apt << i
+  end
+  answer = ten_with_apt.find_all{|x| x[:name] == ten_name}
+  puts "Adress is: #{answer[0][:apartment]}"
 end
