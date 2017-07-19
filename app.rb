@@ -96,6 +96,8 @@ while run do
   puts "4 ==> Find apartment address from tenant's name"
   puts "5 ==> Remove a tenant from an apartment"
   puts "6 ==> Add a tenant to an apartment"
+  puts "7 ==> Create a new apartment"
+  puts "8 ==> Create a new tenant"
   puts "0 ==> Exit Program"
 
   input = gets.chomp.to_i
@@ -139,7 +141,7 @@ while run do
     end
 
   elsif input == 5
-    puts "Please enter the name of the tenant you would like to evict"
+    puts "Please enter the name of the tenant you would like to evict..."
     tenant_search = gets.chomp
     tenant_found = tenants.find {|person| person[:name] == tenant_search}
     if tenant_found
@@ -155,18 +157,42 @@ while run do
     end
 
   elsif input == 6
-    puts "Please enter the name of the tenant you would like to add"
+    puts "Please enter the name of the tenant you would like to add..."
     tenant_search = gets.chomp
     tenant_found = tenants.find {|person| person[:name] == tenant_search}
     if tenant_found
       puts "Please enter the new address of where you would like #{tenant_search} to live (You must be percise!)"
       address_input = gets.chomp
       new_apt = apartments.find {|apt| apt[:address] == address_input}
-      new_apt_id = new_apt[:id]
-      tenant_found[:apartment_id] = new_apt_id
+      if new_apt
+        new_apt_id = new_apt[:id]
+        tenant_found[:apartment_id] = new_apt_id
+        puts "#{tenant_search} has been added to #{new_apt[:address]}"
+      else
+        puts "You do not own that apartment, you must own the apartment to add the tenant"
+      end
     else
       puts "#{tenant_search} not found"
     end
+  elsif input == 7
+    puts "Creating new apartment..."
+    puts "Please enter address"
+    address = gets.chomp
+    puts "Please enter montly rent"
+    rent = gets.chomp
+    puts "Please enter square feet"
+    sq_ft = gets.chomp
+    apartments.push({:id => apartments.length + 1, :address => address, :monthly_rent => rent, :square_feet => sq_ft})
+    puts "Your new apartment has been created"
+
+  elsif input == 8
+    puts "Creating new tenant..."
+    puts "Please enter name"
+    name = gets.chomp
+    puts "Please enter age"
+    age = gets.chomp
+    tenants.push({:id =>tenants.length + 1, :name => name, :age => age})
+    puts "Your new tenant has been created"
 
   elsif input == 0
       run = false
