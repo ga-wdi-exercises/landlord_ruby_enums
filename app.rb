@@ -137,5 +137,22 @@ elsif input == '5'
   puts 'New apartment was added'
 
 elsif input == '6'
-
+  puts 'Enter new tenant information'
+  puts 'Id:'
+  new_id = gets.chomp
+  puts 'Name:'
+  new_name = gets.chomp
+  puts 'Age:'
+  new_age = gets.chomp
+  puts 'Apartment Id:'
+  new_apt_id = gets.chomp
+  new_tenant = {
+    id: new_id,
+    name: new_name,
+    age: new_age,
+    apartment_id: new_apt_id
+  }
+  tenants << new_tenant
+  puts new_tenant
+  puts 'New tenant was added'
 end
