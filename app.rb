@@ -115,4 +115,27 @@ elsif input == '4'
   tenant_to_add = tenants.find{ |x| x[:name] == ten_name}[:apartment_id] = new_apt_id
   puts "Tenant added to #{new_apt}."
   puts tenants.find{|x| x[:name] == ten_name}
+
+elsif input == '5'
+  puts 'Enter information for new apartment'
+  puts 'Id:'
+  new_id = gets.chomp
+  puts 'Address:'
+  new_address = gets.chomp
+  puts 'Rent:'
+  new_rent = gets.chomp
+  puts 'Square Footage:'
+  new_sq_ft = gets.chomp
+  new_apt = {
+    id: new_id,
+    address: new_address,
+    monthly_rent: new_rent,
+    square_feet: new_sq_ft
+  }
+  apartments << new_apt
+  puts new_apt
+  puts 'New apartment was added'
+
+elsif input == '6'
+
 end
