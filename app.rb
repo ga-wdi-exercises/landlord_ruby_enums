@@ -32,12 +32,11 @@ tenants = data[:tenants]
   #     print tenant[:name] + "\n"
   #   end
   # end
-  # # Print only tenants that have an apartment id of 1
+  # Print only tenants that have an apartment id of 1
   # puts "Tenants in Apt 1"
   # for tenant in tenants
   #   if tenant[:apartment_id] == 1
   #     print tenant[:name] + "\n"
-  #     print tenant[]
   #   end
   # end
   # # Print all the tenants in order from youngest to oldest
@@ -53,18 +52,18 @@ tenants = data[:tenants]
 
 # Apartment info + Occupant List
 # .each do |unit|
-house_info = apartments.each do |apt|
-# unit[:tenants] =[]
-  apt[:tenants] = []
-# tenants.each ..
-  tenants.each do |tenant|
-# if ap id == unit id
-    if apt[:id] == tenant[:apartment_id]
-# unit[tenant].push name
-      apt[:tenants].push(tenant[:name])
-    end
-  end
-end
+# house_info = apartments.each do |apt|
+# # unit[:tenants] =[]
+#   apt[:tenants] = []
+# # tenants.each ..
+#   tenants.each do |tenant|
+# # if ap id == unit id
+#     if apt[:id] == tenant[:apartment_id]
+# # unit[tenant].push name
+#       apt[:tenants].push(tenant[:name])
+#     end
+#   end
+# end
 
 # occupant_info = tenants.each do |person|
 #   person[:addr] = []
@@ -91,7 +90,14 @@ while initial_input != 1 || 2
     apartments.each do |apt|
       print "#{apt[:id]} - #{apt[:address]}" + "\n"
     end
-    break
+    print "Select the apartment ID that you would like to inspect" + "\n"
+    apart_input = gets.chomp
+    for tenant in tenants
+      if apart_input.to_i == tenant[:apartment_id]
+        print tenant[:name] + ". "
+      end
+    end
+    print "\n"
   # if 2
   elsif initial_input.to_i == 2
     # show tenant list by print
