@@ -69,6 +69,9 @@ puts 'Options:'
 puts '[1] View all apartments with tenants.'
 puts '[2] View all tenants and their apartments.'
 puts '[3] Remove tenant from apartment.'
+puts '[4] Add tenant to apartment.'
+puts '[5] Add new apartment.'
+puts '[6] Add new tenant.'
 
 input = gets.chomp
 if input == '1'
@@ -101,4 +104,15 @@ elsif input == '3'
   found_ten[:apartment_id] = 0
   puts found_ten
   puts 'Tenant removed.'
+
+elsif input == '4'
+  puts 'Enter tenant name'
+  ten_name = gets.chomp
+  puts 'Enter apartment address'
+  new_apt = gets.chomp
+  new_apt_id = apartments.find{ |x| x[:address] == new_apt}
+  new_apt_id = new_apt_id[:id]
+  tenant_to_add = tenants.find{ |x| x[:name] == ten_name}[:apartment_id] = new_apt_id
+  puts "Tenant added to #{new_apt}."
+  puts tenants.find{|x| x[:name] == ten_name}
 end
