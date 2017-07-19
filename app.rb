@@ -3,6 +3,21 @@ apartments = data[:apartments]
 tenants = data[:tenants]
 require_relative "models/apartment"
 require_relative "models/tenant"
+ruby_apartments = []
+ruby_tenants = []
+
+
+apartments.each do |apartment|
+  new_apartment = Apartment.new(apartment[:id], apartment[:address], apartment[:monthly_rent], apartment[:square_feet])
+  ruby_apartments << new_apartment
+end
+
+# p ruby_apartments
+
+ruby_tenants = tenants.map do |tenant|
+  Tenant.new(tenant[:id], tenant[:name], tenant[:age], tenant[:apartment_id])
+end
+
 
 
 
@@ -15,25 +30,37 @@ require_relative "models/tenant"
 
 puts "Please enter a number to access different parts of your program \n
       Enter 1 to see all of your apartments...\n
-      Enter 2 to see all of your tenants..."
+      Enter 2 to see all of your tenants...\n
+      Enter 3 to see all of your apartments smaller than 700 sq. feet\n
+      Enter 4 to see all tenants older than 44\n"
 input = gets.chomp
   if input == "1"
-    apartments.each do |apt|
-      puts apt[:address]
+    ruby_apartments.each do |apt|
+      p apt.address
     end
   elsif input == "2"
-    tenants.each do |tenant|
-      puts tenant[:name]
+    ruby_tenants.each do |tenant|
+      p tenant.name
     end
-  else
-    puts "hi"
-  end
+  elsif input == "3"
+    ruby_apartments.each do |apt|
+      if apt.square_feet < 700
+        p apt
+      end
+    end
+  elsif input == "4"
+    ruby_tenants.each do |tenant|
+      if tenant.age > 44
+        p tenant
+      end
+    end
+  # elsif input == "5"
+  #   ruby_tenants do |tenant|
+  #     sortedYToO = tenants.sort_by { |tenant| tenant[:age] }
+  #     p sortedYToO
+  #   end
+end
 
-
-  # Print all the names for tenants
-# apartments.each do |name|
-#   puts name[:name]
-# end
 
   # Print only apartments that are less then 700 in rent
 # smallApts = apartments.each do |apt|
