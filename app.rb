@@ -1,6 +1,8 @@
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
 
 =begin
 
@@ -174,6 +176,7 @@ while run do
     else
       puts "#{tenant_search} not found"
     end
+
   elsif input == 7
     puts "Creating new apartment..."
     puts "Please enter address"
@@ -182,7 +185,7 @@ while run do
     rent = gets.chomp
     puts "Please enter square feet"
     sq_ft = gets.chomp
-    apartments.push({:id => apartments.length + 1, :address => address, :monthly_rent => rent, :square_feet => sq_ft})
+    apartments.push({:id => apartments.last[:id] + 1, :address => address, :monthly_rent => rent, :square_feet => sq_ft})
     puts "Your new apartment has been created"
 
   elsif input == 8
@@ -191,7 +194,7 @@ while run do
     name = gets.chomp
     puts "Please enter age"
     age = gets.chomp
-    tenants.push({:id =>tenants.length + 1, :name => name, :age => age})
+    tenants.push({:id => tenants.last[:apartment_id] + 1, :name => name, :age => age})
     puts "Your new tenant has been created"
 
   elsif input == 0
