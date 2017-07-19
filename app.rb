@@ -42,24 +42,44 @@ tenants = data[:tenants]
   # ## More challenging
   # # When printing tenants also print out the address that the tenant resides in.
   # puts "Tenants and their address---------------------"
-  # tenants_and_ids = []
-  # tenant_apt_id = tenants.each{ |x| tenants_and_ids << x[:name] && [:apartment_id] }
-  # puts tenants_and_ids
-  # When printing all apartments, under each apartment print all of its tenants
-
+  # for i in tenants do
+  #   i[:apartment] = nil
+  #   tenant_apt_id = i[:apartment_id]
+  #   apts = apartments.find{ |x| x[:id] == tenant_apt_id}
+  #   i[:apartment] = apts[:address]
+  #   puts i
+  # end
+  # # When printing all apartments, under each apartment print all of its tenants
+  # puts "Apartments and their Tenants------------------"
+  # for i in apartments do
+  #   i[:tenants] = nil
+  #   apt_id = i[:id]
+  #   apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
+  #   i[:tenants] = apt_tenants.map{ |x| x[:name]}
+  #   puts i
+  # end
 # App MVP
+def apt_with_tenants
+  for i in apartments do
+    i[:tenants] = nil
+    apt_id = i[:id]
+    apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
+    i[:tenants] = apt_tenants.map{ |x| x[:name]}
+    puts i
+  end
+end
 
 puts '------------------'
 puts '   Landlord App'
 puts '------------------'
 
 puts 'Options:'
-puts '[1] View all apartments.'
-puts '[2] View all tenants.'
+puts '[1] View all apartments with tenants.'
+puts '[2] View all tenants and their apartments.'
 
 input = gets.chomp
 if input == '1'
-  puts apartments
+  apt_with_tenants
 elsif input == '2'
   puts tenants
 end
