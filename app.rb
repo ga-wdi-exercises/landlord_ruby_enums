@@ -1,7 +1,8 @@
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
-
+require_relative "models/apartment"
+require_relative "models/tenant"
 
 
 

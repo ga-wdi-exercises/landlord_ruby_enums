@@ -1,3 +1,9 @@
+
+#data is structured as 2 arrays of hashes
+#properties for [apartments] are associated with symbols "id" ":address" ":monthly_rent" ":square_feet"
+#properties for [tenants] are associated with symbols ":id" ":name" ":age" ":apartment_id"
+
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
