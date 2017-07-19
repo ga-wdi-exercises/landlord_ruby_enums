@@ -1,8 +1,19 @@
 require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
 require_relative "models/apartment"
 require_relative "models/tenant"
+apartments = data[:apartments]
+tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+ruby_apartments = apartments.each do |apt|
+  Apartment.new(apt[:id], apt[:address], apt[:monthly_rent], apt[:square_feet])
+end
+
+ruby_tenants = tenants.each do |person|
+  Apartment.new(person[:id], person[:name], person[:age], person[:apartment_id])
+end
+
 
 =begin
 
@@ -106,22 +117,18 @@ while run do
 
   if input == 1
     puts "Printing out apartment data..."
-    apartments.each do |apt|
-      puts "Address: #{apt[:address]}, Rent: #{apt[:monthly_rent]}, Sq Ft: #{apt[:square_feet]}"
-    end
+    puts ruby_apartments
 
   elsif input == 2
     puts "Printing out tenant data..."
-    tenants.each do |person|
-      puts person[:name]
-    end
+    puts ruby_tenants
 
   elsif input == 3
     puts "Printing out apartments with tenants..."
-    apartments.each do |apt|
+    ruby_apartments.each do |apt|
       puts apt[:address] + ": "
       id = apt[:id]
-      match = tenants.find_all { |person| person[:apartment_id] == id}
+      match = ruby_tenants.find_all { |person| person[:apartment_id] == id}
         match.each do |person|
           puts "   " + person[:name]
         end
@@ -130,9 +137,9 @@ while run do
   elsif input == 4
     print "Please enter the name of the tenant for who you would like the address of..."
     tenant_search = gets.chomp
-    tenant_found = tenants.find {|person| person[:name] == tenant_search}
+    tenant_found = ruby_tenants.find {|person| person[:name] == tenant_search}
     if tenant_found
-      apt_search = apartments.find {|apt| apt[:id] == tenant_found[:apartment_id]}
+      apt_search = ruby_apartments.find {|apt| apt[:id] == tenant_found[:apartment_id]}
       if apt_search
         puts "#{tenant_search}'s address is #{apt_search[:address]}"
       else
@@ -145,9 +152,9 @@ while run do
   elsif input == 5
     puts "Please enter the name of the tenant you would like to evict..."
     tenant_search = gets.chomp
-    tenant_found = tenants.find {|person| person[:name] == tenant_search}
+    tenant_found = ruby_tenants.find {|person| person[:name] == tenant_search}
     if tenant_found
-      apt_search = apartments.find {|apt| apt[:id] == tenant_found[:apartment_id]}
+      apt_search = ruby_apartments.find {|apt| apt[:id] == tenant_found[:apartment_id]}
       puts "Are you sure you would like to remove #{tenant_search} from #{apt_search[:address]}?"
       confirmation = gets.chomp.upcase
       if confirmation == "YES"
@@ -161,11 +168,11 @@ while run do
   elsif input == 6
     puts "Please enter the name of the tenant you would like to add..."
     tenant_search = gets.chomp
-    tenant_found = tenants.find {|person| person[:name] == tenant_search}
+    tenant_found = ruby_tenants.find {|person| person[:name] == tenant_search}
     if tenant_found
       puts "Please enter the new address of where you would like #{tenant_search} to live (You must be percise!)"
       address_input = gets.chomp
-      new_apt = apartments.find {|apt| apt[:address] == address_input}
+      new_apt = ruby_apartments.find {|apt| apt[:address] == address_input}
       if new_apt
         new_apt_id = new_apt[:id]
         tenant_found[:apartment_id] = new_apt_id
@@ -185,7 +192,7 @@ while run do
     rent = gets.chomp
     puts "Please enter square feet"
     sq_ft = gets.chomp
-    apartments.push({:id => apartments.last[:id] + 1, :address => address, :monthly_rent => rent, :square_feet => sq_ft})
+    ruby_apartments.push({:id => ruby_apartments.last[:id] + 1, :address => address, :monthly_rent => rent, :square_feet => sq_ft})
     puts "Your new apartment has been created"
 
   elsif input == 8
@@ -194,7 +201,7 @@ while run do
     name = gets.chomp
     puts "Please enter age"
     age = gets.chomp
-    tenants.push({:id => tenants.last[:apartment_id] + 1, :name => name, :age => age})
+    ruby_tenants.push({:id => ruby_tenants.last[:id] + 1, :name => name, :age => age})
     puts "Your new tenant has been created"
 
   elsif input == 0
