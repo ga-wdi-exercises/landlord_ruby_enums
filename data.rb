@@ -1,5 +1,5 @@
-def data
-  apartments = [
+def data # stored in a method of hashes
+  apartments = [ # apartments listed by id, address, rent per month, and size
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
     {:id=>3, :address=>"630 McDermott Islands", :monthly_rent=>501, :square_feet=>774},
@@ -22,7 +22,7 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
-  tenants = [
+  tenants = [ # id, tenant name, age, and apartment id which correlates to the above apartment array
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
     {:id=>3, :name=>"Jordan Cremin DDS", :age=>54, :apartment_id=>13},
