@@ -104,6 +104,8 @@ while initial_input != 1 || 2
         print tenant[:name] + ". "
       end
     end
+    # QUESTION tenants.select { |ten| ten[:apartment_id] == apart_input.to_i }
+    # How do I specify the return?
     # Line break prior to next prompt
     print "\n"
   # if 2
