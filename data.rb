@@ -1,4 +1,7 @@
 def data
+
+  # The data is structured as a array of hashes
+  # the properties are: address, monthly_rent, square_feet and id(this last one links the two hashes)
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},
@@ -22,6 +25,8 @@ def data
     {:id=>20, :address=>"4705 Rosenbaum Ville", :monthly_rent=>993, :square_feet=>1168}
   ]
 
+# The data is structured as a array of hashes
+# the properties are: name, age, apartment_id and id(this last one links the two hashes)
   tenants = [
     {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
     {:id=>2, :name=>"Maci Hickle II", :age=>28, :apartment_id=>1},
