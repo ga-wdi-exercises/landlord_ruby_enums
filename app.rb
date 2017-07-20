@@ -59,10 +59,41 @@ puts "---- tenants in alphabetical order -----"
 
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
-puts "---- tenants name and their address -----"
-  tenants.each do |tenant|
-    if tenants[:id] == apatrments[:id]
-puts "#{tenant[:name]}" + "#{tenant[:address]}"
-end
-end
+#puts "---- tenants name and their address -----"
+#  tenants.each do |tenant|
+#    if tenants[:id] == apatrments[:id]
+#puts "#{tenant[:name]}" + "#{tenant[:address]}"
+#end
+#end
   # When printing all apartments, under each apartment print all of its tenants
+
+
+puts "Welcome to your property portal"
+puts "Type '1' for tenants"
+puts "Type '2' for apartments"
+input = gets.chomp
+
+case input
+  when '1'
+    puts "Type '1' to view tenants"
+    puts "Type '2' to view addres"
+      option1 = gets.chomp
+    case option1
+      when  '1'
+        tenants.each {|tenant| puts tenant}
+    end
+  when '2'
+    puts "Enter tenant name"
+    tenant_name = gets.chomp
+    tenants.each do |tenant|
+      if tenant[:name] == tenant_name
+        id_number = tenant[:apartment_id]
+        apartments.each do |apartment|
+
+          if id_number == apartment[:id]
+            puts apartment[:address]
+          end
+        end
+      end
+  end
+end
