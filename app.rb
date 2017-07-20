@@ -1,9 +1,6 @@
 require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
 
-
-
+def enumerationWork
 data[:apartments].each do |apartment|
    puts apartment[:address]
 end
@@ -39,7 +36,16 @@ alphaNames = data[:tenants].sort{|a,b| a['name']<=>b['name']}
 alphaNames.each  do |name|
   puts name[:name]
 end
+end
 
+print "Type 1 to get apartments or 2 to get tenants"
+@answer = gets.chomp
+puts "hi"
+if @answer.to_i == 1
+  puts data[:apartments]
+  elsif @answer.to_i == 2
+  puts data[:tenants]
+end
 
 # Use enumerables to -
   # Print all the addresses for the apartments
