@@ -72,18 +72,18 @@ end
 
   input = 'menu'
   while input == 'menu'
-    puts "To view all apartments, type 1. To view all tenants, type 2. To view all apartments with their tenants, type 3."
+    puts "Type 1 to view all apartments\nType 2 to view all tenants.\nType 3 view all apartments with their tenants."
     input = gets.chomp
       if input == '1'
           ruby_apartments.each { |apartment| puts "apartment address: #{apartment.address}, monthly rent: $#{apartment.monthly_rent}, square feet: #{apartment.square_feet}" }
-          puts "need anything else? type 'menu' to return to main menu, or 'quit' to quit."
+          puts "Need anything else?\nType 'menu' to return to main menu, or 'quit' to quit."
           input = gets.chomp
           if input == 'quit'
             break
           end
       elsif input == '2'
           ruby_tenants.each { |tenant| puts "tenant name: #{tenant.name}, age: #{tenant.age}" }
-          puts "need anything else? type 'menu' to return to main menu, or 'quit' to quit."
+          puts "Need anything else?\nType 'menu' to return to main menu, or 'quit' to quit."
           input = gets.chomp
           if input == 'quit'
             break
@@ -98,13 +98,13 @@ end
               end
             puts "apartment: #{apartment[:address]}, tenant(s): #{apartment[:tenants]}"
           end
-          puts "need anything else? type 'menu' to return to main menu, or 'quit' to quit."
+          puts "Need anything else?\nType 'menu' to return to main menu, or 'quit' to quit."
           input = gets.chomp
           if input == 'quit'
             break
           end
       else
-        puts "invalid option. type 'menu' to return to main menu, or 'quit' to quit."
+        puts "Invalid option.\nType 'menu' to return to main menu, or 'quit' to quit."
         input = gets.chomp
         if input == 'quit'
           break
