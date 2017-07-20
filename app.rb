@@ -37,16 +37,15 @@ alpha = ruby_tenants.sort_by { |ii| ii[:name] }
     if input == "1"
       puts "#{j[:name]}"
     else
-      input = gets.chomp
+
   end
 end
   ruby_apartments.each do |x|
     if input == "2"
       puts "#{x[:address]}"
     else
-      input = gets.chomp
-  end
 
+  end
 end
 
 
@@ -87,6 +86,6 @@ end
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
-  binding.pry
+  # binding.pry
 
     puts "end of file"
