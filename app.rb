@@ -9,6 +9,8 @@ ruby_tenants = []
 ruby_apartments = apartments.map{ |x| Apartment.new(x[:id], x[:address], x[:monthly_rent], x[:square_feet])}
 ruby_tenants = tenants.map{ |x| Tenant.new(x[:id], x[:name], x[:age], x[:apartment_id])}
 
+puts Apartment.all
+
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
   # Both sets of data are stored in an array of hashes.
