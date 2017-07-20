@@ -18,3 +18,40 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+  equire_relative "data"
+   require "pry"
+    apartments = data[:apartments]
+    tenants = data[:tenants]
+
+   @@ -8,12 +9,43 @@
+    		     +  puts "Address for each Apt"
+     apartments.each do |apt|
+     print apt[:address] + "\n"
+     end
+     puts "Names of Each Tenant"
+     tenants.each do |tenant|
+       print tenant[:name] + "\n"
+     end
+     puts "Apt IDs of less than $700"
+     for apt in apartments
+       if apt[:monthly_rent] < 700
+         print apt[:id].to_s + "\n"
+       end
+     end
+     puts "Tenants over 44 years"
+     for tenant in tenants
+      if tenant[:age] > 44
+         print tenant[:name] + "\n"
+       end
+     end
+     puts "Tenants in Apt 1"
+     for tenant in tenants
+       if tenant[:apartment_id] == 1
+         print tenant[:name] + "\n"
+         print tenant[]
+       end
+     end
+     puts "Tenants by Age (young to old)"
+     print tenants.sort_by{ |a,b| a[:age] }
+     puts "Tenants alphabetically"
+     print tenants.sort_by{ |a,b| a[:name] }
