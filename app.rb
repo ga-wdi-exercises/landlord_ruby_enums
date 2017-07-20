@@ -245,16 +245,17 @@ def menu()
   puts "6. Add a tenant to an apartment from its current apartment"
   puts "7. Create a new apartment "
   puts "8. Create a new tenant"
-  puts "9. EXIT"
+  puts "9. to see .all function bonus part as class method, (returns total number of tenants initialized at the class)"
+  puts "10. EXIT"
   puts "--------------------------------------------"
 end
 
-puts "Enter an option from 1 to 8\n"
+puts "Enter an option from 1 to 9\n"
 menu()
 input = gets.chomp.to_i
-while input != 9
+while input != 10
 
-      if (input>0 && input<9)
+      if (input>0 && input<10)
           if(input==1)
             option1(ruby_apartments)
             puts "--------------------------------------------"
@@ -282,8 +283,12 @@ while input != 9
           elsif(input==7)
             option7(ruby_apartments)
             puts "--------------------------------------------"
-          else
+          elsif(input==8)
             option8(ruby_tenants)
+            puts "--------------------------------------------"
+          else
+            puts "--------------------------------------------"
+            puts " The class Tenant was initialized #{Tenant.all()} times \n"
             puts "--------------------------------------------"
           end
 
