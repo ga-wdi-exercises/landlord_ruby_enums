@@ -1,3 +1,6 @@
+# The data is stored in two arrays, in each array element there are hashes
+#numbers and string, there are many hashes for each array elemtn
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
