@@ -1,4 +1,8 @@
 def data
+
+
+  # The data is separated into apartments and tenants,with all of the relevant info
+  # id, address, monthyly rent, square feet. id, name, age, apartment id.
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
     {:id=>2, :address=>"6971 Corwin Locks", :monthly_rent=>862, :square_feet=>1444},

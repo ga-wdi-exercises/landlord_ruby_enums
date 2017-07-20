@@ -2,9 +2,44 @@ require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
 
-# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
-  # Explain how the data is structured
-  # What are the properties for each of the two types of hashes
+
+
+data[:apartments].each do |apartment|
+   puts apartment[:address]
+end
+
+data[:tenants].each do |person|
+   puts person[:name]
+end
+
+data[:apartments].each do |apartment|
+   if apartment[:monthly_rent] < 700
+   puts apartment
+ end
+end
+
+data[:tenants].each do |person|
+   if person[:age] > 44
+   puts person
+ end
+end
+
+data[:tenants].each do |person|
+   if person[:id] == 1
+   puts person
+ end
+end
+
+agedTenants = data[:tenants].sort{|a,b| a['age']<=>b['age']}
+agedTenants.each  do |person|
+  puts person
+end
+
+alphaNames = data[:tenants].sort{|a,b| a['name']<=>b['name']}
+alphaNames.each  do |name|
+  puts name[:name]
+end
+
 
 # Use enumerables to -
   # Print all the addresses for the apartments
