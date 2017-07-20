@@ -1,1 +1,3 @@
-require_relative "models/apartment"
+class Apartment
+
+end

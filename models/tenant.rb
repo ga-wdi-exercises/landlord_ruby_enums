@@ -1,1 +1,3 @@
-require_relative "models/tenant"
+class Tenant
+
+end
