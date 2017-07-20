@@ -1,8 +1,25 @@
+require "pry"
+
+
 require_relative "data"
 require_relative "models/apartment"
 require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+#loop through with .each create classes and push into respective arrays
+
+ruby_apartments = apartments.each do |x|
+   Apartment.new(x[:id], x[:address], x[:monthly_rent], x[:square_feet])
+ end
+# print ruby_apartments
+
+ruby_tenants = tenants.each do |j|
+  Tenant.new(j[:id], j[:name], j[:age], j[:apartment_id])
+end
+# print ruby_tenants
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -12,25 +29,25 @@ tenants = data[:tenants]
   #the apartment hash contains an id (used to identify who lives there), an address, rent and square feet
 
 #create numbered inferface by printing choice of numbers
-puts ("Greetings MR PIZZA, please enter 1 for tenant list or 2 for propery list")
-input = gets.chomp
-#create if statement that maps through array based on input, list apartments and tenants
-alpha = tenants.sort_by { |ii| ii[:name] }
-  alpha.each do |j|
-    if input == "1"
-      puts "#{j[:name]}"
-    else
-      input = gets.chomp
-  end
-end
-  apartments.each do |x|
-    if input == "2"
-      puts "#{x[:address]}"
-    else
-      input = gets.chomp
-  end
-
-end
+# puts ("Greetings MR PIZZA, please enter 1 for tenant list or 2 for propery list")
+# input = gets.chomp
+# #create if statement that maps through array based on input, list apartments and tenants
+# alpha = tenants.sort_by { |ii| ii[:name] }
+#   alpha.each do |j|
+#     if input == "1"
+#       puts "#{j[:name]}"
+#     else
+#       input = gets.chomp
+#   end
+# end
+#   apartments.each do |x|
+#     if input == "2"
+#       puts "#{x[:address]}"
+#     else
+#       input = gets.chomp
+#   end
+#
+# end
 
 
 
@@ -73,3 +90,6 @@ end
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+  binding.pry
+
+    puts "end of file"
