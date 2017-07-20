@@ -1,3 +1,11 @@
+# First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
+  # -----Explain how the data is structured-----
+    # This data is structured as two arrays of hashes with key-value pairs
+
+  # -----What are the properties for each of the two types of hashes-----
+    # The apartments hash has properties including id, address, monthly_rent, and square_feet as evidenced by {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779}
+    # The tenants hash has properties including id, name, age, and apartment_id as evidenced by {:id=>1, :name=>"Ms. Maryse Farrell", :age=>87, :apartment_id=>8},
+
 def data
   apartments = [
     {:id=>1, :address=>"9841 Tanner Key", :monthly_rent=>606, :square_feet=>779},
