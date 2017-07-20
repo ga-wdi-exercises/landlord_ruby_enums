@@ -1,6 +1,8 @@
 require_relative "data"
 apartments = data[:apartments]
 tenants = data[:tenants]
+require_relative "models/apartment"
+require_relative "models/tenant"
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -61,98 +63,98 @@ tenants = data[:tenants]
 
 # App
 
-puts '------------------'
-puts '   Landlord App'
-puts '------------------'
-
-puts 'Options:'
-puts '[1] View all apartments with tenants.'
-puts '[2] View all tenants and their apartments.'
-puts '[3] Remove tenant from apartment.'
-puts '[4] Add tenant to apartment.'
-puts '[5] Add new apartment.'
-puts '[6] Add new tenant.'
-
-input = gets.chomp
-if input == '1'
-  for i in apartments do
-    i[:tenants] = nil
-    apt_id = i[:id]
-    apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
-    i[:tenants] = apt_tenants.map{ |x| x[:name]}
-    puts "Appartment: #{i[:address]},   tenants: #{i[:tenants].join(', ')}"
-  end
-
-elsif input == '2'
-  puts 'Enter tenant name'
-  ten_name = gets.chomp
-  ten_with_apt = []
-  for i in tenants do
-    i[:apartment] = nil
-    tenant_apt_id = i[:apartment_id]
-    apts = apartments.find{ |x| x[:id] == tenant_apt_id}
-    i[:apartment] = apts[:address]
-    ten_with_apt << i
-  end
-  answer = ten_with_apt.find_all{|x| x[:name] == ten_name}
-  puts "Adress is: #{answer[0][:apartment]}"
-
-elsif input == '3'
-  puts 'Enter tenant name'
-  ten_name = gets.chomp
-  found_ten = tenants.find{ |x| x[:name] == ten_name }
-  found_ten[:apartment_id] = 0
-  puts found_ten
-  puts 'Tenant removed.'
-
-elsif input == '4'
-  puts 'Enter tenant name'
-  ten_name = gets.chomp
-  puts 'Enter apartment address'
-  new_apt = gets.chomp
-  new_apt_id = apartments.find{ |x| x[:address] == new_apt}
-  new_apt_id = new_apt_id[:id]
-  tenant_to_add = tenants.find{ |x| x[:name] == ten_name}[:apartment_id] = new_apt_id
-  puts "Tenant added to #{new_apt}."
-  puts tenants.find{|x| x[:name] == ten_name}
-
-elsif input == '5'
-  puts 'Enter information for new apartment'
-  puts 'Id:'
-  new_id = gets.chomp
-  puts 'Address:'
-  new_address = gets.chomp
-  puts 'Rent:'
-  new_rent = gets.chomp
-  puts 'Square Footage:'
-  new_sq_ft = gets.chomp
-  new_apt = {
-    id: new_id,
-    address: new_address,
-    monthly_rent: new_rent,
-    square_feet: new_sq_ft
-  }
-  apartments << new_apt
-  puts new_apt
-  puts 'New apartment was added'
-
-elsif input == '6'
-  puts 'Enter new tenant information'
-  puts 'Id:'
-  new_id = gets.chomp
-  puts 'Name:'
-  new_name = gets.chomp
-  puts 'Age:'
-  new_age = gets.chomp
-  puts 'Apartment Id:'
-  new_apt_id = gets.chomp
-  new_tenant = {
-    id: new_id,
-    name: new_name,
-    age: new_age,
-    apartment_id: new_apt_id
-  }
-  tenants << new_tenant
-  puts new_tenant
-  puts 'New tenant was added'
-end
+# puts '------------------'
+# puts '   Landlord App'
+# puts '------------------'
+#
+# puts 'Options:'
+# puts '[1] View all apartments with tenants.'
+# puts '[2] View all tenants and their apartments.'
+# puts '[3] Remove tenant from apartment.'
+# puts '[4] Add tenant to apartment.'
+# puts '[5] Add new apartment.'
+# puts '[6] Add new tenant.'
+#
+# input = gets.chomp
+# if input == '1'
+#   for i in apartments do
+#     i[:tenants] = nil
+#     apt_id = i[:id]
+#     apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
+#     i[:tenants] = apt_tenants.map{ |x| x[:name]}
+#     puts "Appartment: #{i[:address]},   tenants: #{i[:tenants].join(', ')}"
+#   end
+#
+# elsif input == '2'
+#   puts 'Enter tenant name'
+#   ten_name = gets.chomp
+#   ten_with_apt = []
+#   for i in tenants do
+#     i[:apartment] = nil
+#     tenant_apt_id = i[:apartment_id]
+#     apts = apartments.find{ |x| x[:id] == tenant_apt_id}
+#     i[:apartment] = apts[:address]
+#     ten_with_apt << i
+#   end
+#   answer = ten_with_apt.find_all{|x| x[:name] == ten_name}
+#   puts "Adress is: #{answer[0][:apartment]}"
+#
+# elsif input == '3'
+#   puts 'Enter tenant name'
+#   ten_name = gets.chomp
+#   found_ten = tenants.find{ |x| x[:name] == ten_name }
+#   found_ten[:apartment_id] = 0
+#   puts found_ten
+#   puts 'Tenant removed.'
+#
+# elsif input == '4'
+#   puts 'Enter tenant name'
+#   ten_name = gets.chomp
+#   puts 'Enter apartment address'
+#   new_apt = gets.chomp
+#   new_apt_id = apartments.find{ |x| x[:address] == new_apt}
+#   new_apt_id = new_apt_id[:id]
+#   tenant_to_add = tenants.find{ |x| x[:name] == ten_name}[:apartment_id] = new_apt_id
+#   puts "Tenant added to #{new_apt}."
+#   puts tenants.find{|x| x[:name] == ten_name}
+#
+# elsif input == '5'
+#   puts 'Enter information for new apartment'
+#   puts 'Id:'
+#   new_id = gets.chomp
+#   puts 'Address:'
+#   new_address = gets.chomp
+#   puts 'Rent:'
+#   new_rent = gets.chomp
+#   puts 'Square Footage:'
+#   new_sq_ft = gets.chomp
+#   new_apt = {
+#     id: new_id,
+#     address: new_address,
+#     monthly_rent: new_rent,
+#     square_feet: new_sq_ft
+#   }
+#   apartments << new_apt
+#   puts new_apt
+#   puts 'New apartment was added'
+#
+# elsif input == '6'
+#   puts 'Enter new tenant information'
+#   puts 'Id:'
+#   new_id = gets.chomp
+#   puts 'Name:'
+#   new_name = gets.chomp
+#   puts 'Age:'
+#   new_age = gets.chomp
+#   puts 'Apartment Id:'
+#   new_apt_id = gets.chomp
+#   new_tenant = {
+#     id: new_id,
+#     name: new_name,
+#     age: new_age,
+#     apartment_id: new_apt_id
+#   }
+#   tenants << new_tenant
+#   puts new_tenant
+#   puts 'New tenant was added'
+# end
