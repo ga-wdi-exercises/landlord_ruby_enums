@@ -1,6 +1,11 @@
 require_relative "data"
+require_relative "models/apartment"
+require_relative "models/tenant"
 apartments = data[:apartments]
 tenants = data[:tenants]
+
+ruby_apartments = []
+ruby_tenants = []
 #
 # # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
 #   # Explain how the data is structured
@@ -91,6 +96,17 @@ tenants = data[:tenants]
   ## More challenging
   # When printing tenants also print out the address that the tenant resides in.
   # When printing all apartments, under each apartment print all of its tenants
+
+  ruby_apartments = apartments.each do |place|
+    Apartment.new(place[:id], place[:address], place[:monthly_rent], place[:square_feet])
+  end
+
+  ruby_tenants = tenants.each do |person|
+    Tenant.new(person[:id], person[:name], person[:age], person[:apartment_id])
+  end
+
+  puts ruby_tenants
+  puts ruby_apartments
 
 
   puts "Welcome to your Landlord Program"
