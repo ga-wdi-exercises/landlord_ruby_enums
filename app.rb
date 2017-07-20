@@ -90,6 +90,7 @@ while initial_input != 1 || 2
     apartments.each do |apt|
       print "#{apt[:id]} - #{apt[:address]}" + "\n"
     end
+    #prints selected Apartment's Occupants
     print "Select the apartment ID that you would like to inspect" + "\n"
     apart_input = gets.chomp
     for tenant in tenants
@@ -97,6 +98,7 @@ while initial_input != 1 || 2
         print tenant[:name] + ". "
       end
     end
+    # Line break prior to next prompt
     print "\n"
   # if 2
   elsif initial_input.to_i == 2
@@ -105,7 +107,15 @@ while initial_input != 1 || 2
     tenants.each do |tenant|
       print "#{tenant[:id]} - #{tenant[:name]} - #{tenant[:apartment_id]}" + "\n"
     end
-    break
+    print "Select the tenant ID that you would like to inspect" + "\n"
+    tenant_input = gets.chomp
+    for apt in apartments
+      if tenant_input.to_i == apt[:id]
+        print "Address: #{apt[:address]}"
+      end
+    end
+    # Line break prior to next prompt
+    print "\n"
   else
     print "please enter valid entry" + "\n"
   end
