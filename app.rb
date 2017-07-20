@@ -1,8 +1,13 @@
 require_relative "data"
-apartments = data[:apartments]
-tenants = data[:tenants]
 require_relative "models/apartment"
 require_relative "models/tenant"
+apartments = data[:apartments]
+tenants = data[:tenants]
+ruby_apartments = []
+ruby_tenants = []
+
+ruby_apartments = apartments.map{ |x| Apartment.new(x[:id], x[:address], x[:monthly_rent], x[:square_feet])}
+ruby_tenants = tenants.map{ |x| Tenant.new(x[:id], x[:name], x[:age], x[:apartment_id])}
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
@@ -13,70 +18,98 @@ require_relative "models/tenant"
 
 # Use enumerables to -
   # # Print all the addresses for the apartments
-  # puts "Apartment Addresses--------------------------"
-  # addresses = apartments.map{ |x| x[:address]}
-  # puts addresses
-  # # Print all the names for tenants
-  # puts "Tenant Names---------------------------------"
-  # tenant_names = tenants.each{ |x| puts x[:name]}
-  # puts tenant_names
-  # # Print only apartments that are less then 700 in rent
-  # puts "Cheap Apartments-----------------------------"
-  # cheap_apartments = apartments.select{ |x| x[:monthly_rent] < 700 }
-  # puts cheap_apartments
-  # # Print only tenants that are over the age of 44
-  # puts "Old Tennats----------------------------------"
-  # old_tenants = tenants.select{ |x| x[:age] > 44 }
-  # puts old_tenants
-  # # Print only tenants that have an apartment id of 1
-  # puts "Tenants with Apt ID of 1---------------------"
-  # apt_id_one = tenants.select{ |x| x[:apartment_id] == 1}
-  # puts apt_id_one
-  # # Print all the tenants in order from youngest to oldest
-  # puts "Tenants, oldest to youngest------------------"
-  # young_to_old = tenants.sort_by{ |x| x[:age]}
-  # puts young_to_old
-  # # Print the names of all the tenants alphabetically
-  # puts "Tenants, alphabetically----------------------"
-  # tenants_by_name = tenants.sort_by{ |x| x[:name]}
-  # puts tenants_by_name
-  #
-  # ## More challenging
-  # # When printing tenants also print out the address that the tenant resides in.
-  # puts "Tenants and their address---------------------"
-  # for i in tenants do
-  #   i[:apartment] = nil
-  #   tenant_apt_id = i[:apartment_id]
-  #   apts = apartments.find{ |x| x[:id] == tenant_apt_id}
-  #   i[:apartment] = apts[:address]
-  #   puts i
-  # end
-  # # # When printing all apartments, under each apartment print all of its tenants
-  # puts "Apartments and their Tenants------------------"
-  # for i in apartments do
-  #   i[:tenants] = nil
-  #   apt_id = i[:id]
-  #   apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
-  #   i[:tenants] = apt_tenants.map{ |x| x[:name]}
-  #   puts i
-  # end
+#   puts "Apartment Addresses--------------------------"
+#   # addresses = apartments.map{ |x| x[:address]}
+#   # puts addresses
+#   ruby_apartments.each{ |x| puts x.address }
+#   # # Print all the names for tenants
+#   puts "Tenant Names---------------------------------"
+#   # tenant_names = tenants.each{ |x| puts x[:name]}
+#   # puts tenant_names
+#   ruby_tenants.each{ |x| puts x.name }
+#   # # Print only apartments that are less then 700 in rent
+#   puts "Cheap Apartments-----------------------------"
+#   # cheap_apartments = apartments.select{ |x| x[:monthly_rent] < 700 }
+#   # puts cheap_apartments
+#   ruby_apartments.select{ |x| x.monthly_rent < 700 }.each{ |x| puts x.address }
+#   # # Print only tenants that are over the age of 44
+#   puts "Old Tennats----------------------------------"
+#   # old_tenants = tenants.select{ |x| x[:age] > 44 }
+#   # puts old_tenants
+#   ruby_tenants.select{ |x| x.age > 44 }.each{ |x| puts x.name }
+#   # # Print only tenants that have an apartment id of 1
+#   puts "Tenants with Apt ID of 1---------------------"
+#   # apt_id_one = tenants.select{ |x| x[:apartment_id] == 1}
+#   # puts apt_id_one
+#   ruby_tenants.select{ |x| x.apartment_id == 1}.each{ |x| puts x.name}
+#   # # Print all the tenants in order from youngest to oldest
+#   puts "Tenants, oldest to youngest------------------"
+#   # young_to_old = tenants.sort_by{ |x| x[:age]}
+#   # puts young_to_old
+#   ruby_tenants.sort_by{ |x| x.age }.each{ |x| puts "#{x.name}, age #{x.age}"}
+#   # # Print the names of all the tenants alphabetically
+#   puts "Tenants, alphabetically----------------------"
+#   # tenants_by_name = tenants.sort_by{ |x| x[:name]}
+#   # puts tenants_by_name
+#   ruby_tenants.sort_by{ |x| x.name}.each{ |x| puts x.name}
+#   # ## More challenging
+#   # # When printing tenants also print out the address that the tenant resides in.
+#   puts "Tenants and their address---------------------"
+#   # for i in tenants do
+#   #   i[:apartment] = nil
+#   #   tenant_apt_id = i[:apartment_id]
+#   #   apts = apartments.find{ |x| x[:id] == tenant_apt_id}
+#   #   i[:apartment] = apts[:address]
+#   #   puts i
+#   # end
+#   ruby_tenants.each do |x|
+#     apt_id = x.apartment_id
+#     apt = ruby_apartments.find_all{ |y| y.id == apt_id }.map{ |z| z.address}
+#     puts "#{x.name} lives at #{apt}"
+#   end
+#   # # # When printing all apartments, under each apartment print all of its tenants
+#   puts "Apartments and their Tenants------------------"
+#   # for i in apartments do
+#   #   i[:tenants] = nil
+#   #   apt_id = i[:id]
+#   #   apt_tenants = tenants.find_all{ |x| x[:apartment_id] == apt_id}
+#   #   i[:tenants] = apt_tenants.map{ |x| x[:name]}
+#   #   puts i
+#   # end
+#   ruby_apartments.each do |x|
+#     apt_id = x.id
+#     tens = ruby_tenants.find_all{ |y| y.apartment_id == apt_id}.map{ |z| z.name}
+#     if tens.length == 0
+#       puts "No one lives at #{x.address}."
+#     else
+#       puts "#{tens} live at #{x.address}."
+#     end
+#   end
+# # App
 
-# App
+puts '------------------'
+puts '   Landlord App'
+puts '------------------'
 
-# puts '------------------'
-# puts '   Landlord App'
-# puts '------------------'
+puts 'Options:'
+puts '[1] View all apartments with tenants.'
+puts '[2] View all tenants and their apartments.'
+puts '[3] Remove tenant from apartment.'
+puts '[4] Add tenant to apartment.'
+puts '[5] Add new apartment.'
+puts '[6] Add new tenant.'
 #
-# puts 'Options:'
-# puts '[1] View all apartments with tenants.'
-# puts '[2] View all tenants and their apartments.'
-# puts '[3] Remove tenant from apartment.'
-# puts '[4] Add tenant to apartment.'
-# puts '[5] Add new apartment.'
-# puts '[6] Add new tenant.'
-#
-# input = gets.chomp
-# if input == '1'
+input = gets.chomp
+if input == '1'
+  ruby_apartments.each do |x|
+    apt_id = x.id
+    tens = ruby_tenants.find_all{ |y| y.apartment_id == apt_id}.map{ |z| z.name}
+    if tens.length == 0
+      puts "No one lives at #{x.address}."
+    else
+      puts "#{tens} live at #{x.address}."
+    end
+  end
 #   for i in apartments do
 #     i[:tenants] = nil
 #     apt_id = i[:id]
