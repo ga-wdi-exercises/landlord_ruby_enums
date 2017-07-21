@@ -4,7 +4,13 @@ tenants = data[:tenants]
 
 # First, Open the data.rb an inspect the data. Identify and write, in comments, the following:
   # Explain how the data is structured
+
+  # The data structured in 2 objects names every object have 4 domains
+
   # What are the properties for each of the two types of hashes
+
+  # hash apartments: id, address, monthly_rent, square_feet
+  # hash tenant : id, name, age, apartment_id
 
 # Use enumerables to -
   # Print all the addresses for the apartments
@@ -23,8 +29,7 @@ tenants = data[:tenants]
     apartments = data[:apartments]
     tenants = data[:tenants]
 
-   @@ -8,12 +9,43 @@
-    		     +  puts "Address for each Apt"
+    puts "Address for each Apt"
      apartments.each do |apt|
      print apt[:address] + "\n"
      end
